@@ -92,9 +92,9 @@ if (isset($_POST['btn-login'])) {
             </div>
         </div>
     </nav>
-    <div>
+    <header>
         <?php include 'include/header.php'; ?>
-    </div>
+    </header>
     <div class="container">
         <h3>Web Application Description - RGUEthics</h3>
         <p>
@@ -116,9 +116,13 @@ if (isset($_POST['btn-login'])) {
         </p>
 
     </div>
-    <div>
+    <footer>
         <?php include 'include/footer.php'; ?>
-    </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
     </html>
 <?php ob_end_flush(); ?>

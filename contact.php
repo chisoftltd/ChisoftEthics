@@ -49,6 +49,7 @@ if (isset($_POST["submit"])) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>RGUEthics - Contact US</title>
         <link rel="stylesheet" href="css/main-style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -78,9 +79,9 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
     </nav>
-    <div>
+    <header>
         <?php include 'include/header.php'; ?>
-    </div>
+    </header>
     <div>
         <form class="form-horizontal" role="form" method="post" action="index.php">
             <div class="form-group">
@@ -126,10 +127,13 @@ if (isset($_POST["submit"])) {
             </div>
         </form>
     </div>
-    <div>
+    <footer>
         <?php include 'include/footer.php'; ?>
-
-    </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
     </html>
 <?php ob_end_flush(); ?>
