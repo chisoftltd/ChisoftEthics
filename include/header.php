@@ -8,4 +8,13 @@ and open the template in the editor.
     <div id="logo">
         <a href="index.php"><img src="images/RGUEthics.png" alt="Company logo" /></a>
     </div>
+    <nav>
+        <ul class="header-links">
+            <li> <a href="index.php">Home</a></li>
+            <li> <a href="about.php">About Us</a></li>
+            <li> <a href="contact.php">Contact</a></li>
+            <li> <a href="login.php">Login</a></li>
+            <li><a href="register.php">Sign Up</a></li>
+        </ul>
+    </nav>
 </header>
