@@ -145,9 +145,6 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         <span class="text-danger"><?php if (isset($supervisor_error)) echo $supervisor_error; ?></span>
                     </div>
 
-                    department, projecttopic, projectdescription,startdate,enddate,datadetails
-
-
                     <div class="form-group">
                         <label for="name">Department</label>
                         <input type="text" name="department" placeholder="Department" required class="form-control"/>
