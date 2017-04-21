@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $query = "SELECT * FROM research WHERE id =" . $id;
     echo $query;
     $result = mysqli_query($link, $query);
-    echo $result;
+    //echo $result;
     $row = mysqli_fetch_array($result);
     //echo $row;
 }
