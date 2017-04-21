@@ -17,7 +17,7 @@ if (!isset($_SESSION['usr_id'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RGUEthics | Research Ethics Database</title>
+    <title>RGUEthics | Approval Officers</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -33,7 +33,7 @@ if (!isset($_SESSION['usr_id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Research Ethics Database</a>
+            <a class="navbar-brand" href="index.php">Approval Officers Table</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
@@ -67,14 +67,14 @@ if (!isset($_SESSION['usr_id'])) {
     $count = mysqli_num_rows($result2);
     if (mysqli_num_rows($result2)) {
         echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
-        echo '<tr><th>Project ID</th><th>Student Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
+        echo '<tr><th>Project ID</th><th>Student Name</th><th>Project Topic</th><th>Status</th><th>Officer</th><th>Comment</th><th>Date</th></tr>';
         while ($row2 = mysqli_fetch_array($result2)) {
             echo '<tr>';
             echo "<td>" . $row2[id] . "</td>";
             echo "<td>" . $row2[name] . "</td>";
             echo "<td>" . $row2[projecttopic] . "</td>";
             echo "<td>" . $row2[status] . "/td>";
-            echo "<td><a href='projdetails.php'> " . $row2[approvalofficer] . "</a></td>";
+            echo "<td><a href='approvalofficerdetails.php?p={$row2['id']}'> " . $row2[approvalofficer] . "</a></td>";
             echo "<td>" . $row2[statuscomment] . "</td>";
             echo "<td>" . $row2[todaydate ] . "</td>";
             echo "</tr>";
