@@ -59,7 +59,8 @@ if (!isset($_SESSION['usr_id'])) {
 <div class="container">
 
     <?php
-
+    include_once "dbconnect.php";
+    
     $result = mysqli_query($link, "Show tables") or die('cannot show tables');
     while ($tableName = mysqli_fetch_row($result)) {
 
