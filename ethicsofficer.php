@@ -120,6 +120,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                   placeholder="Provide a brief outline to support the option above."
                                   required class="form-control"></textarea>
         </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Enter Full Name" required
+                   value="<?php if ($error) echo $name; ?>" class="form-control"/>
+            <label for="name">Todays Date</label>
+            <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
+            <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+        </div>
     </form>
 </div>
 <footer>
