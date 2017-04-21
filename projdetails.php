@@ -17,7 +17,7 @@ if (!isset($_SESSION['usr_id'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo "I am here 0";
     $id = $_GET['p'];
-    $query = "SELECT * FROM research WHERE number =" . $id;
+    $query = "SELECT * FROM research WHERE id =" . $id;
     echo $query;
     $result = mysqli_query($link, $query);
     echo $result;
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 </header>
 
 <div class="container">
- 
+
     <h3>Student Number: <?php echo $row['id']; ?></h3>
     <h3>Student Name: <?php echo $row['name']; ?></h3>
     <h3>Project Supervisor: <?php echo $row["supervisor"]; ?></h3>
