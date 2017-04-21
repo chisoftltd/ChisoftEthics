@@ -49,14 +49,6 @@ include_once 'dbconnect.php';
     <?php include 'include/header.php'; ?>
 </header>
 <div class="pageContent">
-    <nav class="nav">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About Us</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Login</a></li>
-        </ul>
-    </nav>
     <article class="article">
         <h2>Research Ethics and Integrity System</h2>
         <p>A Full Research Ethics and Integrity Assessment is required before, during and maybe after a research
