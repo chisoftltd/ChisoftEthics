@@ -80,7 +80,7 @@ if (isset($_POST['signup'])) {
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li class="active"><a href="register.php">Sign Up</a></li>
+                <li class="active"><a href="register.php">Register</a></li>
             </ul>
         </div>
     </div>
@@ -93,7 +93,7 @@ if (isset($_POST['signup'])) {
         <div class="col-md-4 col-md-offset-4 well">
             <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
                 <fieldset>
-                    <legend>Sign Up</legend>
+                    <legend>Register</legend>
 
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -123,7 +123,7 @@ if (isset($_POST['signup'])) {
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" name="signup" value="Sign Up" class="btn btn-primary"/>
+                        <input type="submit" name="signup" value="Register" class="btn btn-primary"/>
                     </div>
                 </fieldset>
             </form>

@@ -34,8 +34,8 @@ include_once 'dbconnect.php';
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li> <a href="studentreg.php">Student</a></li>
-                    <li> <a href="EAO.php">Experiment Approval Officers (EAO)</a></li>
+                    <li> <a href="student.php">Student</a></li>
+                    <li> <a href="eao.php">Experiment Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>

@@ -23,7 +23,7 @@ if (isset($_POST['login'])) {
     if ($row = mysqli_fetch_array($result)) {
         $_SESSION['usr_id'] = $row['id'];
         $_SESSION['usr_name'] = $row['name'];
-        header("Location: index.php");
+        header("Location: signinindex.php");
     } else {
         $errormsg = "Incorrect Email or Password!!!";
     }
@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li class="active"><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign Up</a></li>
+                <li><a href="register.php">Register</a></li>
             </ul>
         </div>
     </div>
@@ -97,7 +97,7 @@ if (isset($_POST['login'])) {
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
-            New User? <a href="register.php">Sign Up Here</a>
+            New User? <a href="register.php">Register Here</a>
         </div>
     </div>
 </div>
