@@ -70,39 +70,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <div>
         <hr>
     </div>
-    <h4>Research Number:</h4> <?php echo $row['id']; ?>
+    <h3>Research Number:</h3> <?php echo $row['id']; ?>
     <div>
         <hr>
     </div>
-    <h4>Student Name: </h4><?php echo $row['name']; ?>
+    <h3>Student Name: </h3><?php echo $row['name']; ?>
     <div>
         <hr>
     </div>
-    <h4>Project Supervisor: </h4><?php echo $row["supervisor"]; ?>
+    <h3>Project Supervisor: </h3><?php echo $row["supervisor"]; ?>
     <div>
         <hr>
     </div>
-    <h4>Department: </h4><?php echo $row['department']; ?>
+    <h3>Department: </h3><?php echo $row['department']; ?>
     <div>
         <hr>
     </div>
-    <h4>Project Topice: </h4><?php echo $row['projecttopic']; ?>
+    <h3>Project Topice: </h3><?php echo $row['projecttopic']; ?>
     <div>
         <hr>
     </div>
-    <h4>Project Description: </h4><?php echo $row['projectdescription']; ?>
+    <h3>Project Description: </h3><?php echo $row['projectdescription']; ?>
     <div>
         <hr>
     </div>
-    <h4>Start Date: </h4><?php echo $row['startdate']; ?>
+    <h3>Start Date: </h3><?php echo $row['startdate']; ?>
     <div>
         <hr>
     </div>
-    <h4>Deadline: </h4><?php echo $row['enddate']; ?>
+    <h3>Deadline: </h3><?php echo $row['enddate']; ?>
     <div>
         <hr>
     </div>
-    <h4>Data Handling details: </h4><?php echo $row['datadetails']; ?>
+    <h3>Data Handling details: </h3><?php echo $row['datadetails']; ?>
     <div>
         <hr>
     </div>
