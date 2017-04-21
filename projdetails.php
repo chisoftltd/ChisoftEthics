@@ -71,17 +71,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 </header>
 
 <div class="container">
-
-    <h3>Student Number: <?php echo $row['id']; ?></h3>
-    <h3>Student Name: <?php echo $row['name']; ?></h3>
-    <h3>Project Supervisor: <?php echo $row["supervisor"]; ?></h3>
-    <h3>Department: <?php echo $row['department']; ?></h3>
-    <h3>Project Topice: <?php echo $row['projecttopic']; ?></h3>
-    <h3>Project Description.: <?php echo $row['projectdescription']; ?></h3>
-    <h3>Start Date: <?php echo $row['startdate']; ?></h3>
-    <h3>Deadline: <?php echo $row['enddate']; ?></h3>
-    <h3>Data Handling details: <?php echo $row['datadetails']; ?></h3>
-
+    <div>
+        <hr>
+    </div>
+    <h2>Research Number:</h2> <?php echo $row['id']; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Student Name: </h2><?php echo $row['name']; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Project Supervisor: </h2><?php echo $row["supervisor"]; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Department: </h2><?php echo $row['department']; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Project Topice: </h2><?php echo $row['projecttopic']; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Project Description.: </h2><?php echo $row['projectdescription']; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Start Date: </h2><?php echo $row['startdate']; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Deadline: </h2><?php echo $row['enddate']; ?>
+    <div>
+        <hr>
+    </div>
+    <h2>Data Handling details: </h2><?php echo $row['datadetails']; ?>
+    <div>
+        <hr>
+    </div>
 </div>
 <footer>
     <?php include 'include/footer.php'; ?>
