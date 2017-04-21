@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RGUEthics | Experiment Approval Officers (EAO)</title>
+    <title>RGUEthics | Ethics Approval Officers (EAO)</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
                     <li><a href="student.php">Student</a></li>
-                    <li><a href="eao.php">Experiment Approval Officers (EAO)</a></li>
+                    <li><a href="ethicsofficer.php">Experiment Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
