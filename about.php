@@ -60,7 +60,7 @@ if (isset($_POST['btn-login'])) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>RGUEthics- About Us</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main-style.css">
     </head>
@@ -74,18 +74,19 @@ if (isset($_POST['btn-login'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="Index.php">Research Ethics and Integrity System</a>
+                <a class="navbar-brand" href="index.php">Research Ethics and Integrity System</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
                         <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
-                        <li><a href="Logout.php">Log Out</a></li>
+                        <li><a href="logout.php">Log Out</a></li>
                     <?php } else { ?>
-                        <li class="active"><a href="About.php">About Us</a></li>
-                        <li><a href="Contact.php">Contact</a></li>
-                        <li><a href="Login.php">Login</a></li>
-                        <li><a href="Register.php">Sign Up</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li class="active"><a href="about.php">About Us</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="login.php">Login</a></li>
+                        <li><a href="register.php">Sign Up</a></li>
                     <?php } ?>
                 </ul>
             </div>
