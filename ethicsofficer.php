@@ -32,7 +32,7 @@ if (isset($_POST['approve'])) {
     $approvaloname = mysqli_real_escape_string($link, $_POST['approvaloname']);
     $comment = mysqli_real_escape_string($link, $_POST['comment']);
     $todaydate = mysqli_real_escape_string($link, $_POST['todaydate']);
-
+echo $todaydate;
     echo "I am here 1";
     if (mysqli_query($link, "INSERT INTO approvalofficers(name, projecttopic, status, approvalofficer, statuscomment, todaydate ) 
 VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approvaloname . "','" . $comment. "','" . $todaydate . "')")) {
