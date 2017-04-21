@@ -15,14 +15,10 @@ if (!isset($_SESSION['usr_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    echo "I am here 0";
     $id = $_GET['p'];
     $query = "SELECT * FROM research WHERE id =" . $id;
-    echo $query;
     $result = mysqli_query($link, $query);
-    //echo $result;
     $row = mysqli_fetch_array($result);
-    //echo $row;
 }
 ?>
 
@@ -74,39 +70,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <div>
         <hr>
     </div>
-    <h2>Research Number:</h2> <?php echo $row['id']; ?>
+    <h3>Research Number:</h3> <?php echo $row['id']; ?>
     <div>
         <hr>
     </div>
-    <h2>Student Name: </h2><?php echo $row['name']; ?>
+    <h3>Student Name: </h3><?php echo $row['name']; ?>
     <div>
         <hr>
     </div>
-    <h2>Project Supervisor: </h2><?php echo $row["supervisor"]; ?>
+    <h3>Project Supervisor: </h3><?php echo $row["supervisor"]; ?>
     <div>
         <hr>
     </div>
-    <h2>Department: </h2><?php echo $row['department']; ?>
+    <h3>Department: </h3><?php echo $row['department']; ?>
     <div>
         <hr>
     </div>
-    <h2>Project Topice: </h2><?php echo $row['projecttopic']; ?>
+    <h3>Project Topice: </h3><?php echo $row['projecttopic']; ?>
     <div>
         <hr>
     </div>
-    <h2>Project Description.: </h2><?php echo $row['projectdescription']; ?>
+    <h3>Project Description.: </h3><?php echo $row['projectdescription']; ?>
     <div>
         <hr>
     </div>
-    <h2>Start Date: </h2><?php echo $row['startdate']; ?>
+    <h3>Start Date: </h3><?php echo $row['startdate']; ?>
     <div>
         <hr>
     </div>
-    <h2>Deadline: </h2><?php echo $row['enddate']; ?>
+    <h3>Deadline: </h3><?php echo $row['enddate']; ?>
     <div>
         <hr>
     </div>
-    <h2>Data Handling details: </h2><?php echo $row['datadetails']; ?>
+    <h3>Data Handling details: </h3><?php echo $row['datadetails']; ?>
     <div>
         <hr>
     </div>
