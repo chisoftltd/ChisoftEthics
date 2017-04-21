@@ -164,7 +164,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
                     <div class="form-group">
                         <label for="name">Project Description</label>
-                        <textarea name="projectdescription" rows="auto" cols="auto"
+                        <textarea name="projectdescription" rows="20" cols="auto"
                                   placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
                                   required class="form-control"></textarea>
                         <span
@@ -186,7 +186,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
                     <div class="form-group">
                         <label for="name">Data Details</label>
-                        <textarea name="datadetails" rows="auto" cols="auto" placeholder="Describe how you will store your data,
+                        <textarea name="datadetails" rows="20" cols="auto" placeholder="Describe how you will store your data,
                         who will have access to it, and what happens to the data at the end of the project. Also how you will
                         maintain the confidentiality of the research data collected. Also, describe how you will ensure that
                         research participants are anonymised in your data analysis." required
