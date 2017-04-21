@@ -7,6 +7,7 @@
  */
 session_start();
 include_once 'dbconnect.php';
+unset($_session['user_id']);
 ?>
 <!DOCTYPE html>
 <html>
