@@ -128,6 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
             <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
         </div>
+        <div class="form-group">
+            <input type="submit" name="signup" value="Submit" class="btn btn-primary"/>
+        </div>
     </form>
 </div>
 <footer>
