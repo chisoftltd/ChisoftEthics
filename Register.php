@@ -42,7 +42,8 @@ if (isset($_POST['signup'])) {
     }
     if (!$error) {
         if (mysqli_query($link, "INSERT INTO students(name,email,password) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "')")) {
-            $successmsg = "Successfully Registered! <a href='login.php'>Click here to Login</a>";
+            $successmsg = "Successfully Registered!";
+            header("refresh:5; url=login.php");
         } else {
             $errormsg = "Error in registering...Please try again later!";
         }
