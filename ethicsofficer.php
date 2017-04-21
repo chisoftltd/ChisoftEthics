@@ -21,6 +21,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $result = mysqli_query($link, $query);
     $row = mysqli_fetch_array($result);
 }
+
+
+//check if form is submitted
+if (isset($_POST['signup'])) {
+    $name = mysqli_real_escape_string($link, $_POST[$row['name']]);
+    $projecttopic = mysqli_real_escape_string($link, $_POST[$row['projecttopic']]);
+    $optradio = mysqli_real_escape_string($link, $_POST['optradio']);
+    $approvaloname = mysqli_real_escape_string($link, $_POST['approvaloname']);
+    $comment = mysqli_real_escape_string($link, $_POST['comment']);
+    $todaydate = mysqli_real_escape_string($link, $_POST['todaydate']);
+
+    if (mysqli_query($link, "INSERT INTO research(name, projecttopic, status, approvalofficer, statuscomment, todaydate ) 
+VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approvaloname . "','" . $comment. "','" . $todaydate . "')")) {
+        $successmsg = "Your comment Successfuly Registered!";
+        header("refresh:5; url=researchtable.php");
+    } else {
+        $errormsg = "Error in registering...Please try again later!";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <div>
         <hr>
     </div>
-    <form>
+    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="approvalform">
         <div class="radio">
             <label><input type="radio" name="optradio">Approved</label>
         </div>
@@ -116,20 +135,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
         <div class="form-group">
             <label for="name">Comment:</label>
-                        <textarea name="projectdescription" rows="20" cols="auto"
+                        <textarea name="comment" rows="20" cols="auto"
                                   placeholder="Provide a brief outline to support the option above."
                                   required class="form-control"></textarea>
         </div>
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" placeholder="Enter Full Name" required
-                   value="<?php if ($error) echo $name; ?>" class="form-control"/>
+            <label for="approvaloname">Approval Officer Name</label>
+            <input type="text" name="approvaloname" placeholder="Enter Full Name" required
+                   value="<?php if ($error) echo $approvaloname; ?>" class="form-control"/>
             <label for="name">Todays Date</label>
             <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
-            <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
         </div>
         <div class="form-group">
-            <input type="submit" name="signup" value="Submit" class="btn btn-primary"/>
+            <input type="submit" name="approve" value="Submit" class="btn btn-primary"/>
         </div>
     </form>
 </div>
