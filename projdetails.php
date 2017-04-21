@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $result = mysqli_query($link, $query);
     echo $result;
     $row = mysqli_fetch_array($result);
-    echo $row;
+    //echo $row;
 }
 ?>
 
