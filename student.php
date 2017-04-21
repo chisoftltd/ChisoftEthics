@@ -44,12 +44,12 @@ if (isset($_POST['signup'])) {
         $department_error = "Department must contain only numbers alphabets special characters and space";
     }
 
-    if (!preg_match("/^[[a-zA-Z] [0-9]] +$/", $projectopic)) {
+    if (!preg_match("/^[[a-zA-Z][0-9]] +$/", $projectopic)) {
         $error = true;
         $projectopic_error = "Porject Toipc must contain only numbers alphabets special characters and space";
     }
 
-    if (!preg_match("/^[a-zA-Z 0-9]+$/", $projectdescription)) {
+    if (!preg_match("/^[a-zA-Z0-9]+$/", $projectdescription)) {
         $error = true;
         $projectdescription_error = "Project Description must contain only numbers alphabets special characters and space";
     }
@@ -63,7 +63,7 @@ if (isset($_POST['signup'])) {
         $error = true;
         $enddate_error = "Date must contain only numbers, - and format 0000-00-00.";
     }
-    if (!preg_match("/^[a-zA-Z]+$/", $datadetails)) {
+    if (!preg_match("/^[a-zA-Z0-9]+$/", $datadetails)) {
         $error = true;
         $datadetails_error = "Data details must contain only numbers, alphabets '-'.";
     }
