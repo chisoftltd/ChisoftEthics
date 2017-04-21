@@ -35,7 +35,7 @@ if (isset($_POST['signup'])) {
     if (mysqli_query($link, "INSERT INTO research(name, projecttopic, status, approvalofficer, statuscomment, todaydate ) 
 VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approvaloname . "','" . $comment. "','" . $todaydate . "')")) {
         $successmsg = "Your comment Successfuly Registered!";
-        header("refresh:5; url=researchtable.php");
+        header("refresh:5; url=researchappovaltable.php");
     } else {
         $errormsg = "Error in registering...Please try again later!";
     }
