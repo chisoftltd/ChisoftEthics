@@ -5,6 +5,7 @@
  * Date: 21/04/2017
  * Time: 18:45
  */
+
 session_start();
 
 if (!isset($_SESSION['usr_id'])) {
@@ -39,7 +40,7 @@ if (!isset($_SESSION['usr_id'])) {
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
                     <li><a href="student.php">Student</a></li>
-                    <li><a href="ethicsofficer.php">Ethics Approval Officers (EAO)</a></li>
+                    <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
