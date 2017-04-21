@@ -61,7 +61,7 @@ if (!isset($_SESSION['usr_id'])) {
     <?php
     include_once "dbconnect.php";
 
-        echo '<h3>', $table, '</h3>';
+        echo '<h3>', RESEARCH, '</h3>';
         $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research' );
         $count = mysqli_num_rows($result2);
         if (mysqli_num_rows($result2)) {
@@ -76,10 +76,6 @@ if (!isset($_SESSION['usr_id'])) {
                 echo "<td>" . $row2[startdate] . "</td>";
                 echo "<td>" . $row2[enddate] . "</td>";
                 echo "</tr>";
-                /*foreach ($row2 as $key => $value) {
-                    echo '<td>', $value,'</td>';
-                }*/
-                echo '</tr>';
             }
             echo '</table><br />';
     }
