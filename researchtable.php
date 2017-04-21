@@ -60,14 +60,9 @@ if (!isset($_SESSION['usr_id'])) {
 
     <?php
     include_once "dbconnect.php";
-    
-    $result = mysqli_query($link, "Show tables") or die('cannot show tables');
-    while ($tableName = mysqli_fetch_row($result)) {
-
-        $table = $tableName[0];
 
         echo '<h3>', $table, '</h3>';
-        $result2 = mysqli_query($link, "'SELECT id, name, supervisor, projecttopic, startdate, enddate FROM' . $table") or die('cannot show columns from ' . $table);
+        $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research' );
         $count = mysqli_num_rows($result2);
         if (mysqli_num_rows($result2)) {
             echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
@@ -87,7 +82,6 @@ if (!isset($_SESSION['usr_id'])) {
                 echo '</tr>';
             }
             echo '</table><br />';
-        }
     }
     ?>
 </div>

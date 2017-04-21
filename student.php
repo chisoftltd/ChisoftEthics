@@ -19,7 +19,6 @@ $error = false;
 
 //check if form is submitted
 if (isset($_POST['signup'])) {
-    echo "I am here 0";
     $name = mysqli_real_escape_string($link, $_POST['name']);
     $supervisor = mysqli_real_escape_string($link, $_POST['supervisor']);
     $department = mysqli_real_escape_string($link, $_POST['department']);
@@ -68,12 +67,9 @@ if (isset($_POST['signup'])) {
         $error = true;
         $datadetails_error = "Data details must contain only numbers, alphabets '-'.";
     }*/
-echo "I am here 1";
     //if (!$error) {
-        echo "I am here 2";
         if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
 VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $projectopic . "','" . $projectdescription . "','" . $startdate . "','" . $enddate . "','" . $datadetails . "')")) {
-            echo "I am here 3";
             $successmsg = "Research Ethics Successfuly Registered!";
             header("refresh:5; url=researchtable.php");
         } else {
