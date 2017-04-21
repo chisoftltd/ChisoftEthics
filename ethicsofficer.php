@@ -34,13 +34,13 @@ if (isset($_POST['approve'])) {
     $todaydate = mysqli_real_escape_string($link, $_POST['todaydate']);
 
     echo "I am here 1";
-    if (mysqli_query($link, "INSERT INTO research(name, projecttopic, status, approvalofficer, statuscomment, todaydate ) 
+    if (mysqli_query($link, "INSERT INTO approvalofficers(name, projecttopic, status, approvalofficer, statuscomment, todaydate ) 
 VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approvaloname . "','" . $comment. "','" . $todaydate . "')")) {
         echo "I am here 2";
         $successmsg = "Your comment Successfuly Registered!";
         header("refresh:5; url=researchappovaltable.php");
     } else {
-        
+
         $errormsg = "Error in registering...Please try again later!";
     }
 }
