@@ -22,7 +22,7 @@ if (isset($_POST['signup'])) {
     $name = mysqli_real_escape_string($link, $_POST['name']);
     $supervisor = mysqli_real_escape_string($link, $_POST['supervisor']);
     $department = mysqli_real_escape_string($link, $_POST['department']);
-    $projectopic = mysqli_real_escape_string($link, $_POST['projectopic']);
+    $projecttopic = mysqli_real_escape_string($link, $_POST['projecttopic']);
     $projectdescription = mysqli_real_escape_string($link, $_POST['projectdescription']);
     $startdate = mysqli_real_escape_string($link, $_POST['startdate']);
     $enddate = mysqli_real_escape_string($link, $_POST['enddate']);
@@ -69,7 +69,7 @@ if (isset($_POST['signup'])) {
     }*/
     //if (!$error) {
         if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
-VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $projectopic . "','" . $projectdescription . "','" . $startdate . "','" . $enddate . "','" . $datadetails . "')")) {
+VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $projecttopic . "','" . $projectdescription . "','" . $startdate . "','" . $enddate . "','" . $datadetails . "')")) {
             $successmsg = "Research Ethics Successfuly Registered!";
             header("refresh:5; url=researchtable.php");
         } else {
