@@ -17,7 +17,7 @@ and open the template in the editor.
         <ul class="header-links">
             <li> <a href="index.php">Home</a></li>
             <li> <a href="student.php">Student</a></li>
-            <li> <a href="eao.php">Experiment Approval Officers (EAO)</a></li>
+            <li> <a href="ethicsofficer.php">Ethics Approval Officers (EAO)</a></li>
             <!--<li> <a href="admin.php">Administrator</a></li> -->
             <li> <a href="about.php">About Us</a></li>
             <li> <a href="contact.php">Contact</a></li>

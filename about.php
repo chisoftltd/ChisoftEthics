@@ -101,10 +101,10 @@ if (isset($_POST['btn-login'])) {
             This web application which I called RGUEthics is an online application that will manage RGU student’s
             experiment ethics. </p>
         <p>The interface should have a logo, navigation bar with elements like “Home”, “About Us”, “Student”,
-            “Experiment Approval Officers (EAO)”, “Contact US” and “Login”. </p>
+            “Ethics Approval Officers (EAO)”, “Contact US” and “Login”. </p>
         <p>The interface should have a “News Section” about current government and university policy on research
             ethics. </p>
-        <p>The landing page should contain a summary of, a least five, ongoing experiments. Also present on the
+        <p>The landing page should contain a summary of, a least five, ongoing Ethics. Also present on the
             interface is are logos to Social media platforms like Facebook etc. </p>
         <p>The application will allow students, after authentication to seek approval for their propose experiment from
             EAO. EAOs should be able to approve, request additional information or reject an experiment proposal. </p>
