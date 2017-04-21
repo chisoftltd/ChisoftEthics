@@ -126,31 +126,31 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <div>
         <hr>
     </div>
-    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="approvalform">
-        <div class="radio">
-            <label><input type="radio" name="optradio">Approved</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio">Rejected</label>
-        </div>
-        <div class="form-group">
-            <label for="name">Comment:</label>
+</div>
+<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="approvalform" class="container">
+    <div class="radio">
+        <label><input type="radio" name="optradio">Approved</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="optradio">Rejected</label>
+    </div>
+    <div class="form-group">
+        <label for="name">Comment:</label>
                         <textarea name="comment" rows="20" cols="auto"
                                   placeholder="Provide a brief outline to support the option above."
                                   required class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="approvaloname">Approval Officer Name</label>
-            <input type="text" name="approvaloname" placeholder="Enter Full Name" required
-                   value="<?php if ($error) echo $approvaloname; ?>" class="form-control"/>
-            <label for="name">Todays Date</label>
-            <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
-        </div>
-        <div class="form-group">
-            <input type="submit" name="approve" value="Submit" class="btn btn-primary"/>
-        </div>
-    </form>
-</div>
+    </div>
+    <div class="form-group">
+        <label for="approvaloname">Approval Officer Name</label>
+        <input type="text" name="approvaloname" placeholder="Enter Full Name" required
+               value="<?php if ($error) echo $approvaloname; ?>" class="form-control"/>
+        <label for="name">Todays Date</label>
+        <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="approve" value="Submit" class="btn btn-primary"/>
+    </div>
+</form>
 <footer>
     <?php include 'include/footer.php'; ?>
 </footer>
