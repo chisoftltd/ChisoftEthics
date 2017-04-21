@@ -7,18 +7,18 @@
  */
 session_start();
 
-if(isset($_SESSION['usr_id'])!="") {
+if (isset($_SESSION['usr_id']) != "") {
     header("Location: index.php");
 }
 
-include_once 'Dbconnect.php';
+include_once 'dbconnect.php';
 
 //check if form is submitted
 if (isset($_POST['login'])) {
 
     $email = mysqli_real_escape_string($link, $_POST['email']);
     $password = mysqli_real_escape_string($link, $_POST['password']);
-    $result = mysqli_query($link, "SELECT * FROM users WHERE email = '" . $email. "' and password = '" . md5($password) . "'");
+    $result = mysqli_query($link, "SELECT * FROM users WHERE email = '" . $email . "' and password = '" . md5($password) . "'");
 
     if ($row = mysqli_fetch_array($result)) {
         $_SESSION['usr_id'] = $row['id'];
@@ -34,7 +34,7 @@ if (isset($_POST['login'])) {
 <html>
 <head>
     <title>Ethics System Login </title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
 </head>
@@ -50,21 +50,22 @@ if (isset($_POST['login'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Index.php">Research Ethics and Integrity System</a>
+            <a class="navbar-brand" href="index.php">Research Ethics and Integrity System</a>
         </div>
         <!-- menu items -->
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="About.php">About Us</a></li>
-                <li><a href="Contact.php">Contact</a></li>
-                <li class="active"><a href="Login.php">Login</a></li>
-                <li><a href="Register.php">Sign Up</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li class="active"><a href="login.php">Login</a></li>
+                <li><a href="register.php">Sign Up</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <header>
-    <?php include 'include/Header.php'; ?>
+    <?php include 'include/header.php'; ?>
 </header>
 <div class="container">
     <div class="row">
@@ -75,30 +76,33 @@ if (isset($_POST['login'])) {
 
                     <div class="form-group">
                         <label for="name">Email</label>
-                        <input type="text" name="email" placeholder="Your Email" required class="form-control" />
+                        <input type="text" name="email" placeholder="Your Email" required class="form-control"/>
                     </div>
 
                     <div class="form-group">
                         <label for="name">Password</label>
-                        <input type="password" name="password" placeholder="Your Password" required class="form-control" />
+                        <input type="password" name="password" placeholder="Your Password" required
+                               class="form-control"/>
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" name="login" value="Login" class="btn btn-primary" />
+                        <input type="submit" name="login" value="Login" class="btn btn-primary"/>
                     </div>
                 </fieldset>
             </form>
-            <span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+            <span class="text-danger"><?php if (isset($errormsg)) {
+                    echo $errormsg;
+                } ?></span>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
-            New User? <a href="Register.php">Sign Up Here</a>
+            New User? <a href="register.php">Sign Up Here</a>
         </div>
     </div>
 </div>
 <footer>
-    <?php include 'include/Footer.php'; ?>
+    <?php include 'include/footer.php'; ?>
 </footer>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>

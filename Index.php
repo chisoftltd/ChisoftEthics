@@ -6,7 +6,7 @@
  * Time: 16:19
  */
 session_start();
-include_once 'Dbconnect.php';
+include_once 'dbconnect.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,38 +27,34 @@ include_once 'Dbconnect.php';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Index.php">Research Ethics and Integrity System</a>
+            <a class="navbar-brand" href="index.php">Research Ethics and Integrity System</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
-                    <li><a href="Logout.php">Log Out</a></li>
+                    <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
-                    <li class="active"><a href="Index.php"></a></li>
-                    <li><a href="About.php">About Us</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
-                    <li><a href="Login.php">Login</a></li>
-                    <li><a href="Register.php">Sign Up</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">Sign Up</a></li>
                 <?php } ?>
             </ul>
         </div>
     </div>
 </nav>
 <header>
-    <?php include 'include/Header.php'; ?>
+    <?php include 'include/header.php'; ?>
 </header>
 <div class="pageContent">
     <nav class="nav">
         <ul>
-            <li><a href="Index.php">Home</a></li>
-            <br>
-            <li><a href="About.php">About Us</a></li>
-            <br>
-            <li><a href="Contact.php">Contact</a></li>
-            <br>
-            <li><a href="Login.php">Login</a></li>
-            <br>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </nav>
     <article class="article">
@@ -84,22 +80,19 @@ include_once 'Dbconnect.php';
         <ul>
             <li>vulnerable human subjects (e.g. children, people with cognitive disabilities and so on)
             </li>
-            <br>
             <li>invasive procedures or addressing sensitive issues (e.g. video-taping without informed consent,
                 questions about sexuality or about criminal<br> behaviour)
             </li>
-            <br>
             <li>biophysical research which requires extraordinary permission from landowners, involves significant
                 disturbance to vulnerable species or habitats,<br> sampling rare/endangered or harmful taxa/species,
                 and/or transporting samples/specimens between countries or significant ‘boundaries’.
             </li>
-            <br>
         </ul>
 
     </article>
 </div>
 <footer>
-    <?php include 'include/Footer.php'; ?>
+    <?php include 'include/footer.php'; ?>
 </footer>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
