@@ -14,13 +14,13 @@ if (!isset($_SESSION['usr_id'])) {
     echo "''<h1>.Timed Out!.</h1>";
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+//if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo "I am here 0";
     $id = $_GET['p'];
     $query = "SELECT * FROM research WHERE number =" . $id;
     $result = mysqli_query($link, $query);
     $row = mysqli_fetch_array($result);
-}
+//}
 ?>
 
 <!DOCTYPE html>
