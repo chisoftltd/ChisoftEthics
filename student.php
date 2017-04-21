@@ -183,10 +183,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
                     <div class="form-group">
                         <label for="name">Data Details</label>
-                        <textarea style="text-align: left" name="datadetails" rows="20" cols="auto" placeholder="Describe how you will store your data,
-                        who will have access to it, and what happens to the data at the end of the project. Also how you will
-                        maintain the confidentiality of the research data collected. Also, describe how you will ensure that
-                        research participants are anonymised in your data analysis." required
+                        <textarea style="text-align: left" name="datadetails" rows="20" cols="auto" placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis." required
                                   class="form-control"></textarea>
                         <span
                             class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
