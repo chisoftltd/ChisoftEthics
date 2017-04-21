@@ -15,6 +15,7 @@ if (!isset($_SESSION['usr_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    echo "I am here 0";
     $id = $_GET['p'];
     $query = "SELECT * FROM research WHERE number =" . $id;
     $result = mysqli_query($link, $query);
