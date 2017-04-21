@@ -49,10 +49,10 @@ if (isset($_POST['signup'])) {
         $projectopic_error = "Porject Toipc must contain only numbers alphabets special characters and space";
     }
 
-    if (!preg_match("/^[a-zA-Z0-9]+$/", $projectdescription)) {
+    /*if (!preg_match("/^[a-zA-Z0-9]+$/", $projectdescription)) {
         $error = true;
         $projectdescription_error = "Project Description must contain only numbers alphabets special characters and space";
-    }
+    }*/
 
     if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $startdate)) {
         $error = true;
@@ -63,10 +63,10 @@ if (isset($_POST['signup'])) {
         $error = true;
         $enddate_error = "Date must contain only numbers, - and format 0000-00-00.";
     }
-    if (!preg_match("/^[a-zA-Z0-9]+$/", $datadetails)) {
+    /*if (!preg_match("/^[a-zA-Z0-9]+$/", $datadetails)) {
         $error = true;
         $datadetails_error = "Data details must contain only numbers, alphabets '-'.";
-    }
+    }*/
 
     if (!$error) {
         if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription,startdate,enddate,datadetails ) 
