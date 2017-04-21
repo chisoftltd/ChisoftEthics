@@ -68,16 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 </header>
 
 <div class="container">
-    <?php echo $row ?>
-    <h3>Student Number: <?php echo $row['id'] ?></h3>;
-    <h3>Student Name: <?php echo $row['name'] ?></h3>;
-    <h3>Project Supervisor: <?php echo $row["supervisor"] ?></h3>;
+    <?php echo $row ;?>
+    <h3>Student Number: <?php echo $row['id']; ?></h3>
+    <h3>Student Name: <?php echo $row['name']; ?></h3>
+    <h3>Project Supervisor: <?php echo $row["supervisor"] ;?></h3>
     <h3>Department: <?php echo $row['department'] ?></h3>;
-    <h3>Project Topice: <?php echo $row['projecttopic'] ?></h3>;
-    <h3>Project Description.: <?php echo $row['projectdescription'] ?></h3>;
-    <h3>Start Date: <?php echo $row['startdate'] ?></h3>;
-    <h3>Deadline: <?php echo $row['enddate'] ?></h3>;
-    <h3>Data Handling details: <?php echo $row['datadetails'] ?></h3>;
+    <h3>Project Topice: <?php echo $row['projecttopic']; ?></h3>
+    <h3>Project Description.: <?php echo $row['projectdescription']; ?></h3>
+    <h3>Start Date: <?php echo $row['startdate']; ?></h3>
+    <h3>Deadline: <?php echo $row['enddate']; ?></h3>
+    <h3>Data Handling details: <?php echo $row['datadetails']; ?></h3>
 
 </div>
 <footer>
