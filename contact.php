@@ -82,7 +82,7 @@ if (isset($_POST["submit"])) {
     <header>
         <?php include 'include/header.php'; ?>
     </header>
-    <div>
+    <div class="container">
         <form class="form-horizontal" role="form" method="post" action="index.php">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name</label>
