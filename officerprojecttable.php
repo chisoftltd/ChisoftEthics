@@ -33,13 +33,13 @@ if (!isset($_SESSION['usr_id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Research Ethics Database</a>
+            <a class="navbar-brand" href="officerprojecttable.php">RGUEthics | Officer Research Ethics Database</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li><a href="student.php">Student</a></li>
+                    <li><a href="researcher.php">Researcher</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
@@ -67,7 +67,7 @@ if (!isset($_SESSION['usr_id'])) {
     $count = mysqli_num_rows($result2);
     if (mysqli_num_rows($result2)) {
         echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
-        echo '<tr><th>Project ID</th><th>Student Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
+        echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
         while ($row2 = mysqli_fetch_array($result2)) {
             echo '<tr>';
             echo "<td>" . $row2[id] . "</td>";

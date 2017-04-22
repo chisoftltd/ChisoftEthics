@@ -28,13 +28,13 @@ include_once 'dbconnect.php';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Research Ethics and Integrity System</a>
+            <a class="navbar-brand" href="signinindex.php">Home | RGUEthics System</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li> <a href="student.php">Student</a></li>
+                    <li> <a href="researcher.php">Researcher</a></li>
                     <li> <a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
@@ -70,7 +70,7 @@ include_once 'dbconnect.php';
         <p>You need to assess whether your project needs an ethical submission. This can be done by completing the RESSA
             form and based on the outcome decide whether an application is needed.</p>
         <p><a class="more"
-              href="http://www.rgu.ac.uk/download.cfm?downloadfile=5E84DCA0-2BEB-11E1-8D06000D609CAA9F&typename=dmFile&fieldname=filename">Student
+              href="http://www.rgu.ac.uk/download.cfm?downloadfile=5E84DCA0-2BEB-11E1-8D06000D609CAA9F&typename=dmFile&fieldname=filename">Researcher
                 and Supervisor Appraisal (RESSA) Form</a></p>
         <h3>Assessment of Research Ethics is very important expecially when the following groups are involved:</h3>
         <ul>

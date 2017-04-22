@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RGUEthics | Research Ethics Database</title>
+    <title>RGUEthics | Research Database</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -41,13 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Research Ethics Database</a>
+            <a class="navbar-brand" href="projdetails.php">RGUEthics | Research Database</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li><a href="student.php">Student</a></li>
+                    <li><a href="researcher.php">Researcher</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <div>
         <hr>
     </div>
-    <h3>Student Name: </h3><?php echo $row['name']; ?>
+    <h3>Researcher Name: </h3><?php echo $row['name']; ?>
     <div>
         <hr>
     </div>

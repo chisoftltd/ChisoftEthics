@@ -31,7 +31,7 @@ if (isset($_POST['signup'])) {
     //name can contain only alpha characters and space
     /*if (!preg_match("/^[a-zA-Z ]+$/", $name)) {
         $error = true;
-        $name_error = "Student Name must contain only alphabets and space";
+        $name_error = "Researcher Name must contain only alphabets and space";
     }
 
     if (!preg_match("/^[a-zA-Z ]+$/", $supervisor)) {
@@ -82,7 +82,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RGUEthics | Research Ethics Database</title>
+    <title>RGUEthics | Research Registration</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -98,13 +98,13 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Research Ethics Database</a>
+            <a class="navbar-brand" href="researcher.php">RGUEthics | Research Registration</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li><a href="student.php">Student</a></li>
+                    <li><a href="researcher.php">Researcher</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>

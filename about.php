@@ -59,7 +59,7 @@ if (isset($_POST['btn-login'])) {
     <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>RGUEthics- About Us</title>
+        <title>RGUEthics | About Us</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main-style.css">
@@ -74,7 +74,7 @@ if (isset($_POST['btn-login'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Research Ethics and Integrity System</a>
+                <a class="navbar-brand" href="about.php">RGUEthics | About Us</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="nav navbar-nav navbar-right">
@@ -98,20 +98,20 @@ if (isset($_POST['btn-login'])) {
     <div class="container">
         <h3>Web Application Description - RGUEthics</h3>
         <p>
-            This web application which I called RGUEthics is an online application that will manage RGU student’s
+            This web application which I called RGUEthics is an online application that will manage RGU researcher’s
             experiment ethics. </p>
-        <p>The interface should have a logo, navigation bar with elements like “Home”, “About Us”, “Student”,
+        <p>The interface should have a logo, navigation bar with elements like “Home”, “About Us”, “Researcher”,
             “Ethics Approval Officers (EAO)”, “Contact US” and “Login”. </p>
         <p>The interface should have a “News Section” about current government and university policy on research
             ethics. </p>
         <p>The landing page should contain a summary of, a least five, ongoing Ethics. Also present on the
             interface is are logos to Social media platforms like Facebook etc. </p>
-        <p>The application will allow students, after authentication to seek approval for their propose experiment from
+        <p>The application will allow researchers, after authentication to seek approval for their propose experiment from
             EAO. EAOs should be able to approve, request additional information or reject an experiment proposal. </p>
         <p>To implement fairness and objectivity each experiment will be randomly assign to two different EAOs, by an
             Administrator.
         </p>
-        <p>Furthermore, the application will allow students and staff to submit assessment of EAO and the EAOs in turn
+        <p>Furthermore, the application will allow researchers and staff to submit assessment of EAO and the EAOs in turn
             will also have same permission for the Administrators.
         </p>
 

@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ethics System Login </title>
+    <title>RGUEthics | Ethics System Login </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -50,7 +50,7 @@ if (isset($_POST['login'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Research Ethics and Integrity System</a>
+            <a class="navbar-brand" href="login.php">RGUEthics | Ethics System Login</a>
         </div>
         <!-- menu items -->
         <div class="collapse navbar-collapse" id="navbar1">

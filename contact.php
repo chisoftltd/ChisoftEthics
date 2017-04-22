@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
     <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>RGUEthics - Contact US</title>
+        <title>RGUEthics | Contact US</title>
         <link rel="stylesheet" href="css/main-style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
@@ -61,7 +61,7 @@ if (isset($_POST["submit"])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Research Ethics and Integrity System</a>
+                <a class="navbar-brand" href="contact.php">RGUEthics | Contact US</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="nav navbar-nav navbar-right">
