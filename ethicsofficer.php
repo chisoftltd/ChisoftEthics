@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 //check if form is submitted
 if (isset($_POST['approve'])) {
     echo "I am here 0";
-    $name = mysqli_real_escape_string($link, $_POST[$row['name']]);
-    $projecttopic = mysqli_real_escape_string($link, $_POST[$row['projecttopic']]);
+    $name = mysqli_real_escape_string($link, $_POST[$studentname]);
+    $projecttopic = mysqli_real_escape_string($link, $_POST[$projecttitle]);
     $optradio = mysqli_real_escape_string($link, $_POST['optradio']);
     $approvaloname = mysqli_real_escape_string($link, $_POST['approvaloname']);
     $comment = mysqli_real_escape_string($link, $_POST['comment']);
@@ -98,7 +98,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <div>
         <hr>
     </div>
-    <h3>Student Name: </h3><?php echo $row['name']; ?>
+    <h3>Student Name: </h3><?php echo $row['name']; $studentname = $row['name'];?>
     <div>
         <hr>
     </div>
@@ -110,7 +110,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <div>
         <hr>
     </div>
-    <h3>Project Topice: </h3><?php echo $row['projecttopic']; ?>
+    <h3>Project Topice: </h3><?php echo $row['projecttopic']; $prjecttitle = $row['projecttopic']; ?>
     <div>
         <hr>
     </div>
