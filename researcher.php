@@ -113,7 +113,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="login.php">Login</a></li>
-                    <li><a href="register.php">Register</a></li>
+                    <li><a href="registerresearcher.php">Register Researcher</a></li>
                 <?php } ?>
             </ul>
         </div>

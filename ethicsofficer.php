@@ -69,9 +69,10 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
-                    <li class="active"><a href="signinindex.php">Home</a></li>
+                    <li><a href="signinindex.php">Home</a></li>
                     <li><a href="student.php">Student</a></li>
-                    <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
+                    <li class="active"><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
+                    <li><a href="administrator.php">Administrator</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
@@ -79,7 +80,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="login.php">Login</a></li>
-                    <li><a href="register.php">Register</a></li>
+                    <li><a href="registerresearcher.php">Register Researcher</a></li>
                 <?php } ?>
             </ul>
         </div>

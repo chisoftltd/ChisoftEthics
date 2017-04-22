@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li class="active"><a href="login.php">Login</a></li>
-                <li><a href="register.php">Register</a></li>
+                <li><a href="registerresearcher.php">Register Researcher</a></li>
             </ul>
         </div>
     </div>
@@ -97,7 +97,7 @@ if (isset($_POST['login'])) {
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
-            New User? <a href="register.php">Register Here</a>
+            New Researcher? <a href="registerresearcher.php">Register Here</a>
         </div>
     </div>
 </div>

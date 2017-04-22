@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <li class="active"><a href="signinindex.php">Home</a></li>
                     <li><a href="researcher.php">Researcher</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
+                    <li><a href="administrator.php">Administrator</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
@@ -56,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="login.php">Login</a></li>
-                    <li><a href="register.php">Register</a></li>
+                    <li><a href="registerresearcher.php">Register Researcher</a></li>
                 <?php } ?>
             </ul>
         </div>

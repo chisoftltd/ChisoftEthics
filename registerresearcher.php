@@ -71,7 +71,7 @@ if (isset($_POST['signup'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="register.php">RGUEthics | Researcher Registration</a>
+            <a class="navbar-brand" href="registerresearcher.php">RGUEthics | Researcher Registration</a>
         </div>
         <!-- menu items -->
         <div class="collapse navbar-collapse" id="navbar1">
@@ -80,7 +80,7 @@ if (isset($_POST['signup'])) {
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li class="active"><a href="register.php">Register</a></li>
+                <li class="active"><a href="registerresearcher.php">Register Researcher</a></li>
             </ul>
         </div>
     </div>
@@ -93,7 +93,7 @@ if (isset($_POST['signup'])) {
         <div class="col-md-4 col-md-offset-4 well">
             <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
                 <fieldset>
-                    <legend>Register</legend>
+                    <legend>Register Researcher</legend>
 
                     <div class="form-group">
                         <label for="name">Name</label>
