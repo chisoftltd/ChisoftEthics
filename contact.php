@@ -85,7 +85,10 @@ if (isset($_POST["submit"])) {
         </div>
     </nav>
     <header>
-        <?php include 'include/header.php'; ?>
+        <?php if (isset($_SESSION['usr_id'])) { ?>
+            <?php include 'include/signinheader.php'; ?>
+        <?php } else { ?>
+            <?php include 'include/header.php'; ?><?php } ?>
     </header>
     <div class="container">
         <form class="form-horizontal" role="form" method="post" action="index.php">
