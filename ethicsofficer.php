@@ -98,7 +98,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <div>
         <hr>
     </div>
-    <h3>Student Name: </h3><?php echo $row['name']; ?>
+    <h3>Researcher Name: </h3><?php echo $row['name']; ?>
     <div>
         <hr>
     </div>
