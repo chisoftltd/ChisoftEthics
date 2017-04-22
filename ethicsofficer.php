@@ -55,7 +55,6 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <link rel="stylesheet" href="css/main-style.css">
 </head>
 <body>
-
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
