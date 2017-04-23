@@ -68,14 +68,14 @@ if (isset($_POST['signup'])) {
         $datadetails_error = "Data details must contain only numbers, alphabets '-'.";
     }*/
     //if (!$error) {
-        if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
+    if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
 VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $projecttopic . "','" . $projectdescription . "','" . $startdate . "','" . $enddate . "','" . $datadetails . "')")) {
-            $successmsg = "Research Ethics Successfuly Registered!";
-            header("refresh:5; url=researchtable.php");
-        } else {
-            $errormsg = "Error in registering...Please try again later!";
-        }
-   // }
+        $successmsg = "Research Ethics Successfuly Registered!";
+        header("refresh:5; url=researchtable.php");
+    } else {
+        $errormsg = "Error in registering...Please try again later!";
+    }
+    // }
 }
 ?>
 
@@ -135,91 +135,105 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
 
     <div id="id01" class="modal">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Update</button>
 
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+        <div id="id01" class="modal">
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Delete</button>
+
+            <div id="id01" class="modal">
+
+                <form class="modal-content animate" action="/action_page.php">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                              title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4 well">
+                            <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                                  name="ethicsform">
+                                <fieldset>
+                                    <legend>Ethics Register Form</legend>
+
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" placeholder="Enter Full Name" required
+                                               value="<?php if ($error) echo $name; ?>" class="form-control"/>
+                                        <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Supervisor</label>
+                                        <input type="text" name="supervisor" placeholder="Supervisor" required
+                                               value="<?php if ($error) echo $supervisor; ?>" class="form-control"/>
+                                        <span class="text-danger"><?php if (isset($supervisor_error)) echo $supervisor_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Department</label>
+                                        <input type="text" name="department" placeholder="Department" required
+                                               class="form-control"/>
+                                        <span class="text-danger"><?php if (isset($department_error)) echo $department_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Project Topic</label>
+                                        <input type="text" name="projecttopic" placeholder="Project Topic" required
+                                               class="form-control"/>
+                                        <span
+                                                class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Project Description</label>
+                                        <textarea name="projectdescription" rows="20" cols="auto"
+                                                  placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
+                                                  required class="form-control"></textarea>
+                                        <span
+                                                class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Start Date</label>
+                                        <input type="date" name="startdate" placeholder="Start Date" required
+                                               class="form-control"/>
+                                        <span class="text-danger"><?php if (isset($startdate_error)) echo $startdate_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">End Date (Deadline)</label>
+                                        <input type="date" name="enddate" placeholder="End Date (deadline)" required
+                                               class="form-control"/>
+                                        <span class="text-danger"><?php if (isset($enddate_error)) echo $enddate_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Data Details</label>
+                                        <textarea style="text-align: left" name="datadetails" rows="20" cols="auto"
+                                                  placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis."
+                                                  required
+                                                  class="form-control"></textarea>
+                                        <span
+                                                class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="submit" name="signup" value="Register" class="btn btn-primary"/>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <span class="text-success"><?php if (isset($successmsg)) {
+                                    echo $successmsg;
+                                } ?></span>
+                            <span class="text-danger"><?php if (isset($errormsg)) {
+                                    echo $errormsg;
+                                } ?></span>
+                        </div>
+                    </div>
+                </form>
             </div>
-
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 well">
-                    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="ethicsform">
-                        <fieldset>
-                            <legend>Ethics Register Form</legend>
-
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" placeholder="Enter Full Name" required
-                                       value="<?php if ($error) echo $name; ?>" class="form-control"/>
-                                <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Supervisor</label>
-                                <input type="text" name="supervisor" placeholder="Supervisor" required
-                                       value="<?php if ($error) echo $supervisor; ?>" class="form-control"/>
-                                <span class="text-danger"><?php if (isset($supervisor_error)) echo $supervisor_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Department</label>
-                                <input type="text" name="department" placeholder="Department" required class="form-control"/>
-                                <span class="text-danger"><?php if (isset($department_error)) echo $department_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Project Topic</label>
-                                <input type="text" name="projecttopic" placeholder="Project Topic" required
-                                       class="form-control"/>
-                                <span
-                                        class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Project Description</label>
-                                <textarea name="projectdescription" rows="20" cols="auto"
-                                          placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
-                                          required class="form-control"></textarea>
-                                <span
-                                        class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Start Date</label>
-                                <input type="date" name="startdate" placeholder="Start Date" required class="form-control"/>
-                                <span class="text-danger"><?php if (isset($startdate_error)) echo $startdate_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">End Date (Deadline)</label>
-                                <input type="date" name="enddate" placeholder="End Date (deadline)" required
-                                       class="form-control"/>
-                                <span class="text-danger"><?php if (isset($enddate_error)) echo $enddate_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Data Details</label>
-                                <textarea style="text-align: left" name="datadetails" rows="20" cols="auto" placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis." required
-                                          class="form-control"></textarea>
-                                <span
-                                        class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="submit" name="signup" value="Register" class="btn btn-primary"/>
-                            </div>
-                        </fieldset>
-                    </form>
-                    <span class="text-success"><?php if (isset($successmsg)) {
-                            echo $successmsg;
-                        } ?></span>
-                    <span class="text-danger"><?php if (isset($errormsg)) {
-                            echo $errormsg;
-                        } ?></span>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 
     <script>
@@ -227,7 +241,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
         var modal = document.getElementById('id01');
 
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
@@ -266,7 +280,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         <input type="text" name="projecttopic" placeholder="Project Topic" required
                                class="form-control"/>
                         <span
-                            class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
+                                class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
                     </div>
 
                     <div class="form-group">
@@ -275,7 +289,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                                   placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
                                   required class="form-control"></textarea>
                         <span
-                            class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
+                                class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
                     </div>
 
                     <div class="form-group">
@@ -293,10 +307,12 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
                     <div class="form-group">
                         <label for="name">Data Details</label>
-                        <textarea style="text-align: left" name="datadetails" rows="20" cols="auto" placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis." required
+                        <textarea style="text-align: left" name="datadetails" rows="20" cols="auto"
+                                  placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis."
+                                  required
                                   class="form-control"></textarea>
                         <span
-                            class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
+                                class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
                     </div>
 
                     <div class="form-group">
