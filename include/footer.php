@@ -15,7 +15,7 @@
             <li><a href="http://www.rgu.ac.uk/footer/privacy-and-cookie-statement/privacy-and-cookie-statement/">Privacy
                     and cookie statement</a></li>
             <li><a href="http://www.rgu.ac.uk/footer/complaints/complaints/">Complaints</a></li>
-            <li><a href="http://www.rgu.ac.uk/footer/copyright-2017/copyright/">Copyright ©2017</a></li>
+            <!--<li><a href="http://www.rgu.ac.uk/footer/copyright-2017/copyright/">Copyright ©2017</a></li>-->
             <li><a href="contact.php">Contact</a></li>
         </ul>
         <p style="text-align: center;">
