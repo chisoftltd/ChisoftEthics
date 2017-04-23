@@ -130,7 +130,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 <div class="container">
 
 
-    <h2>Modal Login Form</h2>
+    <h2>Research Ethics Management System | Create | Update | Delete</h2>
 
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
 
