@@ -67,6 +67,9 @@ if (isset($_POST['login'])) {
 <header>
     <?php include 'include/header.php'; ?>
 </header>
+<form>
+    <hr>
+</form>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4 well">

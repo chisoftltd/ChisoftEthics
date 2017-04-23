@@ -122,7 +122,9 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 <header>
     <?php include 'include/signinheader.php'; ?>
 </header>
-
+<form>
+    <hr>
+</form>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4 well">

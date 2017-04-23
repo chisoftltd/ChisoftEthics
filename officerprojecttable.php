@@ -57,6 +57,9 @@ if (!isset($_SESSION['usr_id'])) {
 <header>
     <?php include 'include/signinheader.php'; ?>
 </header>
+<form>
+    <hr>
+</form>
 <div class="container">
 
     <?php

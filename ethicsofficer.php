@@ -89,7 +89,9 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
 <header>
     <?php include 'include/signinheader.php'; ?>
 </header>
-
+<form>
+    <hr>
+</form>
 <div class="container">
     <div>
         <hr>

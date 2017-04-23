@@ -49,6 +49,9 @@ unset($_session['user_id']);
 <header>
     <?php include 'include/header.php'; ?>
 </header>
+<form>
+    <hr>
+</form>
 <div class="pageContent">
     <article class="article">
         <h2>Research Ethics and Integrity System</h2>

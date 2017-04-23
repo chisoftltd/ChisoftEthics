@@ -95,6 +95,9 @@ if (isset($_POST['btn-login'])) {
     <header>
         <?php include 'include/header.php'; ?>
     </header>
+    <form>
+        <hr>
+    </form>
     <div class="container">
         <h3>Web Application Description - RGUEthics</h3>
         <p>

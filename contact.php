@@ -90,6 +90,9 @@ if (isset($_POST["submit"])) {
         <?php } else { ?>
             <?php include 'include/header.php'; ?><?php } ?>
     </header>
+    <form>
+        <hr>
+    </form>
     <div class="container">
         <form class="form-horizontal" role="form" method="post" action="index.php">
             <div class="form-group">
@@ -161,10 +164,6 @@ if (isset($_POST["submit"])) {
             </div> <!-- /row -->
         </form>
     </div><!-- /container -->
-
-    <footer>
-        <?php include 'include/footer.php'; ?>
-    </footer>
     <script>
 
         function init_map() {
@@ -191,6 +190,10 @@ if (isset($_POST["submit"])) {
 
     </script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <footer>
+        <?php include 'include/footer.php'; ?>
+    </footer>
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->

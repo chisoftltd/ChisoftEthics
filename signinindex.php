@@ -53,6 +53,9 @@ include_once 'dbconnect.php';
 <header>
     <?php include 'include/signinheader.php'; ?>
 </header>
+<form>
+    <hr>
+</form>
 <div class="pageContent">
     <article class="article">
         <h2>Research Ethics and Integrity System</h2>

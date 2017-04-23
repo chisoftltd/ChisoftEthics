@@ -66,7 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <header>
     <?php include 'include/signinheader.php'; ?>
 </header>
-
+<form>
+    <hr>
+</form>
 <div class="container">
     <div>
         <hr>
