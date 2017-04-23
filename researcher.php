@@ -132,7 +132,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
     <h2>Modal Login Form</h2>
 
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Register</button>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
 
     <div id="id01" class="modal">
 
