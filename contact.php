@@ -135,9 +135,62 @@ if (isset($_POST["submit"])) {
             </div>
         </form>
     </div>
+    <form>
+        <hr>
+    </form>
+    <div class="container">
+        <form>
+            <div class="row">
+                <div id="map-outer" class="col-md-12">
+                    <div id="address" class="col-md-4">
+                        <h2>Our Location</h2>
+                        <address>
+                            <strong>RGUEthics | Research Ethics Solution</strong><br>
+                            Robert Gordon University<br>
+                            Garthdee House<br>
+                            Garthdee Road<br>
+                            Aberdeen<br>
+                            AB10 7QB<br>
+                            Scotland<br>
+                            United Kingdom<br>
+                            <abbr>P:</abbr> +44 1224 262000
+                        </address>
+                    </div>
+                    <div id="map-container" class="col-md-8"></div>
+                </div><!-- /map-outer -->
+            </div> <!-- /row -->
+        </form>
+    </div><!-- /container -->
+
     <footer>
         <?php include 'include/footer.php'; ?>
     </footer>
+    <script>
+
+        function init_map() {
+            var var_location = new google.maps.LatLng(57.1226254,-2.1369949);
+
+            var var_mapoptions = {
+                center: var_location,
+                zoom: 14
+            };
+
+            var var_marker = new google.maps.Marker({
+                position: var_location,
+                map: var_map,
+                title:"Venice"});
+
+            var var_map = new google.maps.Map(document.getElementById("map-container"),
+                var_mapoptions);
+
+            var_marker.setMap(var_map);
+
+        }
+
+        google.maps.event.addDomListener(window, 'load', init_map);
+
+    </script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
