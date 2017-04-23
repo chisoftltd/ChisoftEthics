@@ -60,7 +60,7 @@ if (isset($_POST["submit"])) {
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <!--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSMxRAhrNG_VHJdpz0h72CyugKoMmDMQU&callback=init_map"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSMxRAhrNG_VHJdpz0h72CyugKoMmDMQU&callback=myMap"></script>
     </head>
     <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -122,31 +122,15 @@ if (isset($_POST["submit"])) {
                             <abbr>P:</abbr> +44 1224 262000
                         </address>
                     </div>
-                    <div id="map-container" class="col-md-8"></div>
+                    <div id="map-container" class="col-md-8" style="width:400px;height:400px;background:yellow"></div>
                     <script>
-
-                        function init_map() {
-                            var var_location = new google.maps.LatLng(57.1184,-2.1410);
-
-                            var var_mapoptions = {
-                                center: var_location,
-                                zoom: 14
+                        function myMap() {
+                            var mapCanvas = document.getElementById("map-container");
+                            var mapOptions = {
+                                center: new google.maps.LatLng(51.5, -0.2), zoom: 10
                             };
-
-                            var var_marker = new google.maps.Marker({
-                                position: var_location,
-                                map: var_map,
-                                title:"Venice"});
-
-                            var var_map = new google.maps.Map(document.getElementById("map-container"),
-                                var_mapoptions);
-
-                            var_marker.setMap(var_map);
-
+                            var map = new google.maps.Map(mapCanvas, mapOptions);
                         }
-
-                        google.maps.event.addDomListener(window, 'load', init_map);
-
                     </script>
                 </div><!-- /map-outer -->
             </div> <!-- /row -->
