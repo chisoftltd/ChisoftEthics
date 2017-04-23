@@ -99,6 +99,59 @@ if (isset($_POST["submit"])) {
         <hr>
     </form>
     <div class="container">
+        <form>
+            <div class="row">
+                <div id="map-outer" class="col-md-12">
+                    <div id="address" class="col-md-4">
+                        <h2>Our Location</h2>
+                        <address>
+                            <strong>RGUEthics | Research Ethics Solution</strong><br>
+                            Robert Gordon University<br>
+                            Garthdee House<br>
+                            Garthdee Road<br>
+                            Aberdeen<br>
+                            AB10 7QB<br>
+                            Scotland<br>
+                            United Kingdom<br>
+                            <abbr>P:</abbr> +44 1224 262000
+                        </address>
+                    </div>
+                    <div id="map-container" class="col-md-8"></div>
+                </div><!-- /map-outer -->
+            </div> <!-- /row -->
+
+            <div class="row">
+                <form class="form-horizontal" name="commentform">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"/>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"/>
+                        </div>
+                        <div class="col-md-4 input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <textarea rows="6" class="form-control" id="comments" name="comments" placeholder="Your question or comment here"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <button type="submit" value="Submit" class="btn btn-warning pull-right">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /row -->
+        </form>
+    </div><!-- /container -->
+    <form>
+        <hr>
+    </form>
+    <div class="container">
         <form class="form-horizontal" role="form" method="post" action="index.php">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name</label>
@@ -143,58 +196,6 @@ if (isset($_POST["submit"])) {
             </div>
         </form>
     </div>
-    <form>
-        <hr>
-    </form>
-    <div class="container">
-        <form>
-            <div class="row">
-                <div id="map-outer" class="col-md-12">
-                    <div id="address" class="col-md-4">
-                        <h2>Our Location</h2>
-                        <address>
-                            <strong>RGUEthics | Research Ethics Solution</strong><br>
-                            Robert Gordon University<br>
-                            Garthdee House<br>
-                            Garthdee Road<br>
-                            Aberdeen<br>
-                            AB10 7QB<br>
-                            Scotland<br>
-                            United Kingdom<br>
-                            <abbr>P:</abbr> +44 1224 262000
-                        </address>
-                    </div>
-                    <div id="map-container" class="col-md-8"></div>
-                </div><!-- /map-outer -->
-            </div> <!-- /row -->
-        </form>
-    </div><!-- /container -->
-    <script>
-
-        function init_map() {
-            var var_location = new google.maps.LatLng(57.1226254,-2.1369949);
-
-            var var_mapoptions = {
-                center: var_location,
-                zoom: 14
-            };
-
-            var var_marker = new google.maps.Marker({
-                position: var_location,
-                map: var_map,
-                title:"Venice"});
-
-            var var_map = new google.maps.Map(document.getElementById("map-container"),
-                var_mapoptions);
-
-            var_marker.setMap(var_map);
-
-        }
-
-        google.maps.event.addDomListener(window, 'load', init_map);
-
-    </script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <footer>
         <?php include 'include/footer.php'; ?>
     </footer>
