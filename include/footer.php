@@ -1,5 +1,8 @@
 <footer>
     <nav>
+        <form>
+            <hr>
+        </form>
         <p style="text-align: center;">
             <strong>Follow us</strong>
         </p>
