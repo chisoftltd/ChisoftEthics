@@ -126,7 +126,7 @@ if (isset($_POST["submit"])) {
                     <script>
 
                         function init_map() {
-                            var var_location = new google.maps.LatLng(57.1184,2.1410);
+                            var var_location = new google.maps.LatLng(57.1184,-2.1410);
 
                             var var_mapoptions = {
                                 center: var_location,
