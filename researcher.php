@@ -135,10 +135,11 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
 
     <h3 style="text-align: center">Research Ethics Management System | Create | Update | Delete</h3>
-
+<div style="align-content: center">
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Update</button>
     <button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Delete</button>
+</div>
     <div id="id01" class="modal">
 
         <form class="modal-content animate" action="/action_page.php">
