@@ -135,7 +135,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
 
     <h3 style="text-align: center">Research Ethics Management System | Create | Update | Delete</h3>
-<div style="align-content: center">
+<div style="width: 100%" class="btn-group">
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Update</button>
     <button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Delete</button>
