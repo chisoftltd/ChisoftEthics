@@ -149,7 +149,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
                           name="ethicsform">
                         <fieldset>
-                            <legend>Ethics Register Form</legend>
+                            <legend>Ethics Create Form</legend>
 
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -244,7 +244,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
                           name="ethicsform">
                         <fieldset>
-                            <legend>Ethics Register Form</legend>
+                            <legend>Ethics Update Form</legend>
 
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -339,7 +339,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
                           name="ethicsform">
                         <fieldset>
-                            <legend>Ethics Register Form</legend>
+                            <legend>Ethics Delete Form</legend>
 
                             <div class="form-group">
                                 <label for="name">Name</label>
