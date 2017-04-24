@@ -324,9 +324,9 @@ span.psw {
 
 .btn-group button {
     background-color: #4CAF50; /* Green background */
-    border: 3px solid green; /* Green border */
+    border: 2px solid green; /* Green border */
     color: white; /* White text */
-    padding: 15px 30px; /* Some padding */
+    padding: 20px 30px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
 }
