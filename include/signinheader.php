@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <header>
     <div id="logo">
-        <a href="signinindex.php"><img src="images/RGUEthics.png" alt="Company logo" /></a>
+        <a href="signinindex.php" style="top: 10px"><img src="images/RGUEthics.png" alt="Company logo" /></a>
     </div>
     <nav>
         <ul class="header-links">
