@@ -79,6 +79,11 @@ if (isset($_POST['btn-login'])) {
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
+                        <li><a href="signinindex.php">Home</a></li>
+                        <li><a href="researcher.php">Researchers</a></li>
+                        <li class="active"><a href="about.php">About Us</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                         <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                         <li><a href="logout.php">Log Out</a></li>
                     <?php } else { ?>
@@ -93,7 +98,11 @@ if (isset($_POST['btn-login'])) {
         </div>
     </nav>
     <header>
-        <?php include 'include/header.php'; ?>
+        <?php if (isset($_SESSION['usr_id'])) { ?>
+            <?php include 'include/signinheader.php'; ?>
+
+        <?php } else { ?>
+            <?php include 'include/header.php'; ?><?php } ?>
     </header>
     <form>
         <hr>

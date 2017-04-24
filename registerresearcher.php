@@ -86,7 +86,11 @@ if (isset($_POST['signup'])) {
     </div>
 </nav>
 <header>
-    <?php include 'include/header.php'; ?>
+    <?php if (isset($_SESSION['usr_id'])) { ?>
+        <?php include 'include/signinheader.php'; ?>
+
+    <?php } else { ?>
+        <?php include 'include/header.php'; ?><?php } ?>
 </header>
 <form>
     <hr>
