@@ -326,9 +326,10 @@ span.psw {
     background-color: #4CAF50; /* Green background */
     border: 2px solid green; /* Green border */
     color: white; /* White text */
-    padding: 20px 30px; /* Some padding */
+    padding: 15px 30px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
+    margin: 10px;
 }
 
 /* Clear floats (clearfix hack) */
