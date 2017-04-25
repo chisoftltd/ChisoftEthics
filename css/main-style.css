@@ -9,7 +9,10 @@ html, body {
     height: 87px;
     margin-left: 20px;
 }
-
+header{
+margin : 0;
+    padding : 0;
+}
 .header-links {
     border: 3px;
     background-color: deepskyblue;
