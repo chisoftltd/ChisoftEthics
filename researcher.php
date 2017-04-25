@@ -143,17 +143,22 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 </div>
     <div id="id01" class="modal">
 
-        <form class="modal-content animate" action="/action_page.php">
+       <!-- <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
                         <span onclick="document.getElementById('id01').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
-                <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
-            </div>
+                <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            </div> -->
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 well">
-                    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                    <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
                           name="ethicsform">
+                        <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                              title="Close Modal">&times;</span>
+                            <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+                        </div>
                         <fieldset>
                             <legend>Ethics Create Form</legend>
 
@@ -232,7 +237,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         } ?></span>
                 </div>
             </div>
-        </form>
+        <!--</form>-->
     </div>
 
 
