@@ -135,6 +135,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
 
     <h3 style="text-align: center">Research Ethics Management System | Create | Update | Delete</h3>
+    <p>On tis page a reasearcher will be able to manage his or her research ethics via creating new ethics aplication, update exsiting ethics application or delete an ethics application</p>
 <div style="width: 100%" class="btn-group">
     <button style="width:30%" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
     <button style="width:30%" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Update</button>
