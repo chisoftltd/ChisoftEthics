@@ -112,16 +112,16 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 <div>
                     <hr>
                 </div>
-                <label>Researcher Name: </label>
-                <input type="text" name="number" value="<?php echo $row['name'];?>" class="form-control"/>
+                <label for="name">Researcher Name: </label>
+                <input type="text" name="name" value="<?php echo $row['name'];?>" class="form-control"/>
                     <hr>
-                <label>Project Supervisor: </label>
-                <input type="text" name="number" value="<?php echo $row["supervisor"]; ?>" placeholder="" class="form-control"/>
+                <label for="supervisor">Project Supervisor: </label>
+                <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>" placeholder="" class="form-control"/>
                 <div>
                     <hr>
                 </div>
-                <h3>Department: </h3>
-                <input type="text" name="number" value="<?php echo $row['department'];?>" class="form-control"/>
+                <label for="department">Department: </label>
+                <input type="text" name="department" value="<?php echo $row['department'];?>" class="form-control"/>
                 <div>
                     <hr>
                 </div>
