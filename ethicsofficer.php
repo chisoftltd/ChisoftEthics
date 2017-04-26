@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 //check if form is submitted
 if (isset($_POST['approve'])) {
     echo "I am here 0";
-    $name = mysqli_real_escape_string($link, $_POST[$row['name']]);
-    $projecttopic = mysqli_real_escape_string($link, $_POST[$row['projecttopic']]);
+    $name = mysqli_real_escape_string($link, $_POST['$id']);
+    $projecttopic = mysqli_real_escape_string($link, $_POST['$researchername']);
     $optradio = mysqli_real_escape_string($link, $_POST['optradio']);
     $approvaloname = mysqli_real_escape_string($link, $_POST['approvaloname']);
     $comment = mysqli_real_escape_string($link, $_POST['comment']);
@@ -100,11 +100,11 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <div>
         <hr>
     </div>
-    <h3>Research Number:</h3> <?php echo $row['id']; ?>
+    <h3>Research Number:</h3> <?php echo $row['id']; $id = $row['id']; ?>
     <div>
         <hr>
     </div>
-    <h3>Researcher Name: </h3><?php echo $row['name']; ?>
+    <h3>Researcher Name: </h3><?php echo $row['name']; $researchername = $row['name'];?>
     <div>
         <hr>
     </div>
