@@ -20,10 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $query = "SELECT * FROM research WHERE id =" . $id;
     $result = mysqli_query($link, $query);
     $row = mysqli_fetch_array($result);
-    $idnumber = $row['id'];
-    echo $idnumber;
-    $researcher = $row['name'];
-    $supervisor = $row['supervisor'];
 }
 
 
@@ -111,7 +107,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 </div>
                 <div>
                     <label for="number">Research Number:</label>
-                    <input type="text" name="number" value="<?php echo $row['id']; ?>" class="form-control"/>;
+                    <input type="text" name="number" value="<?php echo $row['id']; ?>" class="form-control"/>
                 </div>
                 <div>
                     <hr>
