@@ -167,7 +167,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="projectdescription">Project Description: </label>
-                            <textarea type="text" rows="15" cols="auto" name="projectdescription">
+                            <textarea type="text" rows="15" cols="auto" name="projectdescription" style="text-align:left">
                                       <?php echo $row['projectdescription']; ?></textarea>
                         </td>
                     </tr>
@@ -201,7 +201,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="datadetails">Data Handling details:</label>
-                            <textarea type="text" rows="10" cols="auto" name="datadetails">
+                            <textarea type="text" rows="10" cols="auto" name="datadetails" style="text-align: left">
                                       <?php echo $row['datadetails'];?></textarea>
                         </td>
                     </tr>
