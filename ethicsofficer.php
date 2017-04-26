@@ -70,7 +70,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li><a href="signinindex.php">Home</a></li>
-                    <li><a href="researcher.php">Researcher</a></li>
+                    <li><a href="research.php">Researcher</a></li>
                     <li class="active"><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><a href="administrator.php">Administrator</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
