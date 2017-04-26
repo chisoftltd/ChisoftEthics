@@ -18,7 +18,7 @@ include_once 'dbconnect.php';
 $error = false;
 
 //check if form is submitted
-if (isset($_POST['signup'])) {
+if (isset($_POST['createform'])) {
     $name = mysqli_real_escape_string($link, $_POST['name']);
     $supervisor = mysqli_real_escape_string($link, $_POST['supervisor']);
     $department = mysqli_real_escape_string($link, $_POST['department']);
@@ -28,46 +28,6 @@ if (isset($_POST['signup'])) {
     $enddate = mysqli_real_escape_string($link, $_POST['enddate']);
     $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
 
-    //name can contain only alpha characters and space
-    /*if (!preg_match("/^[a-zA-Z ]+$/", $name)) {
-        $error = true;
-        $name_error = "Researcher Name must contain only alphabets and space";
-    }
-
-    if (!preg_match("/^[a-zA-Z ]+$/", $supervisor)) {
-        $error = true;
-        $supervisor_error = "Supervisor Name must contain only alphabets and space";
-    }
-
-    if (!preg_match("/^[a-zA-Z 0-9]+$/", $department)) {
-        $error = true;
-        $department_error = "Department must contain only numbers alphabets special characters and space";
-    }
-
-    if (!preg_match("/^[[a-zA-Z][0-9]] +$/", $projectopic)) {
-        $error = true;
-        $projectopic_error = "Porject Toipc must contain only numbers alphabets special characters and space";
-    }
-
-    if (!preg_match("/^[a-zA-Z0-9]+$/", $projectdescription)) {
-        $error = true;
-        $projectdescription_error = "Project Description must contain only numbers alphabets special characters and space";
-    }
-
-    if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $startdate)) {
-        $error = true;
-        $startdate_error = "Date must contain only numbers, - and format 0000-00-00.";
-    }
-
-    if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $enddate)) {
-        $error = true;
-        $enddate_error = "Date must contain only numbers, - and format 0000-00-00.";
-    }
-    if (!preg_match("/^[a-zA-Z0-9]+$/", $datadetails)) {
-        $error = true;
-        $datadetails_error = "Data details must contain only numbers, alphabets '-'.";
-    }*/
-    //if (!$error) {
     if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
 VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $projecttopic . "','" . $projectdescription . "','" . $startdate . "','" . $enddate . "','" . $datadetails . "')")) {
         $successmsg = "Research Ethics Successfuly Registered!";
@@ -75,7 +35,22 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
     } else {
         $errormsg = "Error in registering...Please try again later!";
     }
-    // }
+}
+
+$result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
+$count = mysqli_num_rows($result2);
+
+// Check if delete button active, start this
+if (isset($_POST['deleteform'])) {
+    for ($i = 0; $i < $count; $i++) {
+        $del_id = $checkbox[$i];
+        $sql = "DELETE FROM research WHERE id='$del_id'";
+        $result = mysqli_query($link, $sql);
+    }
+// if successful redirect to delete_multiple.php
+    if ($result) {
+        header("refresh:5; url=officerprojecttable.php");
+    }
 }
 ?>
 
@@ -141,13 +116,13 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
         <hr>
     </div>
     <div style="width: 100%" class="btn-group">
-        <button style="width:30%" onclick="document.getElementById('create').style.display='block'" style="width:auto;">
+        <button onclick="document.getElementById('create').style.display='block'" style="width:auto;">
             Create
         </button>
-        <button style="width:30%" onclick="document.getElementById('update').style.display='block'" style="width:auto;">
+        <button onclick="document.getElementById('update').style.display='block'" style="width:auto;">
             Update
         </button>
-        <button style="width:30%" onclick="document.getElementById('delete').style.display='block'" style="width:auto;">
+        <button onclick="document.getElementById('delete').style.display='block'" style="width:auto;">
             Delete
         </button>
     </div>
@@ -242,7 +217,9 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" name="signup" value="Register" class="btn btn-primary"/>
+                            <input type="submit" style=" align-items: center" name="createform" value="Register"
+                                   class="btn btn-primary"/>
+                            deleteform
                         </div>
                     </fieldset>
                 </form>
@@ -297,6 +274,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                             echo '</table><br />';
                         }
                         ?>
+
                     </fieldset>
                 </form>
             </div>
@@ -314,7 +292,8 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1 well">
-                <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>"
+                      method="post"
                       name="deleteform">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('delete').style.display='none'" class="close"
@@ -335,7 +314,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                             echo '<tr><th>Check to Delete</th><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
                             while ($row2 = mysqli_fetch_array($result2)) {
                                 echo '<tr>';
-                                echo "<td>" . "<input name='checkbox[]' type='checkbox' value= '<?php echo $row2[id]; ?>'></td>";
+                                echo "<td>" . "<input name='checkbox[]' type='checkbox' id='checkbox[]' value= '<?php echo $row2[id]; ?>'>" . "</td>";
                                 echo "<td>" . $row2[id] . "</td>";
                                 echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
                                 echo "<td>" . $row2[supervisor] . "</td>";
@@ -347,6 +326,10 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                             echo '</table><br />';
                         }
                         ?>
+                        <div class="form-group">
+                            <input type="submit" style=" align-items: center" name="deleteform" value="Delete"
+                                   class="btn btn-primary"/>
+                        </div>
                     </fieldset>
                 </form>
             </div>

@@ -41,8 +41,6 @@ if (isset($_POST['update'])) {
 
 
     if (mysqli_query($link, $query2)) {
-
-        echo "I am here 2";
         $successmsg = "Your comment Successfuly updated!";
         header("refresh:5; url=officerprojecttable.php");
     } else {
