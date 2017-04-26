@@ -144,6 +144,9 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
     <button style="width:30%" onclick="document.getElementById('update').style.display='block'" style="width:auto;">Update</button>
     <button style="width:30%" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Delete</button>
 </div>
+    <div>
+        <hr>
+    </div>
     <div id="create" class="modal">
 
        <!-- <form class="modal-content animate" action="/action_page.php">
