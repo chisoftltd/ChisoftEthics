@@ -17,8 +17,8 @@ if (!isset($_SESSION['usr_id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $id = $_GET['p'];
-    $query = "SELECT * FROM research WHERE id =" . $id;
-    $result = mysqli_query($link, $query);
+    $query1 = "SELECT * FROM research WHERE id =" . $id;
+    $result = mysqli_query($link, $query1);
     $row = mysqli_fetch_array($result);
 }
 
@@ -35,12 +35,13 @@ if (isset($_POST['update'])) {
     $enddate = mysqli_real_escape_string($link, $_POST['enddate']);
     $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
 
-    $query = "UPDATE research SET name = '$name', supervisor = '$supervisor', department='$department', 
+    echo "I am here 0";
+    $query2 = "UPDATE research SET name = '$name', supervisor = '$supervisor', department='$department', 
     projecttopic ='$projecttopic', projectdescription ='$projectdescription', startdate ='$startdate', 
-    enddate ='$enddate', datadetails = '$datadetails'  WHERE id = $id";
+    enddate ='$enddate', datadetails = '$datadetails'  WHERE id =". $id;
 
     echo "I am here 1";
-    if (mysqli_query($link, $query)) {
+    if (mysqli_query($link, $query2)) {
         echo "I am here 2";
         $successmsg = "Your comment Successfuly updated!";
         header("refresh:5; url=researchappovaltable.php");
