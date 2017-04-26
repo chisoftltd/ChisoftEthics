@@ -36,13 +36,18 @@ if (isset($_POST['update'])) {
     $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
 
     echo "I am here 0";
+
+
     $query2 = "UPDATE research SET name = '$name', supervisor = '$supervisor', department='$department', 
     projecttopic ='$projecttopic', projectdescription ='$projectdescription', startdate ='$startdate', 
-    enddate ='$enddate', datadetails = '$datadetails'  WHERE id =". $id;
+    enddate ='$enddate', datadetails = '$datadetails'  WHERE id =". $number;
+
+
+
     $result2 = mysqli_query($link, $query2);
     $row2 = mysqli_fetch_array($result2);
     echo $query2;
-    
+
     echo $row2['name'];
     echo " : ";
     echo $row2['supervisor'];
@@ -62,6 +67,7 @@ if (isset($_POST['update'])) {
 
     echo "I am here 1";
     if (mysqli_query($link, $query2)) {
+
         echo "I am here 2";
         $successmsg = "Your comment Successfuly updated!";
         header("refresh:5; url=researchappovaltable.php");
@@ -133,7 +139,7 @@ if (isset($_POST['update'])) {
                 <div class="input-group">
                     <label for="number">Research Number:</label>
                     <span></span>
-                    <input type="text" name="number" value="<?php echo $row['id']; ?>"/>
+                    <input type="number" name="number" value="<?php echo $row['id']; ?>"/>
                 </div>
                 <div>
                     <hr>
