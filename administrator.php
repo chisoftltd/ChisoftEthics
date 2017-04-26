@@ -46,7 +46,7 @@ if (!$link) {
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li><a href="signinindex.php">Home</a></li>
-                    <li><a href="research.php">researchs</a></li>
+                    <li><a href="research.php">Researchs</a></li>
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li class="active"><a href="administrator.php">Administrator</a></li>

@@ -80,7 +80,7 @@ if (isset($_POST['btn-login'])) {
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION['usr_id'])) { ?>
                         <li><a href="signinindex.php">Home</a></li>
-                        <li><a href="research.php">researchs</a></li>
+                        <li><a href="research.php">Researchs</a></li>
                         <li class="active"><a href="about.php">About Us</a></li>
                         <li><a href="contact.php">Contact</a></li>
                         <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
@@ -112,7 +112,7 @@ if (isset($_POST['btn-login'])) {
         <p>
             This web application which I called RGUEthics is an online application that will manage RGU researcher’s
             experiment ethics. </p>
-        <p>The interface should have a logo, navigation bar with elements like “Home”, “About Us”, “research”,
+        <p>The interface should have a logo, navigation bar with elements like “Home”, “About Us”, “Research”,
             “Ethics Approval Officers (EAO)”, “Contact US” and “Login”. </p>
         <p>The interface should have a “News Section” about current government and university policy on research
             ethics. </p>

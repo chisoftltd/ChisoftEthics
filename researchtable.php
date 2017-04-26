@@ -33,13 +33,13 @@ if (!isset($_SESSION['usr_id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="researchtable.php">RGUEthics | research Database</a>
+            <a class="navbar-brand" href="researchtable.php">RGUEthics | Research Database</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li><a href="research.php">research</a></li>
+                    <li><a href="research.php">Research</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
