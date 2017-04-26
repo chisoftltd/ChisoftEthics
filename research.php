@@ -164,7 +164,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
              </div> -->
 
         <div class="row">
-            <div class="col-md-4 col-md-offset-4 well">
+            <div class="col-md-8 col-md-offset-2 well">
                 <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>"
                       method="post"
                       name="ethicsform">
@@ -174,7 +174,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
                     </div>
                     <fieldset>
-                        <legend>Ethics Create Form</legend>
+                        <legend style="text-align: center">Ethics Create Form</legend>
 
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -314,7 +314,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1 well">
-                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
                       name="deleteform">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('delete').style.display='none'" class="close"
@@ -322,7 +322,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
                     </div>
                     <fieldset>
-                        <legend>Ethics Delete Form</legend>
+                        <legend style="text-align: center">Ethics Delete Form</legend>
 
                         <?php
                         include_once "dbconnect.php";
