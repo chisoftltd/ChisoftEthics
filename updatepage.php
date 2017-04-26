@@ -70,7 +70,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li><a href="signinindex.php">Home</a></li>
-                    <li><a href="researcher.php">Researcher</a></li>
+                    <li><a href="research.php">Researcher</a></li>
                     <li class="active"><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><a href="administrator.php">Administrator</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
@@ -147,23 +147,58 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 <div>
                     <hr>
                 </div>
-                <h3>Project Topice: </h3><?php echo $row['projecttopic']; ?>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="projecttopic">Project Topice: </label>
+                            <input type="text" name="projecttopic" value="<?php echo $row['projecttopic'];?>" class="form-control"/>
+                        </td>
+                    </tr>
+                </div>
                 <div>
                     <hr>
                 </div>
-                <h3>Project Description: </h3><?php echo $row['projectdescription']; ?>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="projectdescription">Project Description: </label>
+                            <textarea type="text" rows="auto"  cols="auto" name="projectdescription" value="<?php echo $row['projectdescription'];?>"></textarea>
+                        </td>
+                    </tr>
+                </div>
                 <div>
                     <hr>
                 </div>
-                <h3>Start Date: </h3><?php echo $row['startdate']; ?>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="startdate">Start Date: </label>
+                            <input type="date"  name="startdate" value="<?php echo $row['startdate'];?>"/>
+                        </td>
+                    </tr>
+                </div>
                 <div>
                     <hr>
                 </div>
-                <h3>Deadline: </h3><?php echo $row['enddate']; ?>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="enddate">Deadline:</label>
+                            <input type="date" name="enddate" value="<?php echo $row['enddate'];?>" />
+                        </td>
+                    </tr>
+                </div>
                 <div>
                     <hr>
                 </div>
-                <h3>Data Handling details: </h3><?php echo $row['datadetails']; ?>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="datadetails">Data Handling details:</label>
+                            <textarea type="text" rows="auto"  cols="auto" name="datadetails" value="<?php echo $row['datadetails'];?>"></textarea>
+                        </td>
+                    </tr>
+                </div>
                 <div>
                     <hr>
                 </div>
