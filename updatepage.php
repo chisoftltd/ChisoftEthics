@@ -35,7 +35,7 @@ if (isset($_POST['approve'])) {
     echo $todaydate;
     echo "I am here 1";
     if (mysqli_query($link, "INSERT INTO approvalofficers(name, projecttopic, status, approvalofficer, statuscomment, todaydate ) 
-VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approvaloname . "','" . $comment. "','" . $todaydate . "')")) {
+VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approvaloname . "','" . $comment . "','" . $todaydate . "')")) {
         echo "I am here 2";
         $successmsg = "Your comment Successfuly Registered!";
         header("refresh:5; url=researchappovaltable.php");
@@ -97,79 +97,88 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <hr>
 </form>
 <div class="container">
-    <div>
-        <hr>
+    <div class="col-md-8 col-md-offset-2 well">
+        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+              name="ethicsform">
+            <fieldset>
+                <legend>Ethics Update Form</legend>
+                <div>
+                    <hr>
+                </div>
+                <div>
+                    <label for="number">Research Number:</label>
+                    <input type="number" name="number" value="<?php echo $row['id'] ?> class=" form-control"/>;
+                </div>
+                <div>
+                    <hr>
+                </div>
+                <h3>Researcher Name: </h3><?php echo $row['name'];
+                $researchername = $row['name']; ?>
+                <div>
+                    <hr>
+                </div>
+                <h3>Project Supervisor: </h3><?php echo $row["supervisor"]; ?>
+                <div>
+                    <hr>
+                </div>
+                <h3>Department: </h3><?php echo $row['department']; ?>
+                <div>
+                    <hr>
+                </div>
+                <h3>Project Topice: </h3><?php echo $row['projecttopic']; ?>
+                <div>
+                    <hr>
+                </div>
+                <h3>Project Description: </h3><?php echo $row['projectdescription']; ?>
+                <div>
+                    <hr>
+                </div>
+                <h3>Start Date: </h3><?php echo $row['startdate']; ?>
+                <div>
+                    <hr>
+                </div>
+                <h3>Deadline: </h3><?php echo $row['enddate']; ?>
+                <div>
+                    <hr>
+                </div>
+                <h3>Data Handling details: </h3><?php echo $row['datadetails']; ?>
+                <div>
+                    <hr>
+                </div>
+
+            </fieldset>
+        </form>
     </div>
-    <div>
-        <h3>Research Number:</h3>
-        <?php echo "<input type='text' name='number' value='".$row['id']."/>";?>
-    </div>
-    <div>
-        <hr>
-    </div>
-    <h3>Researcher Name: </h3><?php echo $row['name']; $researchername = $row['name'];?>
-    <div>
-        <hr>
-    </div>
-    <h3>Project Supervisor: </h3><?php echo $row["supervisor"]; ?>
-    <div>
-        <hr>
-    </div>
-    <h3>Department: </h3><?php echo $row['department']; ?>
-    <div>
-        <hr>
-    </div>
-    <h3>Project Topice: </h3><?php echo $row['projecttopic']; ?>
-    <div>
-        <hr>
-    </div>
-    <h3>Project Description: </h3><?php echo $row['projectdescription']; ?>
-    <div>
-        <hr>
-    </div>
-    <h3>Start Date: </h3><?php echo $row['startdate']; ?>
-    <div>
-        <hr>
-    </div>
-    <h3>Deadline: </h3><?php echo $row['enddate']; ?>
-    <div>
-        <hr>
-    </div>
-    <h3>Data Handling details: </h3><?php echo $row['datadetails']; ?>
-    <div>
-        <hr>
-    </div>
-</div>
-<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="approvalform" class="container">
-    <div class="radio">
-        <label><input type="radio" name="optradio">Approved</label>
-    </div>
-    <div class="radio">
-        <label><input type="radio" name="optradio">Rejected</label>
-    </div>
-    <div class="form-group">
-        <label for="name">Comment:</label>
-        <textarea name="comment" rows="20" cols="auto"
-                  placeholder="Provide a brief outline to support the option above."
-                  required class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="approvaloname">Approval Officer Name</label>
-        <input type="text" name="approvaloname" placeholder="Enter Full Name" required
-               value="<?php if ($error) echo $approvaloname; ?>" class="form-control"/>
-        <label for="name">Todays Date</label>
-        <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
-    </div>
-    <div class="form-group">
-        <input type="submit" name="approve" value="Submit" class="btn btn-primary"/>
-    </div>
-</form>
-<footer>
-    <?php include 'include/footer.php'; ?>
-</footer>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="approvalform" class="container">
+        <div class="radio">
+            <label><input type="radio" name="optradio">Approved</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">Rejected</label>
+        </div>
+        <div class="form-group">
+            <label for="name">Comment:</label>
+            <textarea name="comment" rows="20" cols="auto"
+                      placeholder="Provide a brief outline to support the option above."
+                      required class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="approvaloname">Approval Officer Name</label>
+            <input type="text" name="approvaloname" placeholder="Enter Full Name" required
+                   value="<?php if ($error) echo $approvaloname; ?>" class="form-control"/>
+            <label for="name">Todays Date</label>
+            <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="approve" value="Submit" class="btn btn-primary"/>
+        </div>
+    </form>
+    <footer>
+        <?php include 'include/footer.php'; ?>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
