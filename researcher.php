@@ -280,7 +280,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         <?php
                         include_once "dbconnect.php";
 
-                        echo '<h3>', RESEARCH-ETHICS, '</h3>';
+                        echo '<h3>', RESEARCH_ETHICS, '</h3>';
                         $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
                         $count = mysqli_num_rows($result2);
                         if (mysqli_num_rows($result2)) {
