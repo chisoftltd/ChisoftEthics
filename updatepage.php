@@ -113,7 +113,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                     <hr>
                 </div>
                 <label for="name">Researcher Name: </label>
-                <input type="text" name="name" value="<?php echo $row['name'];?>" class="form-control"/>
+                <input type="text" name="name" contenteditable="true" value="<?php echo $row['name'];?>" class="form-control"/>
                     <hr>
                 <label for="supervisor">Project Supervisor: </label>
                 <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>" placeholder="" class="form-control"/>
