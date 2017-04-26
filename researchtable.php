@@ -17,7 +17,7 @@ if (!isset($_SESSION['usr_id'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RGUEthics | Researcher Database</title>
+    <title>RGUEthics | research Database</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -33,13 +33,13 @@ if (!isset($_SESSION['usr_id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="researchtable.php">RGUEthics | Researcher Database</a>
+            <a class="navbar-brand" href="researchtable.php">RGUEthics | research Database</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li><a href="research.php">Researcher</a></li>
+                    <li><a href="research.php">research</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>

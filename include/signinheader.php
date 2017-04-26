@@ -11,7 +11,7 @@ and open the template in the editor.
     <nav>
         <ul class="header-links">
             <li> <a href="signinindex.php">Home</a></li>
-            <li> <a href="researcher.php">Researcher</a></li>
+            <li> <a href="research.php">research</a></li>
             <li> <a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
             <li><a href="administrator.php">Administrator</a></li>
             <li> <a href="about.php">About Us</a></li>
