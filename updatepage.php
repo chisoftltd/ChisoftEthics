@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $result = mysqli_query($link, $query);
     $row = mysqli_fetch_array($result);
     $idnumber = $row['id'];
+    echo $idnumber;
     $researcher = $row['name'];
     $supervisor = $row['supervisor'];
 }
