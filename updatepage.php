@@ -42,12 +42,19 @@ if (isset($_POST['update'])) {
     $result2 = mysqli_query($link, $query2);
     $row2 = mysqli_fetch_array($result2);
     echo $row2['name'];
+    echo " : ";
     echo $row2['supervisor'];
+    echo " : ";
     echo $row2['department'];
+    echo " : ";
     echo $row2['projecttopic'];
+    echo " : ";
     echo $row2['projectdescription'];
+    echo " : ";
     echo $row2['startdate'];
+    echo " : ";
     echo $row2['enddate'];
+    echo " : ";
     echo $row2['datadetails'];
 
 
