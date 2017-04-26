@@ -24,20 +24,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 //check if form is submitted
-if (isset($_POST['approve'])) {
+if (isset($_POST['update'])) {
     echo "I am here 0";
-    $name = mysqli_real_escape_string($link, $_POST['$id']);
-    $projecttopic = mysqli_real_escape_string($link, $_POST['$researchername']);
-    $optradio = mysqli_real_escape_string($link, $_POST['optradio']);
-    $approvaloname = mysqli_real_escape_string($link, $_POST['approvaloname']);
-    $comment = mysqli_real_escape_string($link, $_POST['comment']);
-    $todaydate = mysqli_real_escape_string($link, $_POST['todaydate']);
-    echo $todaydate;
+    $name = mysqli_real_escape_string($link, $_POST['name']);
+    $supervisor = mysqli_real_escape_string($link, $_POST['supervisor']);
+    $department = mysqli_real_escape_string($link, $_POST['department']);
+    $projecttopic = mysqli_real_escape_string($link, $_POST['projecttopic']);
+    $projectdescription = mysqli_real_escape_string($link, $_POST['projectdescription']);
+    $startdate = mysqli_real_escape_string($link, $_POST['startdate']);
+    $enddate = mysqli_real_escape_string($link, $_POST['enddate']);
+    $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
     echo "I am here 1";
-    if (mysqli_query($link, "INSERT INTO approvalofficers(name, projecttopic, status, approvalofficer, statuscomment, todaydate ) 
-VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approvaloname . "','" . $comment . "','" . $todaydate . "')")) {
+    if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
+VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $projecttopic . "','" . $projectdescription . "','" . $startdate . "','" . $enddate . "','" . $datadetails . "') where id = '$id'")) {
         echo "I am here 2";
-        $successmsg = "Your comment Successfuly Registered!";
+        $successmsg = "Your comment Successfuly updated!";
         header("refresh:5; url=researchappovaltable.php");
     } else {
 
@@ -98,8 +99,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
 </form>
 <div class="container">
     <div class="col-md-8 col-md-offset-2 well">
-        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
-              name="ethicsform">
+        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="approvalform">
             <fieldset>
                 <legend>Ethics Update Form</legend>
                 <div>
@@ -108,8 +108,8 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 <div>
                     <tr>
                         <td>
-                    <label for="number[]">Research Number:</label>
-                    <input type="text" name="number[]" value="<?php echo $row['id']; ?>" contenteditable="true"/>
+                    <label for="number">Research Number:</label>
+                    <input type="number" name="number" value="<?php echo $row['id']; ?>" contenteditable="true"/>
                         </td>
                     </tr>
                 </div>
@@ -119,8 +119,8 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 <div>
                     <tr>
                         <td>
-                            <label for="name[]">Researcher Name: </label>
-                            <input type="text" name="name[]" contenteditable="true" value="<?php echo $row['name'];?>"/>
+                            <label for="name">Researcher Name: </label>
+                            <input type="text" name="name" contenteditable="true" value="<?php echo $row['name'];?>"/>
                         </td>
                     </tr>
                 </div>
@@ -202,34 +202,12 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 <div>
                     <hr>
                 </div>
-
+                <div class="form-group">
+                    <input type="submit" name="update" value="Submit" class="btn btn-primary"/>
+                </div>
             </fieldset>
         </form>
     </div>
-    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="approvalform" class="container">
-        <div class="radio">
-            <label><input type="radio" name="optradio">Approved</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio">Rejected</label>
-        </div>
-        <div class="form-group">
-            <label for="name">Comment:</label>
-            <textarea name="comment" rows="20" cols="auto"
-                      placeholder="Provide a brief outline to support the option above."
-                      required class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="approvaloname">Approval Officer Name</label>
-            <input type="text" name="approvaloname" placeholder="Enter Full Name" required
-                   value="<?php if ($error) echo $approvaloname; ?>" class="form-control"/>
-            <label for="name">Todays Date</label>
-            <input type="date" name="todaydate" placeholder="Today's Date" required class="form-control"/>
-        </div>
-        <div class="form-group">
-            <input type="submit" name="approve" value="Submit" class="btn btn-primary"/>
-        </div>
-    </form>
     <footer>
         <?php include 'include/footer.php'; ?>
     </footer>
