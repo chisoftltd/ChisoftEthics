@@ -107,7 +107,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 </div>
                 <div>
                     <label for="number">Research Number:</label>
-                    <input type="number" name="number" value="<?php echo $row['id'] ?> class=" form-control"/>;
+                    <input type="text" name="number" value="<?php echo $row['id'] ?> class=" form-control"/>;
                 </div>
                 <div>
                     <hr>
