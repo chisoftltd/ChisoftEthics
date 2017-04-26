@@ -35,42 +35,16 @@ if (isset($_POST['update'])) {
     $enddate = mysqli_real_escape_string($link, $_POST['enddate']);
     $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
 
-    echo "I am here 0";
-
-
     $query2 = "UPDATE research SET name = '$name', supervisor = '$supervisor', department='$department', 
     projecttopic ='$projecttopic', projectdescription ='$projectdescription', startdate ='$startdate', 
     enddate ='$enddate', datadetails = '$datadetails'  WHERE id =". $number;
 
 
-
-    $result2 = mysqli_query($link, $query2);
-    $row2 = mysqli_fetch_array($result2);
-    echo $query2;
-
-    echo $row2['name'];
-    echo " : ";
-    echo $row2['supervisor'];
-    echo " : ";
-    echo $row2['department'];
-    echo " : ";
-    echo $row2['projecttopic'];
-    echo " : ";
-    echo $row2['projectdescription'];
-    echo " : ";
-    echo $row2['startdate'];
-    echo " : ";
-    echo $row2['enddate'];
-    echo " : ";
-    echo $row2['datadetails'];
-
-
-    echo "I am here 1";
     if (mysqli_query($link, $query2)) {
 
         echo "I am here 2";
         $successmsg = "Your comment Successfuly updated!";
-        header("refresh:5; url=researchappovaltable.php");
+        header("refresh:5; url=officerprojecttable.php");
     } else {
 
         $errormsg = "Error in registering...Please try again later!";
@@ -205,7 +179,8 @@ if (isset($_POST['update'])) {
                     <hr>
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="update" value="Submit" class="btn btn-primary"/>
+                    <input class="popup" onclick="myFunction()" type="submit" name="update" value="Submit" class="btn btn-primary"/>
+                    <span class="popuptext" id="myPopup"><?php echo $successmsg; ?></span>
                 </div>
             </fieldset>
         </form>
@@ -214,6 +189,15 @@ if (isset($_POST['update'])) {
 <footer>
     <?php include 'include/footer.php'; ?>
 </footer>
+
+
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
