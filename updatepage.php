@@ -102,7 +102,7 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     </div>
     <div>
         <h3>Research Number:</h3>
-        <?php echo "<td><input type='text' name='number' value='".$row['id']."/></td>";?>
+        <?php echo "<input type='text' name='number' value='".$row['id']."/>";?>
     </div>
     <div>
         <hr>
