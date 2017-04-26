@@ -35,11 +35,12 @@ if (isset($_POST['update'])) {
     $enddate = mysqli_real_escape_string($link, $_POST['enddate']);
     $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
 
+    $query = "UPDATE research SET name = '$name', supervisor = '$supervisor', department='$department', 
+    projecttopic ='$projecttopic', projectdescription ='$projectdescription', startdate ='$startdate', 
+    enddate ='$enddate', datadetails = '$datadetails'  WHERE id = $id";
 
     echo "I am here 1";
-    if (mysqli_query($link, "UPDATE research SET name = $name, supervisor = $supervisor, department=$department, 
-projecttopic =$projecttopic, projectdescription =$projectdescription, startdate =$startdate, 
-enddate =$enddate, datadetails = $datadetails  WHERE id = $id")) {
+    if (mysqli_query($link, $query)) {
         echo "I am here 2";
         $successmsg = "Your comment Successfuly updated!";
         header("refresh:5; url=researchappovaltable.php");
@@ -109,106 +110,69 @@ enddate =$enddate, datadetails = $datadetails  WHERE id = $id")) {
                     <hr>
                 </div>
                 <div class="input-group">
-                    <tr>
-                        <td>
-                            <label for="number">Research Number:</label>
-                            <span></span>
-                            <input type="text" name="number" value="<?php echo $row['id']; ?>"
-                                   contenteditable="true"/>
-                        </td>
-                    </tr>
+                    <label for="number">Research Number:</label>
+                    <span></span>
+                    <input type="text" name="number" value="<?php echo $row['id']; ?>"/>
                 </div>
                 <div>
                     <hr>
                 </div>
                 <div class="input-group">
-                    <tr>
-                        <td>
-                            <label for="name">Researcher Name: </label>
-                            <input type="text" name="name" contenteditable="true" value="<?php echo $row['name']; ?>"/>
-                        </td>
-                    </tr>
+                    <label for="name">Researcher Name: </label>
+                    <input type="text" name="name" value="<?php echo $row['name']; ?>"/>
                 </div>
                 <hr>
                 <div>
-                    <tr>
-                        <td>
-                            <label for="supervisor">Project Supervisor: </label>
-                            <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>"
-                            />
-                        </td>
-                    </tr>
+                    <label for="supervisor">Project Supervisor: </label>
+                    <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>"
+                    />
                 </div>
                 <div>
                     <hr>
                 </div>
                 <div>
-                    <tr>
-                        <td>
-                            <label for="department">Department: </label>
-                            <input type="text" name="department" value="<?php echo $row['department']; ?>"
-                            />
-                        </td>
-                    </tr>
+                    <label for="department">Department: </label>
+                    <input type="text" name="department" value="<?php echo $row['department']; ?>"
+                    />
                 </div>
                 <div>
                     <hr>
                 </div>
                 <div>
-                    <tr>
-                        <td>
-                            <label for="projecttopic">Project Topice: </label>
-                            <input type="text" name="projecttopic" value="<?php echo $row['projecttopic']; ?>"
-                            />
-                        </td>
-                    </tr>
+                    <label for="projecttopic">Project Topice: </label>
+                    <input type="text" name="projecttopic" value="<?php echo $row['projecttopic']; ?>"
+                    />
                 </div>
                 <div>
                     <hr>
                 </div>
                 <div>
-                    <tr>
-                        <td>
-                            <label for="projectdescription">Project Description: </label>
+                    <label for="projectdescription">Project Description: </label>
                             <textarea type="text" rows="15" cols="auto" name="projectdescription"
                                       style="text-align:left">
                                       <?php echo $row['projectdescription']; ?></textarea>
-                        </td>
-                    </tr>
                 </div>
                 <div>
                     <hr>
                 </div>
                 <div>
-                    <tr>
-                        <td>
-                            <label for="startdate">Start Date: </label>
-                            <input type="date" name="startdate" value="<?php echo $row['startdate']; ?>"/>
-                        </td>
-                    </tr>
+                    <label for="startdate">Start Date: </label>
+                    <input type="date" name="startdate" value="<?php echo $row['startdate']; ?>"/>
                 </div>
                 <div>
                     <hr>
                 </div>
                 <div>
-                    <tr>
-                        <td>
-                            <label for="enddate">Deadline:</label>
-                            <input type="date" name="enddate" value="<?php echo $row['enddate']; ?>"/>
-                        </td>
-                    </tr>
+                    <label for="enddate">Deadline:</label>
+                    <input type="date" name="enddate" value="<?php echo $row['enddate']; ?>"/>
                 </div>
                 <div>
                     <hr>
                 </div>
                 <div>
-                    <tr>
-                        <td>
-                            <label for="datadetails">Data Handling details:</label>
+                    <label for="datadetails">Data Handling details:</label>
                             <textarea type="text" rows="10" cols="auto" name="datadetails" style="text-align: left">
                                       <?php echo $row['datadetails']; ?></textarea>
-                        </td>
-                    </tr>
                 </div>
                 <div>
                     <hr>
