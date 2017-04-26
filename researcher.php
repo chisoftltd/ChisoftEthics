@@ -265,7 +265,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
             </div> -->
 
         <div class="row">
-            <div class="col-md-11 col-md-offset-1 well">
+            <div class="col-md-10 col-md-offset-1 well">
                 <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>"
                       method="post"
                       name="ethicsform">
