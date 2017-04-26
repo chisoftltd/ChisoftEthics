@@ -48,10 +48,10 @@ if (isset($_POST['deleteform'])) {
         $del_id = $checkbox[$i];
         $sql = "DELETE FROM research WHERE id='$del_id'";
         $result3 = mysqli_query($link, $sql);
-        echo "Record deleted successfully";
     }
 // if successful redirect to delete_multiple.php
     if ($result3) {
+        echo "Record deleted successfully";
         header("refresh:5; url=officerprojecttable.php");
     }
 }
