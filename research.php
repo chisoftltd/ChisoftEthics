@@ -39,10 +39,10 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
 $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
 $count = mysqli_num_rows($result2);
-echo " i am here0 ";
+
 // Check if delete button active, start this
 if (isset($_POST['deleteform'])) {
-    echo " i am here1 ";
+  
     echo $count;
     for ($i = 0; $i < $count; $i++) {
         echo "i am here2 ";
@@ -260,8 +260,8 @@ if (isset($_POST['deleteform'])) {
                         include_once "dbconnect.php";
 
                         echo '<h3 style="text-align: center">', RESEARCH_ETHICS, '</h3>';
-                        $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
-                        $count = mysqli_num_rows($result2);
+                        //$result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
+                        //$count = mysqli_num_rows($result2);
                         if (mysqli_num_rows($result2)) {
                             echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
                             echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
