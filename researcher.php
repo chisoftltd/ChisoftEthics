@@ -135,17 +135,17 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
 
     <h3 style="text-align: center">Research Ethics Management System | Create | Update | Delete</h3>
-    <p>On tis page a reasearcher will be able to manage his or her research ethics via creating new ethics aplication, update exsiting ethics application or delete an ethics application</p>
+    <p>On this page, you as a reasearcher will be able to manage his or her research ethics via creating new ethics aplication, update exsiting ethics application or delete an ethics application</p>
 <div style="width: 100%" class="btn-group">
-    <button style="width:30%" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
-    <button style="width:30%" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Update</button>
+    <button style="width:30%" onclick="document.getElementById('create').style.display='block'" style="width:auto;">Create</button>
+    <button style="width:30%" onclick="document.getElementById('update').style.display='block'" style="width:auto;">Update</button>
     <button style="width:30%" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Delete</button>
 </div>
-    <div id="id01" class="modal">
+    <div id="create" class="modal">
 
        <!-- <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        <span onclick="document.getElementById('create').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
                 <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">
             </div> -->
@@ -155,7 +155,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
                           name="ethicsform">
                         <div class="imgcontainer">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        <span onclick="document.getElementById('create').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
                             <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
                         </div>
@@ -241,11 +241,11 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
     </div>
 
 
-    <div id="id02" class="modal">
+    <div id="update" class="modal">
 
         <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
-                        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                        <span onclick="document.getElementById('update').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
                 <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
             </div>
@@ -336,11 +336,11 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
     </div>
 
 
-    <div id="id03" class="modal">
+    <div id="delete" class="modal">
 
         <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
-                        <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                        <span onclick="document.getElementById('delete').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
                 <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
             </div>
@@ -432,9 +432,9 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
     <script>
         // Get the modal
-        var modal = document.getElementById('id01');
-        var modal = document.getElementById('id02');
-        var modal = document.getElementById('id03');
+        var modal = document.getElementById('create');
+        var modal = document.getElementById('update');
+        var modal = document.getElementById('delete');
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
