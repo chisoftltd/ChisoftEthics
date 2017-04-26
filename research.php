@@ -46,12 +46,12 @@ if (isset($_POST['deleteform'])) {
     echo $count;
     for ($i = 0; $i < $count; $i++) {
         $del_id = $checkbox[$i];
-        echo $del_id. "    ". " I am here " ;
         $sql = "DELETE FROM research WHERE id='$del_id'";
-        $result = mysqli_query($link, $sql);
+        $result3 = mysqli_query($link, $sql);
+        echo "Record deleted successfully";
     }
 // if successful redirect to delete_multiple.php
-    if ($result) {
+    if ($result3) {
         header("refresh:5; url=officerprojecttable.php");
     }
 }
