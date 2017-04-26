@@ -100,10 +100,10 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
     <div>
         <hr>
     </div>
-    <div>
+
         <h3>Research Number:</h3>
         <?php echo "<td><input type='number' name='number' value='".$row['id']."/></td>";?>
-    </div>
+    
 <!--    <h3>Research Number:</h3> <?php echo $row['id']; $id = $row['id']; ?> -->
     <div>
         <hr>
