@@ -246,12 +246,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         </div>
                     </fieldset>
                 </form>
-                <span class="text-success"><?php if (isset($successmsg)) {
-                        echo $successmsg;
-                    } ?></span>
-                <span class="text-danger"><?php if (isset($errormsg)) {
-                        echo $errormsg;
-                    } ?></span>
+
             </div>
         </div>
         <!--</form>-->
@@ -307,71 +302,71 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
             </div>
         </div>
 
+    </div>
+    <div id="delete" class="modal">
 
-        <div id="delete" class="modal">
+        <!--<form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+                    <span onclick="document.getElementById('delete').style.display='none'" class="close"
+                          title="Close Modal">&times;</span>
+                <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            </div>-->
 
-            <!--<form class="modal-content animate" action="/action_page.php">
-                <div class="imgcontainer">
-                        <span onclick="document.getElementById('delete').style.display='none'" class="close"
-                              title="Close Modal">&times;</span>
-                    <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">
-                </div>-->
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 well">
+                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                      name="deleteform">
+                    <fieldset>
+                        <legend>Ethics Delete Form</legend>
 
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 well">
-                    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
-                          name="deleteform">
-                        <fieldset>
-                            <legend>Ethics Delete Form</legend>
+                        <?php
+                        include_once "dbconnect.php";
 
-                            <?php
-                            include_once "dbconnect.php";
-
-                            echo '<h3 style="text-align: center">', RESEARCH_ETHICS, '</h3>';
-                            $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
-                            $count = mysqli_num_rows($result2);
-                            if (mysqli_num_rows($result2)) {
-                                echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
-                                echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
-                                while ($row2 = mysqli_fetch_array($result2)) {
-                                    echo '<tr>';
-                                    echo "<td>"."<input name='checkbox[]' type='checkbox' value= '<?php echo $row2[id]; ?>'></td>";
-                                    echo "<td>" . $row2[id] . "</td>";
-                                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
-                                    echo "<td>" . $row2[supervisor] . "</td>";
-                                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</a></td>";
-                                    echo "<td>" . $row2[startdate] . "</td>";
-                                    echo "<td>" . $row2[enddate] . "</td>";
-                                    echo "</tr>";
-                                }
-                                echo '</table><br />';
+                        echo '<h3 style="text-align: center">', RESEARCH_ETHICS, '</h3>';
+                        $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
+                        $count = mysqli_num_rows($result2);
+                        if (mysqli_num_rows($result2)) {
+                            echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
+                            echo '<tr><th>Check to Delete</th><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
+                            while ($row2 = mysqli_fetch_array($result2)) {
+                                echo '<tr>';
+                                echo "<td>" . "<input name='checkbox[]' type='checkbox' value= '<?php echo $row2[id]; ?>'></td>";
+                                echo "<td>" . $row2[id] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
+                                echo "<td>" . $row2[supervisor] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</a></td>";
+                                echo "<td>" . $row2[startdate] . "</td>";
+                                echo "<td>" . $row2[enddate] . "</td>";
+                                echo "</tr>";
                             }
-                            ?>
-                        </fieldset>
-                    </form>
-                </div>
+                            echo '</table><br />';
+                        }
+                        ?>
+                    </fieldset>
+                </form>
             </div>
-
-            <script>
-                // Get the modal
-                var modal = document.getElementById('create');
-                var modal = document.getElementById('update');
-                var modal = document.getElementById('delete');
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-            </script>
         </div>
-        <footer>
-            <?php include 'include/footer.php'; ?>
-        </footer>
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('create');
+        var modal = document.getElementById('update');
+        var modal = document.getElementById('delete');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</div>
+<footer>
+    <?php include 'include/footer.php'; ?>
+</footer>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
