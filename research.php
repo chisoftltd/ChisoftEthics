@@ -187,14 +187,16 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                             <label for="name">Supervisor</label>
                             <input type="text" name="supervisor" placeholder="Supervisor" required
                                    value="<?php if ($error) echo $supervisor; ?>" class="form-control"/>
-                            <span class="text-danger"><?php if (isset($supervisor_error)) echo $supervisor_error; ?></span>
+                            <span
+                                class="text-danger"><?php if (isset($supervisor_error)) echo $supervisor_error; ?></span>
                         </div>
 
                         <div class="form-group">
                             <label for="name">Department</label>
                             <input type="text" name="department" placeholder="Department" required
                                    class="form-control"/>
-                            <span class="text-danger"><?php if (isset($department_error)) echo $department_error; ?></span>
+                            <span
+                                class="text-danger"><?php if (isset($department_error)) echo $department_error; ?></span>
                         </div>
 
                         <div class="form-group">
@@ -202,7 +204,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                             <input type="text" name="projecttopic" placeholder="Project Topic" required
                                    class="form-control"/>
                             <span
-                                    class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
+                                class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
                         </div>
 
                         <div class="form-group">
@@ -211,14 +213,15 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                                       placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
                                       required class="form-control"></textarea>
                             <span
-                                    class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
+                                class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
                         </div>
 
                         <div class="form-group">
                             <label for="name">Start Date</label>
                             <input type="date" name="startdate" placeholder="Start Date" required
                                    class="form-control"/>
-                            <span class="text-danger"><?php if (isset($startdate_error)) echo $startdate_error; ?></span>
+                            <span
+                                class="text-danger"><?php if (isset($startdate_error)) echo $startdate_error; ?></span>
                         </div>
 
                         <div class="form-group">
@@ -235,7 +238,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                                       required
                                       class="form-control"></textarea>
                             <span
-                                    class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
+                                class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
                         </div>
 
                         <div class="form-group">
@@ -268,7 +271,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
             <div class="col-md-10 col-md-offset-1 well">
                 <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>"
                       method="post"
-                      name="ethicsform">
+                      name="updateform">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('update').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
@@ -289,11 +292,11 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                             while ($row2 = mysqli_fetch_array($result2)) {
                                 echo '<tr>';
                                 echo "<td>" . $row2[id] . "</td>";
-                                echo "<td><a href='updatepage.php?p={$row2['id']}'>"  . $row2[name] . "</td>";
-                                echo "<td>". $row2[supervisor] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
+                                echo "<td>" . $row2[supervisor] . "</td>";
                                 echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</a></td>";
                                 echo "<td>" . $row2[startdate] . "</td>";
-                                echo "<td>"  . $row2[enddate] . "</td>";
+                                echo "<td>" . $row2[enddate] . "</td>";
                                 echo "</tr>";
                             }
                             echo '</table><br />';
@@ -307,119 +310,68 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
         <div id="delete" class="modal">
 
-            <form class="modal-content animate" action="/action_page.php">
+            <!--<form class="modal-content animate" action="/action_page.php">
                 <div class="imgcontainer">
                         <span onclick="document.getElementById('delete').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
-                    <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+                    <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                </div>-->
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 well">
+                    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                          name="deleteform">
+                        <fieldset>
+                            <legend>Ethics Delete Form</legend>
+
+                            <?php
+                            include_once "dbconnect.php";
+
+                            echo '<h3 style="text-align: center">', RESEARCH_ETHICS, '</h3>';
+                            $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
+                            $count = mysqli_num_rows($result2);
+                            if (mysqli_num_rows($result2)) {
+                                echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
+                                echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
+                                while ($row2 = mysqli_fetch_array($result2)) {
+                                    echo '<tr>';
+                                    echo "<td>"."<input name='checkbox[]' type='checkbox' value= '<?php echo $row2[id]; ?>'></td>";
+                                    echo "<td>" . $row2[id] . "</td>";
+                                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
+                                    echo "<td>" . $row2[supervisor] . "</td>";
+                                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</a></td>";
+                                    echo "<td>" . $row2[startdate] . "</td>";
+                                    echo "<td>" . $row2[enddate] . "</td>";
+                                    echo "</tr>";
+                                }
+                                echo '</table><br />';
+                            }
+                            ?>
+                        </fieldset>
+                    </form>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-4 well">
-                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
-                              name="ethicsform">
-                            <fieldset>
-                                <legend>Ethics Delete Form</legend>
+            <script>
+                // Get the modal
+                var modal = document.getElementById('create');
+                var modal = document.getElementById('update');
+                var modal = document.getElementById('delete');
 
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" placeholder="Enter Full Name" required
-                                            class="form-control"/>
-                                    <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Supervisor</label>
-                                    <input type="text" name="supervisor" placeholder="Supervisor" required
-                                            class="form-control"/>
-                                    <span class="text-danger"><?php if (isset($supervisor_error)) echo $supervisor_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Department</label>
-                                    <input type="text" name="department" placeholder="Department" required
-                                           class="form-control"/>
-                                    <span class="text-danger"><?php if (isset($department_error)) echo $department_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Project Topic</label>
-                                    <input type="text" name="projecttopic" placeholder="Project Topic" required
-                                           class="form-control"/>
-                                    <span
-                                            class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Project Description</label>
-                                    <textarea type="text" name="projectdescription" rows="20" cols="auto"
-                                              placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
-                                              required class="form-control"></textarea>
-                                    <span
-                                            class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Start Date</label>
-                                    <input type="date" name="startdate" placeholder="Start Date" required
-                                           class="form-control"/>
-                                    <span class="text-danger"><?php if (isset($startdate_error)) echo $startdate_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">End Date (Deadline)</label>
-                                    <input type="date" name="enddate" placeholder="End Date (deadline)" required
-                                           class="form-control"/>
-                                    <span class="text-danger"><?php if (isset($enddate_error)) echo $enddate_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Data Details</label>
-                                    <textarea type="text" style="text-align: left" name="datadetails" rows="20"
-                                              cols="auto"
-                                              placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis."
-                                              required
-                                              class="form-control"></textarea>
-                                    <span
-                                            class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="submit" name="signup" value="Register" class="btn btn-primary"/>
-                                </div>
-                            </fieldset>
-                        </form>
-                        <span class="text-success"><?php if (isset($successmsg)) {
-                                echo $successmsg;
-                            } ?></span>
-                        <span class="text-danger"><?php if (isset($errormsg)) {
-                                echo $errormsg;
-                            } ?></span>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <script>
-            // Get the modal
-            var modal = document.getElementById('create');
-            var modal = document.getElementById('update');
-            var modal = document.getElementById('delete');
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
                 }
-            }
-        </script>
-    </div>
-    <footer>
-        <?php include 'include/footer.php'; ?>
-    </footer>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            </script>
+        </div>
+        <footer>
+            <?php include 'include/footer.php'; ?>
+        </footer>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

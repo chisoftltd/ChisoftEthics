@@ -37,7 +37,7 @@ if (isset($_POST['update'])) {
 
     $query2 = "UPDATE research SET name = '$name', supervisor = '$supervisor', department='$department', 
     projecttopic ='$projecttopic', projectdescription ='$projectdescription', startdate ='$startdate', 
-    enddate ='$enddate', datadetails = '$datadetails'  WHERE id =". $number;
+    enddate ='$enddate', datadetails = '$datadetails'  WHERE id =" . $number;
 
 
     if (mysqli_query($link, $query2)) {
@@ -183,6 +183,12 @@ if (isset($_POST['update'])) {
                 </div>
             </fieldset>
         </form>
+        <span class="text-success"><?php if (isset($successmsg)) {
+                echo $successmsg;
+            } ?></span>
+                        <span class="text-danger"><?php if (isset($errormsg)) {
+                                echo $errormsg;
+                            } ?></span>
     </div>
 </div>
 <footer>
