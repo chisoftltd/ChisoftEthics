@@ -120,7 +120,8 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 <div>
                     <hr>
                 </div>
-                <h3>Department: </h3><?php echo $row['department']; ?>
+                <h3>Department: </h3>
+                <input type="text" name="number" value="<?php echo $row['department'];?>" class="form-control"/>
                 <div>
                     <hr>
                 </div>
