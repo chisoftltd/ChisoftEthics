@@ -116,13 +116,13 @@ if (isset($_POST['deleteform'])) {
         <hr>
     </div>
     <div style="width: 100%" class="btn-group">
-        <button onclick="document.getElementById('create').style.display='block'" style="width:auto;">
+        <button onclick="document.getElementById('create').style.display='block'" style="width: 30%;">
             Create
         </button>
-        <button onclick="document.getElementById('update').style.display='block'" style="width:auto;">
+        <button onclick="document.getElementById('update').style.display='block'" style="width: 30%">
             Update
         </button>
-        <button onclick="document.getElementById('delete').style.display='block'" style="width:auto;">
+        <button onclick="document.getElementById('delete').style.display='block'" style="width: 30%;">
             Delete
         </button>
     </div>
