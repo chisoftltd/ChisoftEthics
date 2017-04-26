@@ -101,11 +101,10 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
         <hr>
     </div>
     <div>
-        <?php echo
-        "<label for='number'>.'Research Number'.</label>";
-         "<td><input type='number' name='number' value='".$row['id']."/></td>";?>
+        <h3>Research Number:</h3> 
+        <?php echo "<td><input type='number' name='number' value='".$row['id']."/></td>";?>
     </div>
-    <h3>Research Number:</h3> <?php echo $row['id']; $id = $row['id']; ?>
+<!--    <h3>Research Number:</h3> <?php echo $row['id']; $id = $row['id']; ?> -->
     <div>
         <hr>
     </div>
