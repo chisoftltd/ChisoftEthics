@@ -45,9 +45,9 @@ if (isset($_POST['deleteform'])) {
 
     echo $count;
     for ($i = 0; $i < $count; $i++) {
-        echo "   $checkbox[$i]    ";
+        echo "   I am here 2  ";
         $del_id = $checkbox[$i];
-        echo $del_id;
+        echo $del_id. "    ". " I am here 3 " ;
         $sql = "DELETE FROM research WHERE id='$del_id'";
         $result = mysqli_query($link, $sql);
     }
