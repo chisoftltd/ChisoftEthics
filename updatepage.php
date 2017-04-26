@@ -105,6 +105,77 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                 <div>
                     <hr>
                 </div>
+
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" placeholder="Enter Full Name" required
+                           value="<?php echo $row['name'];?>" class="form-control"/>
+                    <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Supervisor</label>
+                    <input type="text" name="supervisor" placeholder="Supervisor" required
+                           value="<?php if ($error) echo $supervisor; ?>" class="form-control"/>
+                    <span class="text-danger"><?php if (isset($supervisor_error)) echo $supervisor_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Department</label>
+                    <input type="text" name="department" placeholder="Department" required
+                           class="form-control"/>
+                    <span class="text-danger"><?php if (isset($department_error)) echo $department_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Project Topic</label>
+                    <input type="text" name="projecttopic" placeholder="Project Topic" required
+                           class="form-control"/>
+                    <span
+                            class="text-danger"><?php if (isset($projecttopic_error)) echo $projecttopic_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Project Description</label>
+                    <textarea type="text" name="projectdescription" rows="20" cols="auto"
+                              placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
+                              required class="form-control"></textarea>
+                    <span
+                            class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Start Date</label>
+                    <input type="date" name="startdate" placeholder="Start Date" required
+                           class="form-control"/>
+                    <span class="text-danger"><?php if (isset($startdate_error)) echo $startdate_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">End Date (Deadline)</label>
+                    <input type="date" name="enddate" placeholder="End Date (deadline)" required
+                           class="form-control"/>
+                    <span class="text-danger"><?php if (isset($enddate_error)) echo $enddate_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Data Details</label>
+                    <textarea type="text" style="text-align: left" name="datadetails" rows="20"
+                              cols="auto"
+                              placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis."
+                              required
+                              class="form-control"></textarea>
+                    <span
+                            class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" name="signup" value="Register" class="btn btn-primary"/>
+                </div>
+
+
+
                 <div>
                     <label for="number">Research Number:</label>
                     <input type="text" name="number" value="<?php echo $row['id']; ?>" class="form-control"/>
