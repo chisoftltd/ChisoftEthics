@@ -105,22 +105,24 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                 <div>
                     <hr>
                 </div>
-                <div>
+                <div class="input-group">
                     <tr>
                         <td>
-                    <label for="number">Research Number:</label>
-                    <input type="number" name="number" value="<?php echo $row['id']; ?>" contenteditable="true"/>
+                            <label for="number">Research Number:</label>
+                            <span></span>
+                            <input type="number" name="number" value="<?php echo $row['id']; ?>"
+                                   contenteditable="true"/>
                         </td>
                     </tr>
                 </div>
                 <div>
                     <hr>
                 </div>
-                <div>
+                <div class="input-group">
                     <tr>
                         <td>
                             <label for="name">Researcher Name: </label>
-                            <input type="text" name="name" contenteditable="true" value="<?php echo $row['name'];?>"/>
+                            <input type="text" name="name" contenteditable="true" value="<?php echo $row['name']; ?>"/>
                         </td>
                     </tr>
                 </div>
@@ -129,7 +131,8 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="supervisor">Project Supervisor: </label>
-                            <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>" placeholder=""/>
+                            <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>"
+                                   placeholder=""/>
                         </td>
                     </tr>
                 </div>
@@ -140,7 +143,8 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="department">Department: </label>
-                            <input type="text" name="department" value="<?php echo $row['department'];?>" class="form-control"/>
+                            <input type="text" name="department" value="<?php echo $row['department']; ?>"
+                                   class="form-control"/>
                         </td>
                     </tr>
                 </div>
@@ -151,7 +155,8 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="projecttopic">Project Topice: </label>
-                            <input type="text" name="projecttopic" value="<?php echo $row['projecttopic'];?>" class="form-control"/>
+                            <input type="text" name="projecttopic" value="<?php echo $row['projecttopic']; ?>"
+                                   class="form-control"/>
                         </td>
                     </tr>
                 </div>
@@ -162,7 +167,8 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="projectdescription">Project Description: </label>
-                            <textarea type="text" rows="10"  cols="auto" name="projectdescription" value="<?php echo $row['projectdescription'];?>"></textarea>
+                            <textarea type="text" rows="10" cols="auto" name="projectdescription"
+                                      value="<?php echo $row['projectdescription']; ?>"></textarea>
                         </td>
                     </tr>
                 </div>
@@ -173,7 +179,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="startdate">Start Date: </label>
-                            <input type="date"  name="startdate" value="<?php echo $row['startdate'];?>"/>
+                            <input type="date" name="startdate" value="<?php echo $row['startdate']; ?>"/>
                         </td>
                     </tr>
                 </div>
@@ -184,7 +190,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="enddate">Deadline:</label>
-                            <input type="date" name="enddate" value="<?php echo $row['enddate'];?>" />
+                            <input type="date" name="enddate" value="<?php echo $row['enddate']; ?>"/>
                         </td>
                     </tr>
                 </div>
@@ -195,7 +201,8 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                     <tr>
                         <td>
                             <label for="datadetails">Data Handling details:</label>
-                            <textarea type="text" rows="20"  cols="auto" name="datadetails" value="<?php echo $row['datadetails'];?>"></textarea>
+                            <textarea type="text" rows="20" cols="auto" name="datadetails"
+                                      value="<?php echo $row['datadetails']; ?>"></textarea>
                         </td>
                     </tr>
                 </div>
@@ -208,12 +215,13 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
             </fieldset>
         </form>
     </div>
-    <footer>
-        <?php include 'include/footer.php'; ?>
-    </footer>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+<footer>
+    <?php include 'include/footer.php'; ?>
+</footer>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
