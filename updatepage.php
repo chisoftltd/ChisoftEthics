@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 //check if form is submitted
 if (isset($_POST['update'])) {
     echo "I am here 0";
+    $number = mysqli_real_escape_string($link, $_POST['number']);
     $name = mysqli_real_escape_string($link, $_POST['name']);
     $supervisor = mysqli_real_escape_string($link, $_POST['supervisor']);
     $department = mysqli_real_escape_string($link, $_POST['department']);
@@ -36,7 +37,7 @@ if (isset($_POST['update'])) {
     $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
     echo "I am here 1";
     if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
-VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $projecttopic . "','" . $projectdescription . "','" . $startdate . "','" . $enddate . "','" . $datadetails . "') where id = '$id'")) {
+VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescription','$startdate','$enddate','$datadetails') where id = '$id'")) {
         echo "I am here 2";
         $successmsg = "Your comment Successfuly updated!";
         header("refresh:5; url=researchappovaltable.php");
