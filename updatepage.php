@@ -39,6 +39,17 @@ if (isset($_POST['update'])) {
     $query2 = "UPDATE research SET name = '$name', supervisor = '$supervisor', department='$department', 
     projecttopic ='$projecttopic', projectdescription ='$projectdescription', startdate ='$startdate', 
     enddate ='$enddate', datadetails = '$datadetails'  WHERE id =". $id;
+    $result2 = mysqli_query($link, $query2);
+    $row2 = mysqli_fetch_array($result2);
+    echo $row2['name'];
+    echo $row2['supervisor'];
+    echo $row2['department'];
+    echo $row2['projecttopic'];
+    echo $row2['projectdescription'];
+    echo $row2['startdate'];
+    echo $row2['enddate'];
+    echo $row2['datadetails'];
+
 
     echo "I am here 1";
     if (mysqli_query($link, $query2)) {
