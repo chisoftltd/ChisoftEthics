@@ -316,6 +316,11 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
             <div class="col-md-10 col-md-offset-1 well">
                 <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
                       name="deleteform">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('delete').style.display='none'" class="close"
+                              title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+                    </div>
                     <fieldset>
                         <legend>Ethics Delete Form</legend>
 
