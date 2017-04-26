@@ -106,22 +106,44 @@ VALUES('" . $name . "','" . $projecttopic . "','" . $optradio . "','" . $approva
                     <hr>
                 </div>
                 <div>
-                    <label for="number">Research Number:</label>
-                    <input type="text" name="number" value="<?php echo $row['id']; ?>" class="form-control" contenteditable="true"/>
+                    <tr>
+                        <td>
+                    <label for="number[]">Research Number:</label>
+                    <input type="text" name="number[]" value="<?php echo $row['id']; ?>" contenteditable="true"/>
+                        </td>
+                    </tr>
                 </div>
                 <div>
                     <hr>
                 </div>
-                <label for="name">Researcher Name: </label>
-                <input type="text" name="name" contenteditable="true" value="<?php echo $row['name'];?>" class="form-control"/>
-                    <hr>
-                <label for="supervisor">Project Supervisor: </label>
-                <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>" placeholder="" class="form-control"/>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="name[]">Researcher Name: </label>
+                            <input type="text" name="name[]" contenteditable="true" value="<?php echo $row['name'];?>"/>
+                        </td>
+                    </tr>
+                </div>
+                <hr>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="supervisor">Project Supervisor: </label>
+                            <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>" placeholder=""/>
+                        </td>
+                    </tr>
+                </div>
                 <div>
                     <hr>
                 </div>
-                <label for="department">Department: </label>
-                <input type="text" name="department" value="<?php echo $row['department'];?>" class="form-control"/>
+                <div>
+                    <tr>
+                        <td>
+                            <label for="department">Department: </label>
+                            <input type="text" name="department" value="<?php echo $row['department'];?>" class="form-control"/>
+                        </td>
+                    </tr>
+                </div>
                 <div>
                     <hr>
                 </div>

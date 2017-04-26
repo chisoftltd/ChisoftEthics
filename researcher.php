@@ -288,12 +288,12 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                             echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
                             while ($row2 = mysqli_fetch_array($result2)) {
                                 echo '<tr>';
-                                echo "<td>" . $row2[id] . "</td>";
-                                echo "<td>" . $row2[name] . "</td>";
-                                echo "<td>" . $row2[supervisor] . "</td>";
-                                echo "<td><a href='updatepage.php?p={$row2['id']}'> " . $row2[projecttopic] . "</a></td>";
-                                echo "<td>" . $row2[startdate] . "</td>";
-                                echo "<td>" . $row2[enddate] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>"  . $row2[id] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>"  . $row2[name] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[supervisor] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</a></td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>"  . $row2[startdate] . "</td>";
+                                echo "<td><a href='updatepage.php?p={$row2['id']}'>"  . $row2[enddate] . "</td>";
                                 echo "</tr>";
                             }
                             echo '</table><br />';

@@ -19,7 +19,7 @@
             <li><a href="contact.php">Contact</a></li>
         </ul>
         <p style="text-align: center;">
-            &copy; 2010-<?php echo date("Y"); ?>
+            &copy; 2016-<?php echo date("Y"); ?>
         </p>
     </nav>
 </footer>
