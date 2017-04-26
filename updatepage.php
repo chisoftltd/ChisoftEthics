@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 //check if form is submitted
 if (isset($_POST['update'])) {
-    echo "I am here 0";
     $number = mysqli_real_escape_string($link, $_POST['number']);
     $name = mysqli_real_escape_string($link, $_POST['name']);
     $supervisor = mysqli_real_escape_string($link, $_POST['supervisor']);
@@ -35,9 +34,12 @@ if (isset($_POST['update'])) {
     $startdate = mysqli_real_escape_string($link, $_POST['startdate']);
     $enddate = mysqli_real_escape_string($link, $_POST['enddate']);
     $datadetails = mysqli_real_escape_string($link, $_POST['datadetails']);
+
+
     echo "I am here 1";
-    if (mysqli_query($link, "INSERT INTO research(name,supervisor,department, projecttopic, projectdescription, startdate, enddate, datadetails ) 
-VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescription','$startdate','$enddate','$datadetails') where id = '$id'")) {
+    if (mysqli_query($link, "UPDATE research SET name = $name, supervisor = $supervisor, department=$department, 
+projecttopic =$projecttopic, projectdescription =$projectdescription, startdate =$startdate, 
+enddate =$enddate, datadetails = $datadetails  WHERE id = $id")) {
         echo "I am here 2";
         $successmsg = "Your comment Successfuly updated!";
         header("refresh:5; url=researchappovaltable.php");
@@ -111,7 +113,7 @@ VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescrip
                         <td>
                             <label for="number">Research Number:</label>
                             <span></span>
-                            <input type="number" name="number" value="<?php echo $row['id']; ?>"
+                            <input type="text" name="number" value="<?php echo $row['id']; ?>"
                                    contenteditable="true"/>
                         </td>
                     </tr>
@@ -133,7 +135,7 @@ VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescrip
                         <td>
                             <label for="supervisor">Project Supervisor: </label>
                             <input type="text" name="supervisor" value="<?php echo $row["supervisor"]; ?>"
-                                   placeholder=""/>
+                            />
                         </td>
                     </tr>
                 </div>
@@ -145,7 +147,7 @@ VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescrip
                         <td>
                             <label for="department">Department: </label>
                             <input type="text" name="department" value="<?php echo $row['department']; ?>"
-                                   class="form-control"/>
+                            />
                         </td>
                     </tr>
                 </div>
@@ -157,7 +159,7 @@ VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescrip
                         <td>
                             <label for="projecttopic">Project Topice: </label>
                             <input type="text" name="projecttopic" value="<?php echo $row['projecttopic']; ?>"
-                                   class="form-control"/>
+                            />
                         </td>
                     </tr>
                 </div>
@@ -168,7 +170,8 @@ VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescrip
                     <tr>
                         <td>
                             <label for="projectdescription">Project Description: </label>
-                            <textarea type="text" rows="15" cols="auto" name="projectdescription" style="text-align:left">
+                            <textarea type="text" rows="15" cols="auto" name="projectdescription"
+                                      style="text-align:left">
                                       <?php echo $row['projectdescription']; ?></textarea>
                         </td>
                     </tr>
@@ -203,7 +206,7 @@ VALUES('$name ', '$supervisor ', '$department ','$projecttopic','$projectdescrip
                         <td>
                             <label for="datadetails">Data Handling details:</label>
                             <textarea type="text" rows="10" cols="auto" name="datadetails" style="text-align: left">
-                                      <?php echo $row['datadetails'];?></textarea>
+                                      <?php echo $row['datadetails']; ?></textarea>
                         </td>
                     </tr>
                 </div>
