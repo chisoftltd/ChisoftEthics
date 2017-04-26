@@ -39,11 +39,15 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
 
 $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
 $count = mysqli_num_rows($result2);
-
+echo " i am here0 ";
 // Check if delete button active, start this
 if (isset($_POST['deleteform'])) {
+    echo " i am here1 ";
+    echo $count;
     for ($i = 0; $i < $count; $i++) {
+        echo "i am here2 ";
         $del_id = $checkbox[$i];
+        echo $del_id;
         $sql = "DELETE FROM research WHERE id='$del_id'";
         $result = mysqli_query($link, $sql);
     }
