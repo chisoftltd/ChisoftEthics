@@ -179,8 +179,7 @@ if (isset($_POST['update'])) {
                     <hr>
                 </div>
                 <div class="form-group">
-                    <input class="popup" onclick="myFunction()" type="submit" name="update" value="Submit" class="btn btn-primary"/>
-                    <span class="popuptext" id="myPopup"><?php echo $successmsg; ?></span>
+                    <input type="submit" name="update" value="Submit" class="btn btn-primary"/>
                 </div>
             </fieldset>
         </form>
@@ -189,15 +188,6 @@ if (isset($_POST['update'])) {
 <footer>
     <?php include 'include/footer.php'; ?>
 </footer>
-
-
-<script>
-    // When the user clicks on div, open the popup
-    function myFunction() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
-    }
-</script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
