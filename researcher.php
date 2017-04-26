@@ -265,7 +265,7 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
             </div> -->
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2 well">
+            <div class="col-md-10 col-md-offset-2 well">
                 <form role="form" class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF']; ?>"
                       method="post"
                       name="ethicsform">
@@ -275,12 +275,12 @@ VALUES('" . $name . "', '" . $supervisor . "', '" . $department . "','" . $proje
                         <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
                     </div>
                     <fieldset>
-                        <legend>Ethics Update Form</legend>
+                        <legend style="text-align: center">Ethics Update Form</legend>
 
                         <?php
                         include_once "dbconnect.php";
 
-                        echo '<h3>', RESEARCH, '</h3>';
+                        echo '<h3>', RESEARCH-ETHICS, '</h3>';
                         $result2 = mysqli_query($link, "SELECT id, name, supervisor, projecttopic, startdate, enddate FROM research") or die('cannot show columns from research');
                         $count = mysqli_num_rows($result2);
                         if (mysqli_num_rows($result2)) {
