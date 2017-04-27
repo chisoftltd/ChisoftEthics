@@ -12,8 +12,11 @@ unset($_session['user_id']);
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="google-site-verification"
+          content="<meta name=" google-site-verification
+    "content="rgY0TPcTX0rgDSsKo3HmkVUXkrmXbMsiOZRxRgiEqJU" />" />
     <title>Home | RGUEthics System</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
 </head>
@@ -65,7 +68,7 @@ unset($_session['user_id']);
             Attention to the ethical and legal implications of research for researchers, research subjects, sponsors and
             collaborators is an intrinsic
             part of good research <a
-                href="http://www.ed.ac.uk/geosciences/intranet/working-in-school/other-important-information/ethicsinresearch">practice.</a>
+                    href="http://www.ed.ac.uk/geosciences/intranet/working-in-school/other-important-information/ethicsinresearch">practice.</a>
         </p>
         <p>You need to assess whether your project needs an ethical submission. This can be done by completing the RESSA
             form and based on the outcome decide whether an application is needed.</p>
