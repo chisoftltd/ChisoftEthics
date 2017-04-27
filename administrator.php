@@ -167,9 +167,9 @@ if (!$link) {
                 while ($row2 = mysqli_fetch_array($result2)) {
                     echo '<tr>';
                     echo "<td>" . $row2[id] . "</td>";
-                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
-                    echo "<td>" . $row2[projecttopic] . "</td>";
-                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[status] . "</a></td>";
+                    echo "<td>" . $row2[name] . "</td>";
+                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</td>";
+                    echo "<td>" . $row2[status] . "</a></td>";
                     echo "<td>" . $row2[approvalofficer] . "</td>";
                     echo "<td>" . $row2[statuscomment] . "</td>";
                     echo "<td>" . $row2[todaydate] . "</td>";
