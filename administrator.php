@@ -163,7 +163,7 @@ if (!$link) {
             $count = mysqli_num_rows($result2);
             if (mysqli_num_rows($result2)) {
                 echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
-                echo '<tr><th>Student ID</th><th>Researcher Name</th><th>Project Topic</th><th>Approval Officer</th><th>Research Status</th><th>Approval Date</th></tr>';
+                echo '<tr><th>Student ID</th><th>Researcher Name</th><th>Project Topic</th><th>Research Status</th><th>Approval Officer</th><th>Comments</th><th>Approval Date</th></tr>';
                 while ($row2 = mysqli_fetch_array($result2)) {
                     echo '<tr>';
                     echo "<td>" . $row2[id] . "</td>";
