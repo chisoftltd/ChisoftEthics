@@ -14,6 +14,9 @@ if (!isset($_SESSION['usr_id'])) {
     echo "''<h1>.Timed Out!.</h1>";
 }
 
+$sql = "SHOW TABLES FROM localdb LIKE '%research%'";
+$result = mysqli_query($link, $sql);
+
 if (!$result) {
     echo "DB Error, could not list tables\n";
     echo 'MySQL Error: ' . mysqli_error();
@@ -84,8 +87,6 @@ if (!$link) {
 <div class="container">
 
     <?php
-    $sql = "SHOW TABLES FROM localdb LIKE '%research%'";
-    $result = mysqli_query($link, $sql);
 
     if (mysqli_num_rows($result)) {
         echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
