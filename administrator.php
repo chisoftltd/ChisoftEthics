@@ -23,9 +23,6 @@ if (!$result) {
     exit;
 }
 
-while ($row = mysqli_fetch_row($result)) {
-    echo "Table: {$row[0]}\n";
-}
 
 // Check connection
 if (!$link) {
@@ -89,6 +86,12 @@ if (!$link) {
 </form>
 <div class="container">
 
+    <?php
+    while ($row = mysqli_fetch_row($result)) {
+        echo "Table: {$row[0]}\n";
+    }
+
+    ?>
 </div>
 
 <footer>
