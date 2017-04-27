@@ -180,6 +180,39 @@ if (!$link) {
         }
         ?>
     </fieldset>
+    <div>
+        <hr>
+    </div>
+    <fieldset>
+        <legend style="text-align: center">Log Table</legend>
+        <?php
+        $sql = "SHOW TABLES FROM localdb LIKE 'logtable'";
+        $result = mysqli_query($link, $sql);
+
+        if (!$result) {
+            echo "DB Error, could not list tables\n";
+            echo 'MySQL Error: ' . mysqli_error();
+            exit;
+        }
+        while ($row = mysqli_fetch_row($result)) {
+            $result2 = mysqli_query($link, "SELECT * FROM logtable") or die('cannot show columns from research');
+            $count = mysqli_num_rows($result2);
+            if (mysqli_num_rows($result2)) {
+                echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
+                echo '<tr><th>Student ID</th><th>Researcher Name</th><th>Login Date</th><th>Logout Date</th></tr>';
+                while ($row2 = mysqli_fetch_array($result2)) {
+                    echo '<tr>';
+                    echo "<td>" . $row2[id] . "</td>";
+                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[username] . "</td>";
+                    echo "<td>" . $row2[logindate] . "</td>";
+                    echo "<td>" . $row2[logoutdate] . "</a></td>";
+                    echo "</tr>";
+                }
+                echo '</table><br />';
+            }
+        }
+        ?>
+    </fieldset>
 </div>
 
 <footer>
