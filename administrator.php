@@ -14,6 +14,19 @@ if (!isset($_SESSION['usr_id'])) {
     echo "''<h1>.Timed Out!.</h1>";
 }
 
+$sql = "SHOW TABLES FROM localdb";
+$result = mysqli_query($sql);
+
+if (!$result) {
+    echo "DB Error, could not list tables\n";
+    echo 'MySQL Error: ' . mysqli_error();
+    exit;
+}
+
+while ($row = mysqli_fetch_row($result)) {
+    echo "Table: {$row[0]}\n";
+}
+
 // Check connection
 if (!$link) {
     die("Connection failed: " . mysqli_connect_error());
