@@ -148,7 +148,7 @@ if (!$link) {
         <hr>
     </div>
     <fieldset>
-        <legend style="text-align: center">Researcher Table</legend>
+        <legend style="text-align: center">Approval Officers Table</legend>
         <?php
         $sql = "SHOW TABLES FROM localdb LIKE 'approvalofficers'";
         $result = mysqli_query($link, $sql);
