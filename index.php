@@ -5,23 +5,28 @@
  * Date: 21/04/2017
  * Time: 16:19
  */
+
+// Start a session
 session_start();
+
+// include the database script
 include_once 'dbconnect.php';
+
+//end any active user session
 unset($_session['user_id']);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="google-site-verification"
-          content="<meta name=" google-site-verification
-    "content="rgY0TPcTX0rgDSsKo3HmkVUXkrmXbMsiOZRxRgiEqJU" />" />
     <title>Home | RGUEthics System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/main-style.css"> <!-- Add css file-->
 </head>
 <body>
 
+<!-- add top navigational bar-->
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -35,7 +40,14 @@ unset($_session['user_id']);
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
+                <!-- check if same user is still same as the active session user and load appropriate menu options -->
                 <?php if (isset($_SESSION['usr_id'])) { ?>
+                    <liclass="active"><a href="signinindex.php">Home</a></li>
+                    <li><a href="research.php">Researchs</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
+                    <li><a href="administrator.php">Administrator</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
