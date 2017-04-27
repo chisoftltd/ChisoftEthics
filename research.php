@@ -42,8 +42,6 @@ $count = mysqli_num_rows($result2);
 
 // Check if delete button active, start this
 if (isset($_POST['deleteform'])) {
-
-    echo $count;
     for ($i = 0; $i < $count; $i++) {
         $del_id = $checkbox[$i];
         $sql = "DELETE FROM research WHERE id='$del_id'";
