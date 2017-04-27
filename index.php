@@ -61,9 +61,7 @@ unset($_session['user_id']);
         </div>
     </div>
 </nav>
-<header>
-    <?php include 'include/header.php'; ?>
-</header>
+
 <form>
     <hr>
 </form>
