@@ -144,7 +144,42 @@ if (!$link) {
 
         ?>
     </fieldset>
+    <div>
+        <hr>
+    </div>
+    <fieldset>
+        <legend style="text-align: center">Researcher Table</legend>
+        <?php
+        $sql = "SHOW TABLES FROM localdb LIKE 'approvalofficers'";
+        $result = mysqli_query($link, $sql);
 
+        if (!$result) {
+            echo "DB Error, could not list tables\n";
+            echo 'MySQL Error: ' . mysqli_error();
+            exit;
+        }
+        while ($row = mysqli_fetch_row($result)) {
+            $result2 = mysqli_query($link, "SELECT * FROM approvalofficers") or die('cannot show columns from research');
+            $count = mysqli_num_rows($result2);
+            if (mysqli_num_rows($result2)) {
+                echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
+                echo '<tr><th>Student ID</th><th>Researcher Name</th><th>Project Topic</th><th>Approval Officer</th><th>Research Status</th><th>Approval Date</th></tr>';
+                while ($row2 = mysqli_fetch_array($result2)) {
+                    echo '<tr>';
+                    echo "<td>" . $row2[id] . "</td>";
+                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
+                    echo "<td>" . $row2[projecttopic] . "</td>";
+                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[status] . "</a></td>";
+                    echo "<td>" . $row2[approvalofficer] . "</td>";
+                    echo "<td>" . $row2[statuscomment] . "</td>";
+                    echo "<td>" . $row2[todaydate] . "</td>";
+                    echo "</tr>";
+                }
+                echo '</table><br />';
+            }
+        }
+        ?>
+    </fieldset>
 </div>
 
 <footer>
