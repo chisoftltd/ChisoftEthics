@@ -51,6 +51,9 @@ include_once 'dbconnect.php';
         </div>
     </div>
 </nav>
+<header>
+    <?php include 'include/signinheader.php'; ?>
+</header>
 <form>
     <hr>
 </form>
