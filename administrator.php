@@ -76,7 +76,7 @@ if (!$link) {
 </form>
 <div class="container">
     <fieldset>
-        <legend style="text-align: center">Ethics Update Form</legend>
+        <legend style="text-align: center">Research Table</legend>
         <?php
         $sql = "SHOW TABLES FROM localdb LIKE 'research'";
         $result = mysqli_query($link, $sql);
@@ -87,13 +87,11 @@ if (!$link) {
             exit;
         }
         while ($row = mysqli_fetch_row($result)) {
-            echo "Table: {$row[0]}\n  ";
-            if (isset($row[0]) == 'research') {
                 $result2 = mysqli_query($link, "SELECT * FROM research") or die('cannot show columns from research');
                 $count = mysqli_num_rows($result2);
                 if (mysqli_num_rows($result2)) {
                     echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
-                    echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
+                    echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date</th><th>End Date</th></tr>';
                     while ($row2 = mysqli_fetch_array($result2)) {
                         echo '<tr>';
                         echo "<td>" . $row2[id] . "</td>";
@@ -106,11 +104,47 @@ if (!$link) {
                     }
                     echo '</table><br />';
                 }
-            }
+
         }
 
         ?>
     </fieldset>
+    <div>
+        <hr>
+    </div>
+    <fieldset>
+        <legend style="text-align: center">Researcher Table</legend>
+        <?php
+        $sql = "SHOW TABLES FROM localdb LIKE 'students'";
+        $result = mysqli_query($link, $sql);
+
+        if (!$result) {
+            echo "DB Error, could not list tables\n";
+            echo 'MySQL Error: ' . mysqli_error();
+            exit;
+        }
+        while ($row = mysqli_fetch_row($result)) {
+            $result2 = mysqli_query($link, "SELECT * FROM students") or die('cannot show columns from research');
+            $count = mysqli_num_rows($result2);
+            if (mysqli_num_rows($result2)) {
+                echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
+                echo '<tr><th>Student ID</th><th>Researcher Name</th><th>Email</th><th>Regstration Date</th></tr>';
+                while ($row2 = mysqli_fetch_array($result2)) {
+                    echo '<tr>';
+                    echo "<td>" . $row2[id] . "</td>";
+                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
+                    echo "<td>" . $row2[email] . "</td>";
+                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[date] . "</a></td>";
+                    echo "</tr>";
+                }
+                echo '</table><br />';
+            }
+
+        }
+
+        ?>
+    </fieldset>
+
 </div>
 
 <footer>
