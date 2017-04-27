@@ -88,8 +88,9 @@ if (!$link) {
 
     <?php
     while ($row = mysqli_fetch_row($result)) {
-        echo "Table: {$row[0]}\n";
+        echo "Table: {$row[0]}\n  ";
         if (isset($row[0]) == 'research'){
+            echo " I am here 0 ";
             $result2 = mysqli_query($link, "SELECT * FROM research") or die('cannot show columns from research');
             $count = mysqli_num_rows($result2);
             if (mysqli_num_rows($result2)) {
