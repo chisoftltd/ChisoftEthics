@@ -15,7 +15,7 @@ if (!isset($_SESSION['usr_id'])) {
 }
 
 $sql = "SHOW TABLES FROM localdb";
-$result = mysqli_query($sql);
+$result = mysqli_query($link, $sql);
 
 if (!$result) {
     echo "DB Error, could not list tables\n";
