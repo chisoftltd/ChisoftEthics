@@ -14,7 +14,7 @@ if (!isset($_SESSION['usr_id'])) {
     echo "''<h1>.Timed Out!.</h1>";
 }
 
-$sql = "SHOW TABLES FROM localdb LIKE '%research%'";
+$sql = "SHOW TABLES FROM localdb LIKE 'research'";
 $result = mysqli_query($link, $sql);
 
 if (!$result) {
