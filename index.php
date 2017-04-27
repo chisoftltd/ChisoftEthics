@@ -26,7 +26,7 @@ unset($_session['user_id']);
 </head>
 <body>
 
-<!-- add top navigational bar-->
+<!-- add top navigational bar using bootstrap-->
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -61,7 +61,7 @@ unset($_session['user_id']);
         </div>
     </div>
 </nav>
-
+<!-- add navigational bar which interface depends on if there is an active user -->
 <header>
     <?php if (isset($_SESSION['usr_id'])) { ?>
         <?php include 'include/signinheader.php'; ?>
