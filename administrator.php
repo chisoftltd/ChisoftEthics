@@ -14,9 +14,6 @@ if (!isset($_SESSION['usr_id'])) {
     echo "''<h1>.Timed Out!.</h1>";
 }
 
-$sql = "SHOW TABLES FROM localdb";
-$result = mysqli_query($link, $sql);
-
 if (!$result) {
     echo "DB Error, could not list tables\n";
     echo 'MySQL Error: ' . mysqli_error();
@@ -87,27 +84,23 @@ if (!$link) {
 <div class="container">
 
     <?php
-    while ($row = mysqli_fetch_row($result)) {
-        echo "Table: {$row[0]}\n  ";
-        if (isset($row[0]) == 'research'){
-            $result2 = mysqli_query($link, "SELECT * FROM research") or die('cannot show columns from research');
-            $count = mysqli_num_rows($result2);
-            if (mysqli_num_rows($result2)) {
-                echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
-                echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
-                while ($row2 = mysqli_fetch_array($result2)) {
-                    echo '<tr>';
-                    echo "<td>" . $row2[id] . "</td>";
-                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
-                    echo "<td>" . $row2[supervisor] . "</td>";
-                    echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</a></td>";
-                    echo "<td>" . $row2[startdate] . "</td>";
-                    echo "<td>" . $row2[enddate] . "</td>";
-                    echo "</tr>";
-                }
-                echo '</table><br />';
-            }
+    $sql = "SHOW TABLES FROM localdb LIKE '%research%'";
+    $result = mysqli_query($link, $sql);
+
+    if (mysqli_num_rows($result)) {
+        echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';
+        echo '<tr><th>Project ID</th><th>Researcher Name</th><th>Supervisor</th><th>Project Topic</th><th>Start Date<th>End Date</th></tr>';
+        while ($row2 = mysqli_fetch_array($result)) {
+            echo '<tr>';
+            echo "<td>" . $row2[id] . "</td>";
+            echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[name] . "</td>";
+            echo "<td>" . $row2[supervisor] . "</td>";
+            echo "<td><a href='updatepage.php?p={$row2['id']}'>" . $row2[projecttopic] . "</a></td>";
+            echo "<td>" . $row2[startdate] . "</td>";
+            echo "<td>" . $row2[enddate] . "</td>";
+            echo "</tr>";
         }
+        echo '</table><br />';
     }
 
     ?>
