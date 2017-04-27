@@ -65,13 +65,13 @@ unset($_session['user_id']);
 <header>
     <?php if (isset($_SESSION['usr_id'])) { ?>
         <?php include 'include/signinheader.php'; ?>
-
     <?php } else { ?>
         <?php include 'include/header.php'; ?><?php } ?>
 </header>
 <form>
-    <hr>
+    <hr> <!-- draw a line-->
 </form>
+
 <div class="pageContent">
     <article class="article">
         <h2>Research Ethics and Integrity System</h2>
