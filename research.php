@@ -221,7 +221,6 @@ if (isset($_POST['deleteform'])) {
                         <div class="form-group">
                             <input type="submit" style=" align-items: center" name="createform" value="Register"
                                    class="btn btn-primary"/>
-                            deleteform
                         </div>
                     </fieldset>
                 </form>
