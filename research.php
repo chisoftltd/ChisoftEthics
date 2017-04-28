@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * applyd by PhpStorm.
  * User: 1609963
  * Date: 21/04/2017
  * Time: 18:01
@@ -18,7 +18,7 @@ include_once 'dbconnect.php';
 $error = false;
 
 //check if form is submitted
-if (isset($_POST['createform'])) {
+if (isset($_POST['applyform'])) {
     $name = mysqli_real_escape_string($link, $_POST['name']);
     $supervisor = mysqli_real_escape_string($link, $_POST['supervisor']);
     $department = mysqli_real_escape_string($link, $_POST['department']);
@@ -111,15 +111,15 @@ if (isset($_POST['deleteform'])) {
 <div class="container">
 
 
-    <h3 style="text-align: center">Research Ethics Management System | Create | Update | Delete</h3>
+    <h3 style="text-align: center">Research Ethics Management System | apply | Update | Delete</h3>
     <p>On this page, you as a reasearcher will be able to manage his or her research ethics via creating new ethics
         aplication, update exsiting ethics application or delete an ethics application</p>
     <div>
         <hr>
     </div>
     <div style="width: 100%" class="btn-group">
-        <button onclick="document.getElementById('create').style.display='block'" style="width: 30%;">
-            Create
+        <button onclick="document.getElementById('apply').style.display='block'" style="width: 30%;">
+            apply
         </button>
         <button onclick="document.getElementById('update').style.display='block'" style="width: 30%">
             Update
@@ -131,11 +131,11 @@ if (isset($_POST['deleteform'])) {
     <div>
         <hr>
     </div>
-    <div id="create" class="modal">
+    <div id="apply" class="modal">
 
         <!-- <form class="modal-content animate" action="/action_page.php">
              <div class="imgcontainer">
-                         <span onclick="document.getElementById('create').style.display='none'" class="close"
+                         <span onclick="document.getElementById('apply').style.display='none'" class="close"
                                title="Close Modal">&times;</span>
                  <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">
              </div> -->
@@ -146,12 +146,12 @@ if (isset($_POST['deleteform'])) {
                       method="post"
                       name="ethicsform">
                     <div class="imgcontainer">
-                        <span onclick="document.getElementById('create').style.display='none'" class="close"
+                        <span onclick="document.getElementById('apply').style.display='none'" class="close"
                               title="Close Modal">&times;</span>
                         <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
                     </div>
                     <fieldset>
-                        <legend style="text-align: center">Ethics Create Form</legend>
+                        <legend style="text-align: center">Ethics Application Form</legend>
 
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -219,7 +219,7 @@ if (isset($_POST['deleteform'])) {
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" style=" align-items: center" name="createform" value="Register"
+                            <input type="submit" style=" align-items: center" name="applyform" value="Apply"
                                    class="btn btn-primary"/>
                         </div>
                     </fieldset>
@@ -338,7 +338,7 @@ if (isset($_POST['deleteform'])) {
     </div>
     <script>
         // Get the modal
-        var modal = document.getElementById('create');
+        var modal = document.getElementById('apply');
         var modal = document.getElementById('update');
         var modal = document.getElementById('delete');
 
