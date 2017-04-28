@@ -111,7 +111,7 @@ if (isset($_POST['deleteform'])) {
 <div class="container">
 
 
-    <h3 style="text-align: center">Research Ethics Management System | apply | Update | Delete</h3>
+    <h3 style="text-align: center">Research Ethics Management System | Apply | Update | Delete</h3>
     <p>On this page, you as a reasearcher will be able to manage his or her research ethics via creating new ethics
         aplication, update exsiting ethics application or delete an ethics application</p>
     <div>
@@ -119,7 +119,7 @@ if (isset($_POST['deleteform'])) {
     </div>
     <div style="width: 100%" class="btn-group">
         <button onclick="document.getElementById('apply').style.display='block'" style="width: 30%;">
-            apply
+            Apply
         </button>
         <button onclick="document.getElementById('update').style.display='block'" style="width: 30%">
             Update
