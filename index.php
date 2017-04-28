@@ -5,23 +5,28 @@
  * Date: 21/04/2017
  * Time: 16:19
  */
+
+// Start a session
 session_start();
+
+// include the database script
 include_once 'dbconnect.php';
+
+//end any active user session
 unset($_session['user_id']);
 ?>
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="google-site-verification"
-          content="<meta name=" google-site-verification
-    "content="rgY0TPcTX0rgDSsKo3HmkVUXkrmXbMsiOZRxRgiEqJU" />" />
+<head> <!-- Head area start-->
     <title>Home | RGUEthics System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/main-style.css"> <!-- Add css file-->
 </head>
-<body>
+<body><!-- Body area start-->
 
+<!-- add top navigational bar using bootstrap-->
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -35,7 +40,14 @@ unset($_session['user_id']);
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
+                <!-- check if same user is still same as the active session user and load appropriate menu options -->
                 <?php if (isset($_SESSION['usr_id'])) { ?>
+                    <liclass="active"><a href="signinindex.php">Home</a></li>
+                    <li><a href="research.php">Researchs</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
+                    <li><a href="administrator.php">Administrator</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
@@ -49,12 +61,17 @@ unset($_session['user_id']);
         </div>
     </div>
 </nav>
+<!-- add header with navigational bar which interface depends on if there is an active user or not-->
 <header>
-    <?php include 'include/header.php'; ?>
+    <?php if (isset($_SESSION['usr_id'])) { ?>
+        <?php include 'include/signinheader.php'; ?>
+    <?php } else { ?>
+        <?php include 'include/header.php'; ?><?php } ?>
 </header>
 <form>
-    <hr>
+    <hr> <!-- draw a line-->
 </form>
+<!-- content div with belief note about research ethics-->
 <div class="pageContent">
     <article class="article">
         <h2>Research Ethics and Integrity System</h2>
@@ -89,13 +106,13 @@ unset($_session['user_id']);
         </ul>
 
     </article>
-</div>
+</div><!-- end of content div-->
+<!-- footer area-->
 <footer>
     <?php include 'include/footer.php'; ?>
 </footer>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> <!-- jQuery library -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled JavaScript -->
 </body>
 </html>

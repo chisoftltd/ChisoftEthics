@@ -77,6 +77,7 @@ if (isset($_POST['update'])) {
                     <li><a href="research.php">Research</a></li>
                     <li class="active"><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><a href="administrator.php">Administrator</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php } else { ?>
@@ -138,7 +139,7 @@ if (isset($_POST['update'])) {
                     <hr>
                 </div>
                 <div>
-                    <label for="projecttopic">Project Topice: </label>
+                    <label for="projecttopic">Project Topic: </label>
                     <input type="text" name="projecttopic" value="<?php echo $row['projecttopic']; ?>"
                     />
                 </div>
@@ -147,8 +148,8 @@ if (isset($_POST['update'])) {
                 </div>
                 <div>
                     <label for="projectdescription">Project Description: </label>
-                            <textarea type="text" rows="15" cols="auto" name="projectdescription"
-                                      style="text-align:left">
+                    <textarea type="text" rows="15" cols="auto" name="projectdescription"
+                              style="text-align:left">
                                       <?php echo $row['projectdescription']; ?></textarea>
                 </div>
                 <div>
@@ -170,7 +171,7 @@ if (isset($_POST['update'])) {
                 </div>
                 <div>
                     <label for="datadetails">Data Handling details:</label>
-                            <textarea type="text" rows="10" cols="auto" name="datadetails" style="text-align: left">
+                    <textarea type="text" rows="10" cols="auto" name="datadetails" style="text-align: left">
                                       <?php echo $row['datadetails']; ?></textarea>
                 </div>
                 <div>
@@ -184,9 +185,9 @@ if (isset($_POST['update'])) {
         <span class="text-success"><?php if (isset($successmsg)) {
                 echo $successmsg;
             } ?></span>
-                        <span class="text-danger"><?php if (isset($errormsg)) {
-                                echo $errormsg;
-                            } ?></span>
+        <span class="text-danger"><?php if (isset($errormsg)) {
+                echo $errormsg;
+            } ?></span>
     </div>
 </div>
 <footer>

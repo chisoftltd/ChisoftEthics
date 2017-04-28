@@ -5,32 +5,33 @@
  * Date: 2017-04-22
  * Time: 22:55
  */
+
+// Start a session
 ob_start();
 session_start();
+
+// include the database script
 require_once 'dbconnect.php';
 
+// Return to home page if user not same
 if (!isset($_SESSION['usr_id'])) {
     header("Location: index.php");
-    echo "''<h1>.Timed Out!.</h1>";
-}
-
-// Check connection
-if (!$link) {
-    die("Connection failed: " . mysqli_connect_error());
+    echo "''<h1>.Wrong User!.</h1>";
 }
 
 ?>
 
-
 <!DOCTYPE html>
-<html>
+<html> <!-- Head area start-->
 <head>
     <title>RGUEthics | Administrator</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
 </head>
-<body>
+
+<body><!-- Body area start-->
+<!-- add top navigational bar using bootstrap-->
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -44,6 +45,7 @@ if (!$link) {
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
+                <!-- check if same user is still same as the active session user and load appropriate menu options -->
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li><a href="signinindex.php">Home</a></li>
                     <li><a href="research.php">Researchs</a></li>
@@ -64,6 +66,7 @@ if (!$link) {
         </div>
     </div>
 </nav>
+<!-- add header with navigational bar which interface depends on if there is an active user or not-->
 <header>
     <?php if (isset($_SESSION['usr_id'])) { ?>
         <?php include 'include/signinheader.php'; ?>
@@ -74,8 +77,9 @@ if (!$link) {
 <form>
     <hr>
 </form>
+<!-- content div with administrator platform to display all the tables in the database-->
 <div class="container">
-    <fieldset>
+    <fieldset> <!-- fieldset display Research Table -->
         <legend style="text-align: center">Research Table</legend>
         <?php
         $sql = "SHOW TABLES FROM localdb LIKE 'research'";
@@ -108,11 +112,11 @@ if (!$link) {
         }
 
         ?>
-    </fieldset>
+    </fieldset><!--end of fieldset-->
     <div>
         <hr>
     </div>
-    <fieldset>
+    <fieldset> <!-- fieldset display Researcher Table -->
         <legend style="text-align: center">Researcher Table</legend>
         <?php
         $sql = "SHOW TABLES FROM localdb LIKE 'students'";
@@ -143,11 +147,11 @@ if (!$link) {
         }
 
         ?>
-    </fieldset>
+    </fieldset><!--End of fieldset-->
     <div>
         <hr>
     </div>
-    <fieldset>
+    <fieldset><!-- fieldset display Approval Officers Table -->
         <legend style="text-align: center">Approval Officers Table</legend>
         <?php
         $sql = "SHOW TABLES FROM localdb LIKE 'approvalofficers'";
@@ -179,11 +183,11 @@ if (!$link) {
             }
         }
         ?>
-    </fieldset>
+    </fieldset><!-- End of Fieldset-->
     <div>
         <hr>
     </div>
-    <fieldset>
+    <fieldset><!-- fieldset display Log Table -->
         <legend style="text-align: center">Log Table</legend>
         <?php
         $sql = "SHOW TABLES FROM localdb LIKE 'logtable'";
@@ -212,16 +216,15 @@ if (!$link) {
             }
         }
         ?>
-    </fieldset>
-</div>
-
+    </fieldset><!--End of log table-->
+</div><!-- end of content div-->
+<!-- footer area-->
 <footer>
     <?php include 'include/footer.php'; ?>
 </footer>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script><!-- jQuery library -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled JavaScript -->
 </body>
 </html>
 
