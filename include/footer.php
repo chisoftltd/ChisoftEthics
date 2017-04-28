@@ -1,3 +1,4 @@
+<!-- footer file - For lack of time link here are directed to certain RGU pages-->
 <footer>
     <nav>
         <form>

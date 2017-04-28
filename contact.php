@@ -1,8 +1,13 @@
 <?php
+
+// Start a session
 ob_start();
 session_start();
+
+// include the database script
 require_once 'dbconnect.php';
 
+//if statement to process a POST data from a form when a submit buuton is clicked
 if (isset($_POST["submit"])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -33,7 +38,7 @@ if (isset($_POST["submit"])) {
         $errHuman = 'Your anti-spam is incorrect';
     }
 
-// If there are no errors, send the email
+    // If there are no errors, send the email
     if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
         if (mail($to, $subject, $body, $from)) {
             $result = '<div class="alert alert-success">Thank You! I will be in touch</div>';
@@ -45,7 +50,7 @@ if (isset($_POST["submit"])) {
 ?>
     <!DOCTYPE html>
     <html>
-    <head>
+    <head><!-- Head area start-->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>RGUEthics | Contact US</title>
         <link rel="stylesheet" href="css/main-style.css">
@@ -62,7 +67,8 @@ if (isset($_POST["submit"])) {
         <!--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSMxRAhrNG_VHJdpz0h72CyugKoMmDMQU&callback=init_map"></script>
     </head>
-    <body>
+    <body><!-- Body area start-->
+    <!-- add top navigational bar using bootstrap-->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -76,6 +82,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="nav navbar-nav navbar-right">
+                    <!-- check if same user is still same as the active session user and load appropriate menu options -->
                     <?php if (isset($_SESSION['usr_id'])) { ?>
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About Us</a></li>
@@ -95,17 +102,18 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
     </nav>
+    <!-- add header with navigational bar which interface depends on if there is an active user or not-->
     <header>
         <?php if (isset($_SESSION['usr_id'])) { ?>
             <?php include 'include/signinheader.php'; ?>
-            
+
         <?php } else { ?>
             <?php include 'include/header.php'; ?><?php } ?>
     </header>
     <form>
         <hr>
     </form>
-    <div class="container">
+    <div class="container"> <!--div with address and map information-->
         <form>
             <div class="row">
                 <div id="map-outer" class="col-md-12">
@@ -123,11 +131,11 @@ if (isset($_POST["submit"])) {
                             <abbr>P:</abbr> +44 1224 262000
                         </address>
                     </div>
-                    <div id="map-container" class="col-md-8" ></div>
-                    <script>
+                    <div id="map-container" class="col-md-8"></div>
+                    <script> //function to get map location
 
                         function init_map() {
-                            var var_location = new google.maps.LatLng(57.1184,-2.1410);
+                            var var_location = new google.maps.LatLng(57.1184, -2.1410);
 
                             var var_mapoptions = {
                                 center: var_location,
@@ -137,7 +145,8 @@ if (isset($_POST["submit"])) {
                             var var_marker = new google.maps.Marker({
                                 position: var_location,
                                 map: var_map,
-                                title:"Venice"});
+                                title: "Venice"
+                            });
 
                             var var_map = new google.maps.Map(document.getElementById("map-container"),
                                 var_mapoptions);
@@ -149,14 +158,14 @@ if (isset($_POST["submit"])) {
                         google.maps.event.addDomListener(window, 'load', init_map);
 
                     </script>
-                </div><!-- /map-outer -->
-            </div> <!-- /row -->
+                </div>
+            </div>
         </form>
-    </div><!-- /container -->
+    </div><!-- end of div container -->
     <form>
         <hr>
     </form>
-    <div class="container">
+    <div class="container"><!-- div for accepting messages-->
         <form class="form-horizontal" role="form" method="post" action="index.php">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name</label>
@@ -200,7 +209,8 @@ if (isset($_POST["submit"])) {
                 </div>
             </div>
         </form>
-    </div>
+    </div><!-- end of content div-->
+    <!-- footer area-->
     <footer>
         <?php include 'include/footer.php'; ?>
     </footer>

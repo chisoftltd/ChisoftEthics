@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <div>
         <hr>
     </div>
-    <h3>Project Topice: </h3><?php echo $row['projecttopic']; ?>
+    <h3>Project Topic: </h3><?php echo $row['projecttopic']; ?>
     <div>
         <hr>
     </div>

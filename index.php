@@ -18,13 +18,13 @@ unset($_session['user_id']);
 
 <!DOCTYPE html>
 <html>
-<head>
+<head> <!-- Head area start-->
     <title>Home | RGUEthics System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css"> <!-- Add css file-->
 </head>
-<body>
+<body><!-- Body area start-->
 
 <!-- add top navigational bar using bootstrap-->
 <nav class="navbar navbar-default" role="navigation">
@@ -61,7 +61,7 @@ unset($_session['user_id']);
         </div>
     </div>
 </nav>
-<!-- add navigational bar which interface depends on if there is an active user -->
+<!-- add header with navigational bar which interface depends on if there is an active user or not-->
 <header>
     <?php if (isset($_SESSION['usr_id'])) { ?>
         <?php include 'include/signinheader.php'; ?>
@@ -71,7 +71,7 @@ unset($_session['user_id']);
 <form>
     <hr> <!-- draw a line-->
 </form>
-
+<!-- content div with belief note about research ethics-->
 <div class="pageContent">
     <article class="article">
         <h2>Research Ethics and Integrity System</h2>
@@ -106,13 +106,13 @@ unset($_session['user_id']);
         </ul>
 
     </article>
-</div>
+</div><!-- end of content div-->
+<!-- footer area-->
 <footer>
     <?php include 'include/footer.php'; ?>
 </footer>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> <!-- jQuery library -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled JavaScript -->
 </body>
 </html>
