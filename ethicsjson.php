@@ -72,10 +72,10 @@
     $query = mysqli_query($link, 'select * from students');
     $rows = array();
     if (mysqli_num_rows($query)) {
-        while ($row = mysqli_fetch_array($query)) {
-            $rows[] = $row."     "."<br>";
+        while ($row = mysqli_fetch_row($query)) {
+            $rows[] = $row;
         }
-        echo json_encode($rows);
+        print json_encode($rows);
     }
     ?>
 </div>
