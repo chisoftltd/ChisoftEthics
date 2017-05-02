@@ -73,8 +73,7 @@
     $rows = array();
     if (mysqli_num_rows($result2)){
         while ($row=mysqli_fetch_array($query)){
-            $rows[] = $row;
-            echo "$rows";
+            $rows[] = $row. "<br>";
         }
         echo json_encode($rows);
     }
