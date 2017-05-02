@@ -24,7 +24,6 @@ while ($row=mysqli_fetch_array($select)){
     $row[] = $row;
 }
 
-echo json_encode($row);
 
 ?>
 
