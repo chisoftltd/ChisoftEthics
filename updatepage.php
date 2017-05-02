@@ -178,7 +178,7 @@ if (isset($_POST['update'])) {
                     <hr>
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="update" value="Submit" class="btn btn-primary"/>
+                    <input type="submit" name="update" value="Update" class="btn btn-primary"/>
                 </div>
             </fieldset>
         </form>
