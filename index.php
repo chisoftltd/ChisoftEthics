@@ -15,10 +15,6 @@ include_once 'dbconnect.php';
 //end any active user session
 //unset($_session['user_id']);
 
-if (!isset($_SESSION['usr_id'])) {
-    header("Location: index.php");
-    echo "''<h1>.Timed Out!.</h1>";
-}
 ?>
 
 <!DOCTYPE html>
