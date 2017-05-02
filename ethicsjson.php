@@ -31,7 +31,7 @@ echo json_encode($row);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | RGUEthics System</title>
+    <title>RGUEthics | JSON</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -46,7 +46,7 @@ echo json_encode($row);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="signinindex.php">Home | RGUEthics System</a>
+            <a class="navbar-brand" href="signinindex.php">RGUEthics | JSON</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
