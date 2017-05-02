@@ -21,7 +21,7 @@ $select = mysqli_query($link, 'select * from students');
 $rows = array();
 
 while ($row=mysqli_fetch_array($select)){
-    $row[] = $row;
+    $rows[] = $row;
 }
 
 
