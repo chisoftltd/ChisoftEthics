@@ -1,17 +1,17 @@
 <?php
 /**
-* Created by PhpStorm.
-* User: Chisoft
-* Date: 2017-05-02
-* Time: 15:02
-*/
+ * Created by PhpStorm.
+ * User: Chisoft
+ * Date: 2017-05-02
+ * Time: 15:02
+ */
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>RGUEthics | JSON</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main-style.css">
 </head>
@@ -31,8 +31,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['usr_id'])) { ?>
                     <li class="active"><a href="signinindex.php">Home</a></li>
-                    <li> <a href="research.php">Research</a></li>
-                    <li> <a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
+                    <li><a href="research.php">Research</a></li>
+                    <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><a href="administrator.php">Administrator</a></li>
                     <li><a href="ethicsjson.php">EthicsJSON</a></li>
                     <li><a href="about.php">About Us</a></li>
@@ -61,27 +61,23 @@
     <hr>
 </form>
 <div class="pageContent">
-
     <?php
     // Start a session
     ob_start();
     session_start();
-
     // include the database script
     require_once 'dbconnect.php';
     // Return to home page if user not same
 
     $query = mysqli_query($link, 'select * from students');
     $rows = array();
-    if (mysqli_num_rows($result2)){
-        while ($row=mysqli_fetch_array($query)){
+    if (mysqli_num_rows($query)) {
+        while ($row = mysqli_fetch_array($query)) {
             $rows[] = $row;
         }
         echo json_encode($rows);
     }
     ?>
-
-
 </div>
 <footer>
     <?php include 'include/footer.php'; ?>
