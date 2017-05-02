@@ -1,9 +1,11 @@
+<?php
 /**
 * Created by PhpStorm.
 * User: Chisoft
 * Date: 2017-05-02
 * Time: 15:02
 */
+?>
 
 <!DOCTYPE html>
 <html>
