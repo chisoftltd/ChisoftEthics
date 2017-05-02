@@ -13,6 +13,7 @@ Header information when user is signed on or logged in, with company logo
             <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
             <li><a href="administrator.php">Administrator</a></li>
             <li><a href="about.php">About Us</a></li>
+            <li><a href="EthicsJSON.php">EthicsJSON</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>

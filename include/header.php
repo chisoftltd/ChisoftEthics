@@ -10,9 +10,11 @@ Header information when user is not sign on or logged in, with company logo
         <ul class="header-links">
             <li> <a href="index.php">Home</a></li>
             <li> <a href="about.php">About Us</a></li>
+            <li><a href="EthicsJSON.php">EthicsJSON</a></li>
             <li> <a href="contact.php">Contact</a></li>
             <li> <a href="login.php">Login</a></li>
             <li><a href="registerresearcher.php">Register Researcher</a></li>
+            EthicsJSON
         </ul>
     </nav>
 </header>
