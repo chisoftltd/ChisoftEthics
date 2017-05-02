@@ -69,14 +69,14 @@
     require_once 'dbconnect.php';
     // Return to home page if user not same
 
-    $select = mysqli_query($link, 'select * from students');
+    $query = mysqli_query($link, 'select * from students');
     $rows = array();
 
-    while ($row=mysqli_fetch_array($select)){
+    while ($row=mysqli_fetch_array($query)){
         $rows[] = $row;
         echo "$rows";
     }
-    echo json_encode($row);
+    echo json_encode($rows);
     ?>
 
 
