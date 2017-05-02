@@ -5,12 +5,6 @@ session_start();
 
 // include the database script
 require_once 'dbconnect.php';
-// Return to home page if user not same
-if (!isset($_SESSION['usr_id'])) {
-    header("Location: index.php");
-    echo "''<h1>.Wrong User!.</h1>";
-}
-
 
 ?>
 <!DOCTYPE html>
