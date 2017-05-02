@@ -82,7 +82,9 @@ echo json_encode($row);
     <hr>
 </form>
 <div class="pageContent">
+    <?php
     echo json_encode($row);
+    ?>
 </div>
 <footer>
     <?php include 'include/footer.php'; ?>
