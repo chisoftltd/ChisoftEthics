@@ -43,7 +43,7 @@ include_once 'dbconnect.php';
             <ul class="nav navbar-nav navbar-right">
                 <!-- check if same user is still same as the active session user and load appropriate menu options -->
                 <?php if (isset($_SESSION['usr_id'])) { ?>
-                    <li><class="active"><a href="signinindex.php">Home</a></>
+                    <li class="active"><a href="signinindex.php">Home</a></>
                     <li><a href="research.php">Researchs</a></li>
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
