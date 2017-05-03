@@ -76,7 +76,7 @@
         while ($row = mysqli_fetch_row($query)) {
             $rows[] = $row;
         }
-        print json_encode($rows);
+        echo json_encode($rows);
     }
     ?>
 </div>
