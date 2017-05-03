@@ -52,10 +52,10 @@
 </nav>
 <header>
     <?php if (isset($_SESSION['usr_id'])) { ?>
-        <?php include 'include/signinheader.php'; ?>
+        <?php include '../include/signinheader.php'; ?>
 
     <?php } else { ?>
-        <?php include 'include/header.php'; ?><?php } ?>
+        <?php include '../include/header.php'; ?><?php } ?>
 </header>
 <form>
     <hr>
@@ -66,7 +66,7 @@
     ob_start();
     session_start();
     // include the database script
-    require_once 'dbconnect.php';
+    require_once '../dbconnect.php';
     // Return to home page if user not same
     echo '<h3 style="text-align: center">', WEB_API_of_Table_Students, '</h3>';
 
@@ -76,7 +76,7 @@
         while ($row = mysqli_fetch_row($query)) {
             $rows[] = $row;
         }
-        echo json_encode($rows);
+        print json_encode($rows);
     }
     ?>
 </div>
