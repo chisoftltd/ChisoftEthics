@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../signinindex.php">RGUEthics | JSON</a>
+            <a class="navbar-brand" href="ethicsjson.php">RGUEthics | JSON</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
