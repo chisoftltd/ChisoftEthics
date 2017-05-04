@@ -15,9 +15,12 @@ require_once 'dbconnect.php'; // include database connection script
 $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 print_r($_SERVER['PATH_INFO']);
-exit;
+
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
+
+    echo "hello world";
+    exit;
     if (isset($urlInfo[0])) {
         $query = "SELECT * FROM researchers";
         $reply = array();
