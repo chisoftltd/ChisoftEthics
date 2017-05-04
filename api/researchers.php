@@ -10,7 +10,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-include_once 'dbconnect.php'; // include database connection script
+require_once 'dbconnect.php'; // include database connection script
+include_once '../generate.php';
 
 $request_type = $_SERVER["REQUEST_METHOD"];
 
@@ -157,7 +158,7 @@ function delete_researcher($researcher){
     }
 }
 
-function update_researchers($researcher){
+function update_researcher($researcher){
     global $link;
 
 
