@@ -13,8 +13,13 @@ ini_set('display_errors', 'On');
 include_once 'dbconnect.php'; // include database connection script
 
 $request_type = $_SERVER["REQUEST_METHOD"];
-$urlInfo = explode("/", substr($_SERVER['REQUEST_URL'], 11));
+
+$urlInfo = explode("/", substr($_SERVER['REQUEST_URL'], 16));
+
+
 echo $urlInfo;
+
+
 // Use SWITCH case to implement the appropiate REQUEST METHOD
 switch ($request_type) {
     case 'GET': // GET case
