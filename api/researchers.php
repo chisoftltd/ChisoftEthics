@@ -28,12 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if (mysqli_num_rows($result) > 1) {
 
             while ($row = mysqli_fetch_assoc($result)) {
-                    echo json_encode($row);
+                    print_r($row);
 
                 //$reply[$iterate]= $row;
                 //$iterate++;
             }
-            header('Content Type: application/json');
+         //   header('Content Type: application/json');
             //echo json_encode($reply);
 
         }
