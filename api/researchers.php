@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
             //print_r($reply);
             echo json_encode($reply);
-            //header('Content Type: application/json');
+            header('Content Type: application/json');
 
 
         }
