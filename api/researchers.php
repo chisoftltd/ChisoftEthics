@@ -14,6 +14,9 @@ include_once 'dbconnect.php'; // include database connection script
 
 $request_type = $_SERVER["REQUEST_METHOD"];
 
+echo $_SERVER['REQUEST_URL'];
+echo "<br>";
+
 $urlInfo = explode("/", substr($_SERVER['REQUEST_URL'], 16));
 
 
