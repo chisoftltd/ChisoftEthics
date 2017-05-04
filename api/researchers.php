@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
-include_once '../generate.php';
+//include_once '../generate.php';
 
 //$request_type = $_SERVER["REQUEST_METHOD"];
 
@@ -29,13 +29,25 @@ $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($urlInfo[0])) {
-        get_researcher();
+        $query = "SELECT * FROM researchers";
+        $reply = array();
+
+        $result = mysqli_query($link, $query);
+        if (mysqli_num_rows($result) > 1) {
+            while ($row = mysqli_fetch_assoc($result)) {
+
+                $reply .= $row;
+            }
+            header('Content Type: application/json');
+            echo json_encode($reply);
+
+        }
     } else {
-        get_id_researcher($_GET['researchers']);
+        //get_id_researcher($_GET['researchers']);
     }
 
 }
-
+/*
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (count($urlInfo) > 0 and count($urlInfo) < 6) {
         insert_researcher($urlInfo);
@@ -54,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
 }
 
 
-/*
+
 switch ($request_type) {
     case 'GET': // GET case
         if (!isset($_GET["researchers"])) {
@@ -85,7 +97,7 @@ switch ($request_type) {
 
         header("HTTP/1.0 405 Method Not Allowed");
 }
-*/
+
 
 
 function get_id_researcher($reseacher)
@@ -117,7 +129,7 @@ function get_id_researcher($reseacher)
 
 function get_researcher()
 {
-    global $link;
+    //global $link;
     //select case statement
     $query = "SELECT * FROM researchers limit 1";
     $reply = array();
@@ -238,3 +250,5 @@ function update_researcher($researcher)
         header("HTTP/1.0 40, researcher ID Not found");
     }
 }
+
+*/
