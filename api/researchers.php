@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 1609963
+ * researcher: 1609963
  * Date: 04/05/2017
  * Time: 18:51
  */
@@ -139,12 +139,63 @@ function delete_researcher($researcher){
         mysqli_free_result($result);
     }
 
-    $response = array();
+    $reply = array();
     if (mysqli_affected_rows($result) > 0) {
         header("HTTP/1.0 201 Deleted Successfully");
-        echo json_encode($response[0]="Deleted successfully");
+        echo json_encode($reply[0]="Deleted successfully");
     } else {
         header("HTTP/1.0 204 No Content Found");
 
+    }
+}
+
+function update_researchers($researcher){
+    global $datab;
+
+
+
+    $exp = array('id','na','em','pw','dt');
+    $query = "update researcher set";
+
+    $id = "";
+    if(in_array('id', $researcher)){
+        $pos = array_search('id', $researcher);
+
+
+        $query .=" id='{$researcher[$pos + 1]}' ";
+        $id = $researcher[$pos + 1];
+    }
+    if(in_array('na', $researcher)){
+        $pos = array_search('na', $researcher);
+
+        $query .= ", name='{$researcher[$pos + 1]}' ";
+    }
+    if(in_array('em', $researcher)){
+        $pos = array_search('em', $researcher);
+
+        $query .=", email='{$researcher[$pos + 1]}' ";
+    }
+    if(in_array('pw', $researcher)){
+        $pos = array_search('pw', $researcher);
+
+        $query .=", password='{$researcher[$pos + 1]}' ";
+    }
+
+    if(in_array('dt', $researcher)){
+        $pos = array_search('dt', $researcher);
+
+        $query .=", date='{$researcher[$pos + 1]}' ";
+    }
+
+
+
+    $query .= " where id='$id'";
+    $response = array();
+    $result = mysqli_query($datab,$query) or die(trigger_error($datab, E_USER_WARNING));
+    if (mysqli_affected_rows($result) > 0) {
+        header("HTTP/1.0 201 Modified Successfully");
+        echo json_encode($reply[0]="Modified Successfully");
+    } else {
+        header("HTTP/1.0 40, researcher ID Not found");
     }
 }
