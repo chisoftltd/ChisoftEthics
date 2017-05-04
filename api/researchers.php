@@ -8,7 +8,7 @@
 
 // Report all PHP errors (see changelog)
 error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
 include_once '../generate.php';
