@@ -14,7 +14,7 @@ require_once 'dbconnect.php'; // include database connection script
 
 $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
-
+header('Content Type: application/json');
 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -33,9 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                $reply[$iterate]= $row;
                 $iterate++;
             }
-         //   header('Content Type: application/json');
-            //echo json_encode($reply);
-            print_r($reply);
+         //
+            $answer = json_encode($reply);
+            echo $answer;
+
         }
     } else {
         //get_id_researcher($_GET['researchers']);
