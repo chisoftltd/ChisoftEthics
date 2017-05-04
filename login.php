@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
 
     $email = mysqli_real_escape_string($link, $_POST['email']);
     $password = mysqli_real_escape_string($link, $_POST['password']);
-    $result = mysqli_query($link, "SELECT * FROM students WHERE email = '" . $email . "' and password = '" . md5($password) . "'");
+    $result = mysqli_query($link, "SELECT * FROM researchers WHERE email = '" . $email . "' and password = '" . md5($password) . "'");
 
     if ($row = mysqli_fetch_array($result)) {
         $_SESSION['usr_id'] = $row['id'];

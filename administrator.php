@@ -119,7 +119,7 @@ if (!isset($_SESSION['usr_id'])) {
     <fieldset> <!-- fieldset display Researcher Table -->
         <legend style="text-align: center">Researcher Table</legend>
         <?php
-        $sql = "SHOW TABLES FROM localdb LIKE 'students'";
+        $sql = "SHOW TABLES FROM localdb LIKE 'researchers'";
         $result = mysqli_query($link, $sql);
 
         if (!$result) {
@@ -128,7 +128,7 @@ if (!isset($_SESSION['usr_id'])) {
             exit;
         }
         while ($row = mysqli_fetch_row($result)) {
-            $result2 = mysqli_query($link, "SELECT * FROM students") or die('cannot show columns from research');
+            $result2 = mysqli_query($link, "SELECT * FROM researchers") or die('cannot show columns from research');
             $count = mysqli_num_rows($result2);
             if (mysqli_num_rows($result2)) {
                 echo '<table cellpadding="0" cellspacing="0" class="table table-striped">';

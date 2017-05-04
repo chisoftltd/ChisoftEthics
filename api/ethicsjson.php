@@ -68,9 +68,9 @@
     // include the database script
     require_once '../dbconnect.php';
     // Return to home page if user not same
-    echo '<h3 style="text-align: center">', WEB_API_of_Table_Students, '</h3>';
+    echo '<h3 style="text-align: center">', WEB_API_of_Table_researchers, '</h3>';
 
-    $query = mysqli_query($link, 'select * from students');
+    $query = mysqli_query($link, 'select * from researchers');
     $rows = array();
     if (mysqli_num_rows($query)) {
         while ($row = mysqli_fetch_row($query)) {
