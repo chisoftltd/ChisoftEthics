@@ -252,3 +252,4 @@ function update_researcher($researcher)
 }
 
 */
+?>
