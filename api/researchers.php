@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $iterate++;
             }
          //
-            echo $reply;
+            print_r($reply);
 
 
         }
