@@ -119,10 +119,12 @@ function get_researcher()
 {
     global $link;
     //select case statement
-    $query = "SELECT * FROM researchers";
+    $query = "SELECT * FROM researchers limit 1";
     $reply = array();
 
     $result = mysqli_query($link, $query);
+    echo json_encode($result);
+    exit;
     trigger_error($link, E_USER_WARNING);
 
     if (mysqli_num_rows($result)) {
