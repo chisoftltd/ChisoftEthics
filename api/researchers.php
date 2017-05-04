@@ -31,12 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($urlInfo[0])) {
         $query = "SELECT * FROM researchers";
         $reply = array();
-
+        $iterate =0;
         $result = mysqli_query($link, $query);
         if (mysqli_num_rows($result) > 1) {
             while ($row = mysqli_fetch_assoc($result)) {
 
-                $reply .= $row;
+                $reply[$iterate]= $row;
+                $iterate++;
             }
             header('Content Type: application/json');
             echo json_encode($reply);
