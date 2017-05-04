@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $iterate++;
             }
          //
-            $answer = json_encode($reply);
-            print_r( $answer);
+            echo $reply;
+
 
         }
     } else {
