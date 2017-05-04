@@ -15,13 +15,13 @@ include_once '../generate.php';
 
 //$request_type = $_SERVER["REQUEST_METHOD"];
 
-echo $_SERVER['REQUEST_URL'];
+/*echo $_SERVER['REQUEST_URL'];
 echo "<br>";
-
+*/
 $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 
-echo $urlInfo;
+//echo $urlInfo;
 
 
 // Use SWITCH case to implement the appropiate REQUEST METHOD
