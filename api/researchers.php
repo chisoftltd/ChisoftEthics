@@ -18,7 +18,7 @@ include_once '../generate.php';
 echo $_SERVER['REQUEST_URL'];
 echo "<br>";
 
-$urlInfo = explode("/", substr($_SERVER['REQUEST_URL'], 16));
+$urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 
 echo $urlInfo;
@@ -28,7 +28,7 @@ echo $urlInfo;
 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (!isset($_GET["researchers"])) {
+    if (isset($urlInfo[0])) {
         get_researcher();
     } else {
         get_id_researcher($_GET['researchers']);
