@@ -14,7 +14,7 @@ require_once 'dbconnect.php'; // include database connection script
 
 $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
-header('Content Type: application/json');
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -34,7 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $iterate++;
             }
          //
+
             print_r($reply);
+            header('Content Type: application/json');
 
 
         }
