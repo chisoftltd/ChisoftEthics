@@ -5,11 +5,11 @@ session_start();
 
 // include the database script
 require_once 'dbconnect.php';
-
+/*
 if (!isset($_SESSION['usr_id'])) {
     header("Location: index.php");
     echo "''<h1>.Timed Out!.</h1>";
-}
+}*/
 
 ?>
 <!DOCTYPE html>
