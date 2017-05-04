@@ -10,7 +10,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-include_once '../dbconnect.php'; // include database connection script
+include_once 'dbconnect.php'; // include database connection script
 
 $request_type = $_SERVER["REQUEST_METHOD"];
 $urlInfo = explode("/", substr($_SERVER['REQUEST_URL'], 11));
@@ -49,13 +49,13 @@ switch ($request_type) {
 
 function get_id_researcher($reseacher)
 {
-    global $datab;
+    global $link;
     //select case statement
     $query = "SELECT id, name, email, date FROM researchers where id = '$reseacher'";
     $reply = array();
 
-    $result = mysqli_query($datab, $query);
-    trigger_error($datab, E_USER_WARNING);
+    $result = mysqli_query($link, $query);
+    trigger_error($link, E_USER_WARNING);
 
     if (mysqli_num_rows($query)) {
         while ($row = mysqli_fetch_assoc($query)) {
@@ -76,13 +76,13 @@ function get_id_researcher($reseacher)
 
 function get_researcher()
 {
-    global $datab;
+    global $link;
     //select case statement
     $query = "SELECT id, name, email, date FROM researchers";
     $reply = array();
 
-    $result = mysqli_query($datab, $query);
-    trigger_error($datab, E_USER_WARNING);
+    $result = mysqli_query($link, $query);
+    trigger_error($link, E_USER_WARNING);
 
     if (mysqli_num_rows($query)) {
         while ($row = mysqli_fetch_assoc($query)) {
@@ -103,7 +103,7 @@ function get_researcher()
 
 function insert_researcher($researcher)
 {
-    global $datab;
+    global $link;
     $password = generate();
     $pwd = "";
 
@@ -119,7 +119,7 @@ function insert_researcher($researcher)
     $query = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
 
     $reply = array();
-    $result = mysqli_query($datab, $query);
+    $result = mysqli_query($link, $query);
 
     if (mysqli_affected_rows($result) > 0) {
         header("HTTP/1.0 201 Created Successfully");
@@ -131,11 +131,11 @@ function insert_researcher($researcher)
 }
 
 function delete_researcher($researcher){
-    global $datab;
+    global $link;
     foreach ($researcher as $value) {
 
         $query = "delete from researcher where id='$value'";
-        $result = mysqli_query($datab,$query) or die(trigger_error($datab, E_USER_WARNING));
+        $result = mysqli_query($link,$query) or die(trigger_error($link, E_USER_WARNING));
         mysqli_free_result($result);
     }
 
@@ -150,7 +150,7 @@ function delete_researcher($researcher){
 }
 
 function update_researchers($researcher){
-    global $datab;
+    global $link;
 
 
 
@@ -191,7 +191,7 @@ function update_researchers($researcher){
 
     $query .= " where id='$id'";
     $response = array();
-    $result = mysqli_query($datab,$query) or die(trigger_error($datab, E_USER_WARNING));
+    $result = mysqli_query($link,$query) or die(trigger_error($link, E_USER_WARNING));
     if (mysqli_affected_rows($result) > 0) {
         header("HTTP/1.0 201 Modified Successfully");
         echo json_encode($reply[0]="Modified Successfully");
