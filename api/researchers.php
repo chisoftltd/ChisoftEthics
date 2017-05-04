@@ -119,24 +119,20 @@ function get_researcher()
 {
     global $link;
     //select case statement
-    $query = "SELECT id, name, email, date FROM researchers";
+    $query = "SELECT * FROM researchers";
     $reply = array();
 
     $result = mysqli_query($link, $query);
     trigger_error($link, E_USER_WARNING);
 
-    if (mysqli_num_rows($query)) {
-        while ($row = mysqli_fetch_assoc($query)) {
-            $col1["Researcher ID"] = $row['id'];
-            $col1['Name'] = $row['name'];
-            $col1['Email'] = $row['email'];
-            $col1['Date'] = $row['date'];
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
 
-            $reply[] = $col1;
-
-            header('Content Type: application/json');
-            echo json_encode($reply);
+            $reply .= $row;
         }
+        header('Content Type: application/json');
+        echo json_encode($reply);
+
     } else {
         header("HTTP/1.0 204 No Content Found");
     }
