@@ -94,11 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         $queryPost = "insert into researchers(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', now())";
-echo $queryPost;
+
         $reply = array();
         $resultPost = mysqli_query($link, $queryPost);
-
-        if (mysqli_affected_rows($resultPsot) > 0) {
+echo $resultPost;
+        if (mysqli_affected_rows($resultPost) > 0) {
             header("HTTP/1.0 201 Created Successfully");
             echo json_encode($reply[0] = "researcher registered");
         } else {
