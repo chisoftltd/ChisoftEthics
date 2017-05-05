@@ -56,10 +56,10 @@ print_r($queryID);
             $reply[$iterate] = $rowID;
             $iterate++;
         }
-        header('Content Type: application/json');
-        echo json_encode($reply);
+        //header('Content Type: application/json');
+        echo json_encode($reply[0]);
         header("HTTP/1.0 200 OK");
-        echo json_encode($reply[0] = "GET Researcher Successfully");
+        echo json_encode($reply[1] = "GET Researcher Successfully");
 
 
     } else {
