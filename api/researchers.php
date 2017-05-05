@@ -42,12 +42,11 @@ echo "$urlInfo[1]  ".$urlInfo[1];
     if (isset($urlInfo[1])) {
         echo "I am here 0";
         $query = "SELECT * FROM researchers where id = '$urlInfo[1]'";
-        $reply = null;
         //$iterate =0;
         $result = mysqli_query($link, $query);
         if (mysqli_num_rows($result) > 0) {
             echo "I am here 5";
-            echo json_encode($reply);
+            echo json_encode($result);
 
             //while ($row = mysqli_fetch_assoc($result)) {
 
