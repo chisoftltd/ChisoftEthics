@@ -22,7 +22,7 @@ echo "<br>";
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 echo $urlInfo[0];
     echo "<br>";
-    echo  $urlInfo;
+    echo  $urlInfo[1];
     echo "<br>";
     if (isset($urlInfo[0])) {
         echo "       I am here 0      ";
