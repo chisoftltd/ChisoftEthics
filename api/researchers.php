@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             //print_r($reply);
             //header('Content Type: application/json');
             echo json_encode($reply);
+            header("HTTP/1.0 200 OK");
         }
     } else {
         header("HTTP/1.0 204 No Content Found");
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $number = $urlInfo[1];
 
-    if (isset($urlInfo[1])) {
+    if ($urlInfo[1] > 0 and $urlInfo[1] < 100)  {
 
         $queryID = "SELECT * FROM researchers where id = '$number'";
 
