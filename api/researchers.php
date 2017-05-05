@@ -15,10 +15,13 @@ require_once 'dbconnect.php'; // include database connection script
 
 $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 echo $_SERVER['REQUEST_URI'];
+echo "<br>";
 echo $urlInfo;
+echo "<br>";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 echo $urlInfo[0];
+    echo "<br>";
     if (isset($urlInfo[0])) {
         echo "       I am here 0      ";
         $query = "SELECT * FROM researchers";
