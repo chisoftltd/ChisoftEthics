@@ -20,7 +20,7 @@ $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $number = $urlInfo[1];
-
+echo $urlInfo[1];
     if (isset($urlInfo[1]))  {
 
         $queryID = "SELECT * FROM researchers where id = '$number'";
