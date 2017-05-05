@@ -82,14 +82,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<br>";
         echo $urlInfo[4];
         echo "<br>";
-        echo new DateTime();
+        echo date("Y-m-d h:i:sa");
         echo "<br>";
 
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
         $researcherpwd = $urlInfo[4];
-        $researcherdate = new DateTime();
+        $researcherdate = date("Y-m-d h:i:sa");
 
 
 
