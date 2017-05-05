@@ -49,14 +49,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $reply = null;
         //$iterate =0;
         $result = mysqli_query($link, $query);
-        if (mysqli_num_rows($result) > 1) {
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                $reply[$iterate] = $row;
-                $iterate++;
-            }
-            //      header('Content Type: application/json');
+        if (mysqli_num_rows($result) > 0) {
             echo json_encode($reply);
+
+            //while ($row = mysqli_fetch_assoc($result)) {
+
+              //  $reply[$iterate] = $row;
+                //$iterate++;
+            //}
+            //      header('Content Type: application/json');
+            //echo json_encode($reply);
 
         }
     } else {
