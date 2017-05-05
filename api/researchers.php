@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
         if ($urlInfo[4] != "") {
             $query .= "password=$urlInfo[4]";
         }
-        $query .= "where id=$urlInfo[1]";
+        $query .= "date = now() where id=$urlInfo[1]";
         $result = mysqli_query($link, $query);
     } else {
         header("HTTP/1.0 40, researcher ID Not found");
