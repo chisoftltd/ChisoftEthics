@@ -74,14 +74,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (count($urlInfo) > 0) {
 
         $password = generate();
+        echo $password;
         $pwd = "";
 
         for ($i = 0; $i < count($password); $i) {
             $pwd .= $password[rand(0, (count($password) - 1))];
         }
 
-echo $pwd;
-        
+
+
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
