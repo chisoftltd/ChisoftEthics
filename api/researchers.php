@@ -71,13 +71,39 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (count($urlInfo) > 0 and count($urlInfo) < 6) {
-        insert_researcher($urlInfo);
+
+        $password = generate();
+        $pwd = "";
+
+        for ($i = 0; $i < count($password); $i) {
+            $pwd .= $password[rand(0, (count($password) - 1))];
+        }
+
+
+        $researcherid = $urlInfo[1];
+        $researchername = $urlInfo[2];
+        $researcheremail = $urlInfo[3];
+        $researcherdate = new DateTime();
+
+        $query = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
+
+        $reply = array();
+        $result = mysqli_query($link, $query);
+
+        if (mysqli_affected_rows($result) > 0) {
+            header("HTTP/1.0 201 Created Successfully");
+            echo json_encode($reply[0] = "researcher registered");
+        } else {
+            header("HTTP/1.0 409 Conflicting, Researcher ID Exists");
+            echo json_encode($reply[0] = "Researcher Exist, Please check the Researcher ID and try again");
+        }
     } else {
         header("HTTP/1.0 400 Bad Reguest");
         echo json_encode($reply[0] = "Parameters must be greater than 1");
     }
 }
 
+/*
 
 function insert_researcher($researcher)
 {
@@ -89,7 +115,7 @@ function insert_researcher($researcher)
         $pwd .= $password[rand(0, (count($password) - 1))];
     }
 
-    $researcherid = $researcher[0];
+    $researcherid = $url[0];
     $researchername = $researcher[1];
     $researcheremail = $researcher[2];
     $researcherdate = new DateTime();
@@ -109,7 +135,7 @@ function insert_researcher($researcher)
 }
 
 
-/*
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (count($urlInfo) > 0 and count($urlInfo) < 6) {
         insert_researcher($urlInfo);
