@@ -13,7 +13,7 @@ ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
 
-$urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 20));
+$urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 echo $_SERVER['REQUEST_URI'];
 echo "<br>";
 
@@ -43,14 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $number = $urlInfo[1];
     if (isset($urlInfo[1])) {
         echo "             I am here 1";
-        $query = "SELECT * FROM researchers where id = '$number'";
+        $query = "SELECT * FROM researchers where id = $number";
         //$iterate =0;
-        $result = mysqli_query($link, $query);
-        echo json_encode($result);
+        $resultID = mysqli_query($link, $query);
+        print_r($resultID);
+        echo json_encode($resultID);
 
 
         //if (mysqli_num_rows($result) > 0) {
-            echo json_encode($result);
+            //echo json_encode($result);
 
             //while ($row = mysqli_fetch_assoc($result)) {
 
