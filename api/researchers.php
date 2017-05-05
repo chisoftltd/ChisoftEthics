@@ -13,7 +13,7 @@ ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
 
-$urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
+$urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 20));
 echo $_SERVER['REQUEST_URI'];
 echo "<br>";
 
