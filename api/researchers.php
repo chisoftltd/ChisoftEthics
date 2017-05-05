@@ -19,7 +19,7 @@ $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 // HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     //$page = $urlInfo[0];
-    
+
     if (!strcmp($urlInfo[0], 'researchers')) {
         echo $urlInfo[0];
         $query = "SELECT * FROM researchers";
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $reply = null;
         $iterate = 0;
         $queryID = "SELECT * FROM researchers where id = '$urlInfo[1]'";
-print_r($queryID);
+
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
