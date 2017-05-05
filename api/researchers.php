@@ -18,10 +18,9 @@ $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 
 // HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    //$page = $urlInfo[0];
-
-    if ($urlInfo[0] == "researchers") {
-        echo $urlInfo[0];
+    $page = $urlInfo[0];
+    echo $urlInfo[0];
+    if ($page == "researchers") {
         $query = "SELECT * FROM researchers";
         $reply = null;
         $iterate = 0;
@@ -42,25 +41,23 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         //get_id_researcher($_GET['researchers']);
     }
 
-    //GET{id}
+    $number = $urlInfo[1];
+
     if ($urlInfo[1] > 0 && $urlInfo[1] < 100) {
         $reply = null;
         $iterate = 0;
-        $queryID = "SELECT * FROM researchers where id = '$urlInfo[1]'";
+        $queryID = "SELECT * FROM researchers where id = '$number'";
 
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
-        print_r($rowID);
         while ($rowID) {
             $reply[$iterate] = $rowID;
             $iterate++;
         }
-        //header('Content Type: application/json');
-        print_r($reply);
-        echo json_encode($reply);
+        echo json_encode($rowID);
         header("HTTP/1.0 200 OK");
-        echo json_encode($reply[1] = "GET Researcher Successfully");
+        echo json_encode($reply[0] = "GET Researcher Successfully");
 
 
     } else {
