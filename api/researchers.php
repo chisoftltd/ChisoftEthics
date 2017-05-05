@@ -19,7 +19,7 @@ $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 // HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $page = $urlInfo[0];
-    if (!strcmp($page, "researchers")) {
+    if (strcmp($page, "researchers")) {
         $query = "SELECT * FROM researchers";
         $reply = null;
         $iterate = 0;
