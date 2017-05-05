@@ -19,6 +19,7 @@ $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 0));
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     if (isset($urlInfo[0]) == "researchers") {
+        echo "I am here 0      ";
         $query = "SELECT * FROM researchers";
         $reply = null;
         $iterate = 0;
@@ -39,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         //get_id_researcher($_GET['researchers']);
     }
 
-    if (isset($urlInfo[1]) > '0' and isset($urlInfo[1]) < '9') {
-        echo "I am here 0";
+    if (isset($urlInfo[1]) > '0' && isset($urlInfo[1]) < '9') {
+        echo "             I am here 1";
         $query = "SELECT * FROM researchers where id = '$urlInfo[1]'";
         //$iterate =0;
         $result = mysqli_query($link, $query);
