@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (count($urlInfo) > 0 and count($urlInfo) < 6) {
+    if (count($urlInfo) > 0 and count($urlInfo) < 4) {
 
         $password = generate();
         $pwd = "";
