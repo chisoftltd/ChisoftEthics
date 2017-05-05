@@ -18,6 +18,28 @@ $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 
 //HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
+
+    $number = $urlInfo[1];
+
+    if (isset($urlInfo[1]))  {
+
+        $queryID = "SELECT * FROM researchers where id = '$number'";
+
+        //$iterate =0;
+        $resultID = mysqli_query($link, $queryID);
+        $rowID = mysqli_fetch_assoc($resultID);
+        //print_r($rowID);
+        //echo ($rowID);
+        echo json_encode($rowID);
+        header("HTTP/1.0 200 OK");
+        echo json_encode($reply[0] = "GET Researcher Successfully");
+        exit;
+
+    } else {
+        header("HTTP/1.0 400 Bad Request");
+        header("HTTP/1.0 204 No Content Found");
+    }
+
     $page = $urlInfo[0];
     if ($page == "researchers") {
         $query = "SELECT * FROM researchers";
@@ -29,8 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $reply[$iterate] = $row;
                 $iterate++;
             }
-            //
-
             //print_r($reply);
             //header('Content Type: application/json');
             echo json_encode($reply);
@@ -40,27 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         header("HTTP/1.0 204 No Content Found");
         //get_id_researcher($_GET['researchers']);
     }
-
-    $number = $urlInfo[1];
-
-    if (isset($urlInfo[1]))  {
-
-        $queryID = "SELECT * FROM researchers where id = '$number'";
-
-        //$iterate =0;
-        $resultID = mysqli_query($link, $queryID);
-        $rowID = mysqli_fetch_assoc($resultID);
-        print_r($rowID);
-        echo ($rowID);
-        echo json_encode($rowID);
-        header("HTTP/1.0 200 OK");
-        echo json_encode($reply[0] = "GET Researcher Successfully");
-
-    } else {
-        header("HTTP/1.0 400 Bad Request");
-        header("HTTP/1.0 204 No Content Found");
-    }
-
 }
 //HTTP verb POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
