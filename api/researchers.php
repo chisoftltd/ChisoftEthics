@@ -41,16 +41,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         //get_id_researcher($_GET['researchers']);
     }
 
-    $number = $urlInfo[1];
-
+    //GET{id}
     if ($urlInfo[1] > 0 && $urlInfo[1] < 100) {
-
-        $queryID = "SELECT * FROM researchers where id = '$number'";
+        $reply = null;
+        $iterate = 0;
+        $queryID = "SELECT * FROM researchers where id = '$urlInfo[1]'";
 
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
-        echo json_encode($rowID);
+        while ($rowID) {
+            $reply[$iterate] = $rowID;
+            $iterate++;
+        }
+        echo json_encode($reply);
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
 
