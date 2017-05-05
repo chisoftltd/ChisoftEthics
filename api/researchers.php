@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $reply = null;
         $iterate = 0;
         $queryID = "SELECT * FROM researchers where id = '$urlInfo[1]'";
-
+print_r($queryID);
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_array($resultID);
@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $reply[$iterate] = $rowID;
             $iterate++;
         }
+        header('Content Type: application/json');
         echo json_encode($reply);
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
