@@ -107,17 +107,17 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     if ($num_rows >= $urlInfo[1]) {
 
         $query = "update researchers set";
-        echo $query;
+        echo $query. "  ";
         if ($urlInfo[2] != "") {
-            echo $query;
+            echo $query. "  ";
             $query .= "name=$urlInfo[2]";
         }
         if ($urlInfo[3] != "") {
-            echo $query;
+            echo $query. "  ";
             $query .= "email=$urlInfo[3]";
         }
         if ($urlInfo[4] != "") {
-            echo $query;
+            echo $query. "  ";
             $query .= "password=$urlInfo[4]";
         }
         $query .= "date = now() where id=$urlInfo[1]";
