@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
         //unset($urlInfo[1]);
-        //exit;
+        exit;
 
     } else {
         header("HTTP/1.0 400 Bad Request");
