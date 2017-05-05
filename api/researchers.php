@@ -16,25 +16,23 @@ require_once 'dbconnect.php'; // include database connection script
 $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 
     if (isset($urlInfo[0])) {
         $query = "SELECT * FROM researchers";
         $reply = null;
-        $iterate =0;
+        $iterate = 0;
         $result = mysqli_query($link, $query);
         if (mysqli_num_rows($result) > 1) {
 
             while ($row = mysqli_fetch_assoc($result)) {
 
 
-               $reply[$iterate]= $row;
+                $reply[$iterate] = $row;
                 $iterate++;
             }
-         //
+            //
 
             //print_r($reply);
             //header('Content Type: application/json');
@@ -46,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         //get_id_researcher($_GET['researchers']);
     }
 
-    if (isset($urlInfo[1])){
-        $query = "SELECT id, name, email, date FROM researchers where id = '$urlInfo[1]'";
+    if (isset($urlInfo[1])) {
+        $query = "SELECT * FROM researchers where id = '$urlInfo[1]'";
         $reply = null;
         //$iterate =0;
         $result = mysqli_query($link, $query);
@@ -59,12 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $col1['Date'] = $row['date'];
 
                 $reply[] = $col1;
-
-          //      header('Content Type: application/json');
-                echo json_encode($reply);
             }
+            //      header('Content Type: application/json');
+            echo json_encode($reply);
+
         }
-    }else{
+    } else {
         header("HTTP/1.0 204 No Content Found");
     }
 
