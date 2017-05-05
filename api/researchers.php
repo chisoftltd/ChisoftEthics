@@ -85,18 +85,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
 echo $pwd;
-        
+
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
         $researcherdate = new DateTime();
 
-        $query = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
-
+        $queryPost = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
+echo $queryPost;
         $reply = array();
-        $result = mysqli_query($link, $query);
+        $resultPost = mysqli_query($link, $queryPost);
 
-        if (mysqli_affected_rows($result) > 0) {
+        if (mysqli_affected_rows($resultPsot) > 0) {
             header("HTTP/1.0 201 Created Successfully");
             echo json_encode($reply[0] = "researcher registered");
         } else {
