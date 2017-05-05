@@ -19,7 +19,7 @@ $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 // HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $page = $urlInfo[0];
-    echo $urlInfo[0];
+    //echo $urlInfo[0];
     if ($page == "researchers") {
         $query = "SELECT * FROM researchers";
         $reply = null;
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
 
-        echo json_encode($rowID);
+//        echo json_encode($rowID);
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
 
