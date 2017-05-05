@@ -47,9 +47,25 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
     if (isset($urlInfo[1])){
+        $query = "SELECT id, name, email, date FROM researchers where id = '$urlInfo[1]'";
+        $reply = null;
+        //$iterate =0;
+        $result = mysqli_query($link, $query);
+        if (mysqli_num_rows($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $col1["Researcher ID"] = $row['id'];
+                $col1['Name'] = $row['name'];
+                $col1['Email'] = $row['email'];
+                $col1['Date'] = $row['date'];
 
+                $reply[] = $col1;
+
+          //      header('Content Type: application/json');
+                echo json_encode($reply);
+            }
+        }
     }else{
-        
+        header("HTTP/1.0 204 No Content Found");
     }
 
 }
