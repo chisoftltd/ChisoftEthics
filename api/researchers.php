@@ -39,16 +39,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         header("HTTP/1.0 204 No Content Found");
         //get_id_researcher($_GET['researchers']);
     }
-    echo $urlInfo[1];
-    $number = $urlInfo[1];
+
+
     if (isset($urlInfo[1])) {
-        echo "             I am here 1";
+
         $queryID = "SELECT * FROM researchers where id = '$number'";
-        echo @$queryID;
+
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
-        print_r($rowID);
         echo json_encode($rowID);
 
 
@@ -69,6 +68,47 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (count($urlInfo) > 0 and count($urlInfo) < 6) {
+        insert_researcher($urlInfo);
+    } else {
+        header("HTTP/1.0 400 Bad Reguest");
+        echo json_encode($reply[0] = "Parameters must be greater than 1");
+    }
+}
+
+
+function insert_researcher($researcher)
+{
+    global $link;
+    $password = generate();
+    $pwd = "";
+
+    for ($i = 0; $i < count($password); $i) {
+        $pwd .= $password[rand(0, (count($password) - 1))];
+    }
+
+    $researcherid = $researcher[0];
+    $researchername = $researcher[1];
+    $researcheremail = $researcher[2];
+    $researcherdate = new DateTime();
+
+    $query = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
+
+    $reply = array();
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_affected_rows($result) > 0) {
+        header("HTTP/1.0 201 Created Successfully");
+        echo json_encode($reply[0] = "researcher registered");
+    } else {
+        header("HTTP/1.0 409 Conflicting, Researcher ID Exists");
+        echo json_encode($reply[0] = "Researcher Exist, Please check the Researcher ID and try again");
+    }
+}
+
+
 /*
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (count($urlInfo) > 0 and count($urlInfo) < 6) {
@@ -174,34 +214,6 @@ function get_researcher()
     }
 }
 
-function insert_researcher($researcher)
-{
-    global $link;
-    $password = generate();
-    $pwd = "";
-
-    for ($i = 0; $i < count($password); $i) {
-        $pwd .= $password[rand(0, (count($password) - 1))];
-    }
-
-    $researcherid = $researcher[0];
-    $researchername = $researcher[1];
-    $researcheremail = $researcher[2];
-    $researcherdate = new DateTime();
-
-    $query = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
-
-    $reply = array();
-    $result = mysqli_query($link, $query);
-
-    if (mysqli_affected_rows($result) > 0) {
-        header("HTTP/1.0 201 Created Successfully");
-        echo json_encode($reply[0] = "researcher registered");
-    } else {
-        header("HTTP/1.0 409 Conflicting, Researcher ID Exists");
-        echo json_encode($reply[0] = "Researcher Exist, Please check the Researcher ID and try again");
-    }
-}
 
 function delete_researcher($researcher)
 {
