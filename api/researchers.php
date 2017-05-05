@@ -74,30 +74,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($urlInfo) > 0) {
 
-        echo $urlInfo[1];
-        echo "<br>";
-        echo $urlInfo[2];
-        echo "<br>";
-        echo $urlInfo[3];
-        echo "<br>";
-        echo $urlInfo[4];
-        echo "<br>";
-        echo date("Y-m-d h:i:sa");
-        echo "<br>";
-
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
         $researcherpwd = $urlInfo[4];
-        $researcherdate = date("Y-m-d h:i:sa");
-
-
 
         $queryPost = "insert into researchers(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', now())";
 
         $reply = array();
         $resultPost = mysqli_query($link, $queryPost);
-echo $resultPost;
+
         if ($resultPost) {
             header("HTTP/1.0 201 Created Successfully");
             echo json_encode($reply[0] = "researcher registered");
@@ -110,6 +96,40 @@ echo $resultPost;
         echo json_encode($reply[0] = "Parameters must be greater than 1");
     }
 }
+
+
+if ($_SERVER["REQUEST_METHOD"] == "PUT") {
+    $queryPut = "SELECT * FROM researchers";
+    $reply = null;
+    $iterate = 0;
+    $resultPut = mysqli_query($link, $queryPut);
+    $num_rows = mysqli_num_rows($resultPut);
+    if ($num_rows > $urlInfo[1]) {
+        $query = "update researcher set";
+        if ($urlInfo[2] != "") {
+            $query .= "name=$urlInfo[2]";
+        }
+        if ($urlInfo[3] != "") {
+            $query .= "email=$urlInfo[3]";
+        }
+        if ($urlInfo[4] != "") {
+            $query .= "password=$urlInfo[4]";
+        }
+        $query .= "where id=$urlInfo[1]";
+        $result = mysqli_query($link, $query);
+    } else {
+        header("HTTP/1.0 40, researcher ID Not found");
+    }
+
+
+    if ($result) {
+        header("HTTP/1.0 201 Modified Successfully");
+        echo json_encode($reply[0] = "Modified Successfully");
+    } else {
+        header("HTTP/1.0 40, researcher ID Not found");
+    }
+}
+
 
 /*
 
