@@ -15,13 +15,11 @@ require_once 'dbconnect.php'; // include database connection script
 
 
 $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
-echo $_SERVER["REQUEST_URI"];
-echo $_SERVER["REQUEST_METHOD"];
-// HTTP verb GET
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+echo $_SERVER['REQUEST_URI'];
+echo "<br>";
 
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $page = $urlInfo[0];
-    echo "I am here 0";
     if ($page == "researchers") {
         $query = "SELECT * FROM researchers";
         $reply = null;
@@ -32,33 +30,27 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $reply[$iterate] = $row;
                 $iterate++;
             }
+            //
+
             //print_r($reply);
             //header('Content Type: application/json');
             echo json_encode($reply);
-            header("HTTP/1.0 200 OK");
         }
     } else {
         header("HTTP/1.0 204 No Content Found");
-        header("HTTP/1.0 400 Bad Request");
         //get_id_researcher($_GET['researchers']);
     }
-}
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+
     $number = $urlInfo[1];
 
-    if ($urlInfo[1] > 0 && $urlInfo[1] < 100) {
-        $reply = null;
-        $iterate = 0;
+    if (isset($urlInfo[1])) {
+
         $queryID = "SELECT * FROM researchers where id = '$number'";
 
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
-
-//        echo json_encode($rowID);
-        header("HTTP/1.0 200 OK");
-        echo json_encode($reply[0] = "GET Researcher Successfully");
-
+        echo json_encode($rowID);
 
     } else {
         header("HTTP/1.0 400 Bad Request");
@@ -67,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 }
 
-// HTTP verb POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($urlInfo) > 0) {
@@ -95,11 +86,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         header("HTTP/1.0 400 Bad Reguest");
-        echo json_encode($reply[0] = "400 Bad Reguest");
+        echo json_encode($reply[0] = "Parameters must be greater than 1");
     }
 }
 
-// HTTP verb PUT
+
 if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     $queryPut = "SELECT * FROM researchers";
     $reply = null;
@@ -132,7 +123,6 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
             echo json_encode($reply[0] = "Modified Successfully");
         } else {
             header("HTTP/1.0 40, Researcher ID Not found");
-            echo json_encode($reply[1] = "Modification failed");
         }
 
     } else {
@@ -140,7 +130,6 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     }
 }
 
-// HTTP verb DELETE
 if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     $queryDel = "SELECT * FROM researchers";
     $reply = null;
@@ -162,7 +151,6 @@ if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
             echo json_encode($reply[0] = "Deleted successfully");
         } else {
             header("HTTP/1.0 40, Researcher ID Not found");
-            echo json_encode($reply[1] = "Deletion failed");
         }
 
     } else {
