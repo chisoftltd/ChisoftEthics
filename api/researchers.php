@@ -52,15 +52,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 
         //if (mysqli_num_rows($result) > 0) {
-            //echo json_encode($result);
+        //echo json_encode($result);
 
-            //while ($row = mysqli_fetch_assoc($result)) {
+        //while ($row = mysqli_fetch_assoc($result)) {
 
-            //  $reply[$iterate] = $row;
-            //$iterate++;
-            //}
-            //      header('Content Type: application/json');
-            //echo json_encode($reply);
+        //  $reply[$iterate] = $row;
+        //$iterate++;
+        //}
+        //      header('Content Type: application/json');
+        //echo json_encode($reply);
 
         //}
     } else {
@@ -72,16 +72,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($urlInfo) > 0) {
+        echo count($urlInfo);
 
         $password = generate();
         echo $password;
+
         $pwd = "";
 
         for ($i = 0; $i < count($password); $i) {
             $pwd .= $password[rand(0, (count($password) - 1))];
         }
 
-        
+
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
