@@ -134,6 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     }
 }
 
+// HTTP verb DELETE
 if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     $queryDel = "SELECT * FROM researchers";
     $reply = null;
