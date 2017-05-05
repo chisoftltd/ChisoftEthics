@@ -20,7 +20,7 @@ $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $number = $urlInfo[1];
-echo $urlInfo[1];
+    echo $urlInfo[1];
     if (isset($urlInfo[1]))  {
 
         $queryID = "SELECT * FROM researchers where id = '$number'";
@@ -33,8 +33,8 @@ echo $urlInfo[1];
         echo json_encode($rowID);
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
-        unset($urlInfo[1]);
-        //exit;
+        //unset($urlInfo[1]);
+        exit;
 
     } else {
         header("HTTP/1.0 400 Bad Request");
