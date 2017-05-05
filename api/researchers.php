@@ -49,12 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
-        $rowID = mysqli_fetch_assoc($resultID);
+        $rowID = mysqli_fetch_array($resultID);
+        print_r($rowID);
         while ($rowID) {
             $reply[$iterate] = $rowID;
             $iterate++;
         }
-        //echo json_encode($reply);
+        echo json_encode($reply);
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
 
