@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     $num_rows = mysqli_num_rows($resultPut);
     if ($num_rows >= $urlInfo[1]) {
 
-        $query = "update researchers set";
+        $query = "update researchers set ";
 
         if (isset($urlInfo[2])) {
             $query .= "name=$urlInfo[2],";
