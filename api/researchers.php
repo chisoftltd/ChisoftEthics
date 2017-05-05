@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $number = $urlInfo[1];
     if (isset($urlInfo[1])) {
         echo "             I am here 1";
-        $query = "SELECT * FROM researchers where id = $number";
+        $query = "SELECT * FROM researchers where id = '$number'";
         //$iterate =0;
         $resultID = mysqli_query($link, $query);
         print_r($resultID);
