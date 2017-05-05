@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         //$iterate =0;
         $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
-        echo json_encode($rowID);
+        //echo json_encode($rowID);
 
     } else {
         header("HTTP/1.0 400 Bad Request");
