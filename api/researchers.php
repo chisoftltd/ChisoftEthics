@@ -13,8 +13,8 @@ ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
 
-$urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
-
+$urlInfo = explode("/", substr($_SERVER['REQUEST_URI'], 1));
+echo $_SERVER['REQUEST_URI'];
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 echo $urlInfo[0];
