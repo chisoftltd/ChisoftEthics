@@ -109,31 +109,32 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
         $query = "update researchers set";
 
         if (isset($urlInfo[2])) {
-            echo $query. "  ";
             $query .= "name=$urlInfo[2],";
         }
         if ($urlInfo[3] != "") {
-            echo $query. "  ";
             $query .= "email=$urlInfo[3],";
         }
         if ($urlInfo[4] != "") {
-            echo $query. "  ";
             $query .= "password=$urlInfo[4],";
         }
         $query .= "date = now() where id=$urlInfo[1]";
-        echo $query. "  ";
+
         $result = mysqli_query($link, $query);
+
+        echo $result;
+        
+        if ($result) {
+            header("HTTP/1.0 201 Modified Successfully");
+            echo json_encode($reply[0] = "Modified Successfully");
+        } else {
+            header("HTTP/1.0 40, researcher ID Not found");
+        }
+
     } else {
         header("HTTP/1.0 40, researcher ID Not found");
     }
 
 
-    if ($result) {
-        header("HTTP/1.0 201 Modified Successfully");
-        echo json_encode($reply[0] = "Modified Successfully");
-    } else {
-        header("HTTP/1.0 40, researcher ID Not found");
-    }
 }
 
 
