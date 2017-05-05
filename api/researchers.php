@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        $queryPost = "insert into researchers(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', '$researcherdate')";
+        $queryPost = "insert into researchers(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', now())";
 echo $queryPost;
         $reply = array();
         $resultPost = mysqli_query($link, $queryPost);
