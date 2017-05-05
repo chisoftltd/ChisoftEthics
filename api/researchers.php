@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $number = $urlInfo[1];
 
-    if ($urlInfo[1] > 0 and $urlInfo[1] < 100)  {
+    if (isset($urlInfo[1])) {
 
         $queryID = "SELECT * FROM researchers where id = '$number'";
 
