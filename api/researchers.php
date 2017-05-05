@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             //
 
             //print_r($reply);
-            //header('Content Type: application/json');
+            header('Content Type: application/json');
             echo json_encode($reply);
         }
     } else {
@@ -113,9 +113,9 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
 
         $result = mysqli_query($link, $query);
 
-        $rowPut = mysqli_fetch_assoc($result);
+        //$rowPut = mysqli_fetch_assoc($result);
 
-        echo json_encode($rowPut);
+        echo json_encode($result);
 
         if ($result) {
             header("HTTP/1.0 201 Modified Successfully");
@@ -140,9 +140,9 @@ if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
         $query = "DELETE FROM researchers where id = $urlInfo[1]";
 
         $resultDel = mysqli_query($link, $query);
-        $rowDel = mysqli_fetch_assoc($resultDel);
+        //$rowDel = mysqli_fetch_assoc($resultDel);
 
-        echo json_encode($rowDel);
+        echo json_encode($resultDel);
 
 
         if ($resultDel) {
