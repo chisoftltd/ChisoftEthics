@@ -17,7 +17,7 @@ $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-
+echo "I am here 0";
 
     if (isset($urlInfo[0])) {
         $query = "SELECT * FROM researchers";
@@ -25,10 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $iterate = 0;
         $result = mysqli_query($link, $query);
         if (mysqli_num_rows($result) > 1) {
-
+            echo "I am here 1";
             while ($row = mysqli_fetch_assoc($result)) {
-
-
                 $reply[$iterate] = $row;
                 $iterate++;
             }
@@ -37,19 +35,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             //print_r($reply);
             //header('Content Type: application/json');
             echo json_encode($reply);
-
+            echo "I am here 2";
         }
     } else {
+        echo "I am here 3";
         header("HTTP/1.0 204 No Content Found");
         //get_id_researcher($_GET['researchers']);
     }
 
     if (isset($urlInfo[1])) {
+        echo "I am here 4";
         $query = "SELECT * FROM researchers where id = '$urlInfo[1]'";
         $reply = null;
         //$iterate =0;
         $result = mysqli_query($link, $query);
         if (mysqli_num_rows($result) > 0) {
+            echo "I am here 5";
             echo json_encode($reply);
 
             //while ($row = mysqli_fetch_assoc($result)) {
