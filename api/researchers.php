@@ -74,11 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $rowPost = mysqli_fetch_assoc($resultPost);
 
-        echo json_encode($rowPost);
+        //echo json_encode($rowPost);
 
         if ($resultPost) {
             header("HTTP/1.0 201 Created Successfully");
-            echo json_encode($reply[0] = "researcher registered");
+            echo json_encode($reply[0] = "Researcher registered");
         } else {
             header("HTTP/1.0 409 Conflicting, Researcher ID Exists");
             echo json_encode($reply[0] = "Researcher Exist, Please check the Researcher ID and try again");
@@ -121,11 +121,11 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
             header("HTTP/1.0 201 Modified Successfully");
             echo json_encode($reply[0] = "Modified Successfully");
         } else {
-            header("HTTP/1.0 40, researcher ID Not found");
+            header("HTTP/1.0 40, Researcher ID Not found");
         }
 
     } else {
-        header("HTTP/1.0 40, researcher ID Not found");
+        header("HTTP/1.0 40, Researcher ID Not found");
     }
 }
 
@@ -149,10 +149,10 @@ if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
             header("HTTP/1.0 201 Deleted Successfully");
             echo json_encode($reply[0] = "Deleted successfully");
         } else {
-            header("HTTP/1.0 40, researcher ID Not found");
+            header("HTTP/1.0 40, Researcher ID Not found");
         }
 
     } else {
-        header("HTTP/1.0 40, researcher ID Not found");
+        header("HTTP/1.0 40, Researcher ID Not found");
     }
 }
