@@ -119,11 +119,9 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
             $query .= "password='$urlInfo[4]',";
         }
         $query .= "date = now() where id = $urlInfo[1]";
-        echo $query;
 
         $result = mysqli_query($link, $query);
 
-        echo $result;
 
         if ($result) {
             header("HTTP/1.0 201 Modified Successfully");
@@ -135,8 +133,31 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     } else {
         header("HTTP/1.0 40, researcher ID Not found");
     }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
+    $queryDel = "SELECT * FROM researchers";
+    $reply = null;
+
+    $resultDel = mysqli_query($link, $queryDel);
+    $num_rows = mysqli_num_rows($resultDel);
+    if ($num_rows >= $urlInfo[1]) {
+
+        $query = "DELETE FROM researchers where id = $urlInfo[1]";
+
+        $result = mysqli_query($link, $query);
 
 
+        if ($result) {
+            header("HTTP/1.0 201 Deleted Successfully");
+            echo json_encode($reply[0] = "Deleted successfully");
+        } else {
+            header("HTTP/1.0 40, researcher ID Not found");
+        }
+
+    } else {
+        header("HTTP/1.0 40, researcher ID Not found");
+    }
 }
 
 
