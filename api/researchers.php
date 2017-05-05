@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $reply[$iterate] = $rowID;
             $iterate++;
         }
-        echo json_encode($reply);
+        //echo json_encode($reply);
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
 
