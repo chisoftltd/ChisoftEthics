@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
             $query .= "password=$urlInfo[4],";
         }
         $query .= "date = now() where id = $urlInfo[1]";
-echo $query;
+        echo $query;
         $result = mysqli_query($link, $query);
 
         echo $result;
