@@ -5,7 +5,7 @@
  * Date: 04/05/2017
  * Time: 18:51
  */
-header('Content Type: application/json');
+//header('Content Type: application/json');
 
 // Report all PHP errors (see changelog)
 error_reporting(E_ALL);
