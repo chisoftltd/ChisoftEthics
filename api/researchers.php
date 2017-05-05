@@ -38,14 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         header("HTTP/1.0 204 No Content Found");
         //get_id_researcher($_GET['researchers']);
     }
-echo "$urlInfo[1]  ".$urlInfo[1];
+
     if (isset($urlInfo[1])) {
         echo "I am here 0";
         $query = "SELECT * FROM researchers where id = '$urlInfo[1]'";
         //$iterate =0;
         $result = mysqli_query($link, $query);
         if (mysqli_num_rows($result) > 0) {
-            echo "I am here 5";
             echo json_encode($result);
 
             //while ($row = mysqli_fetch_assoc($result)) {
