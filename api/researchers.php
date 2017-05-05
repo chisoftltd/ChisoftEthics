@@ -12,6 +12,7 @@ error_reporting(E_ALL);
 ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
+include_once generate.php;
 
 $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 echo $_SERVER['REQUEST_URI'];
@@ -72,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($urlInfo) > 0) {
-        echo count($urlInfo);
+
 
         $password = generate();
         echo $password;
