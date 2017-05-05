@@ -33,7 +33,8 @@ echo $urlInfo[1];
         echo json_encode($rowID);
         header("HTTP/1.0 200 OK");
         echo json_encode($reply[0] = "GET Researcher Successfully");
-        exit;
+        unset($urlInfo[1]);
+        //exit;
 
     } else {
         header("HTTP/1.0 400 Bad Request");
