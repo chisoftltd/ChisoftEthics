@@ -49,14 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $reply = null;
         //$iterate =0;
         $result = mysqli_query($link, $query);
-        if (mysqli_num_rows($result)) {
+        if (mysqli_num_rows($result) > 1) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $col1["Researcher ID"] = $row['id'];
-                $col1['Name'] = $row['name'];
-                $col1['Email'] = $row['email'];
-                $col1['Date'] = $row['date'];
 
-                $reply[] = $col1;
+                $reply[$iterate] = $row;
+                $iterate++;
             }
             //      header('Content Type: application/json');
             echo json_encode($reply);
