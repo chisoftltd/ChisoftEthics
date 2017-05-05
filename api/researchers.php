@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo count($urlInfo);
+
     if (count($urlInfo) > 0) {
 
         $password = generate();
@@ -80,7 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pwd .= $password[rand(0, (count($password) - 1))];
         }
 
-
+echo $pwd;
+        
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
