@@ -15,7 +15,7 @@ require_once 'dbconnect.php'; // include database connection script
 
 
 $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
-
+echo $_SERVER["REQUEST_URI"];
 // HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
