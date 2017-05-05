@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             //
 
             //print_r($reply);
-            header('Content Type: application/json');
+            //header('Content Type: application/json');
             echo json_encode($reply);
         }
     } else {
