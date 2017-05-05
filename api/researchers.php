@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
 
         $query = "update researchers set";
         echo $query. "  ";
-        if ($urlInfo[2] != "") {
+        if (isset($urlInfo[2])) {
             echo $query. "  ";
             $query .= "name=$urlInfo[2]";
         }
