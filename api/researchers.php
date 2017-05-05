@@ -47,8 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo @$queryID;
         //$iterate =0;
         $resultID = mysqli_query($link, $query);
-        print_r($resultID);
-        echo json_encode($resultID);
+        $rowID = mysqli_fetch_assoc($resultID);
+        print_r($rowID);
+        echo json_encode($rowID);
 
 
         //if (mysqli_num_rows($result) > 0) {
