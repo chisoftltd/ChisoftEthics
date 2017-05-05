@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $queryID = "SELECT * FROM researchers where id = '$number'";
         echo @$queryID;
         //$iterate =0;
-        $resultID = mysqli_query($link, $query);
+        $resultID = mysqli_query($link, $queryID);
         $rowID = mysqli_fetch_assoc($resultID);
         print_r($rowID);
         echo json_encode($rowID);
