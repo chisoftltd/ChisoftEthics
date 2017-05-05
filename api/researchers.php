@@ -17,9 +17,9 @@ $urlInfo = explode("/", substr(@$_SERVER['PATH_INFO'], 0));
 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-
+echo $urlInfo[0];
     if (isset($urlInfo[0])) {
-        echo "I am here 0      ";
+        echo "       I am here 0      ";
         $query = "SELECT * FROM researchers";
         $reply = null;
         $iterate = 0;
@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         header("HTTP/1.0 204 No Content Found");
         //get_id_researcher($_GET['researchers']);
     }
+    echo $urlInfo[1];
 
     if (isset($urlInfo[1])) {
         echo "             I am here 1";
