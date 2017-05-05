@@ -5,7 +5,7 @@
  * Date: 04/05/2017
  * Time: 18:51
  */
-//header('Content Type: application/json');
+//
 
 // Report all PHP errors (see changelog)
 error_reporting(E_ALL);
@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
          //
 
             //print_r($reply);
+            header('Content Type: application/json');
             echo json_encode($reply);
 
         }
