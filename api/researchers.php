@@ -101,10 +101,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     $queryPut = "SELECT * FROM researchers";
     $reply = null;
-    $iterate = 0;
+    echo $queryPut;
     $resultPut = mysqli_query($link, $queryPut);
     $num_rows = mysqli_num_rows($resultPut);
     if ($num_rows > $urlInfo[1]) {
+        echo $num_rows;
         $query = "update researcher set";
         if ($urlInfo[2] != "") {
             $query .= "name=$urlInfo[2]";
