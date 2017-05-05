@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         //get_id_researcher($_GET['researchers']);
     }
 
+    $number = $urlInfo[1];
 
     if (isset($urlInfo[1])) {
 
@@ -117,12 +118,12 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
         if ($urlInfo[4] != "") {
             $query .= "password=$urlInfo[4],";
         }
-        $query .= "date = now() where id=$urlInfo[1]";
-
+        $query .= "date = now() where id = $urlInfo[1]";
+echo $query;
         $result = mysqli_query($link, $query);
 
         echo $result;
-        
+
         if ($result) {
             header("HTTP/1.0 201 Modified Successfully");
             echo json_encode($reply[0] = "Modified Successfully");
