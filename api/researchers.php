@@ -12,7 +12,7 @@ error_reporting(E_ALL);
 ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
-include_once generate.php;
+
 
 $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 echo $_SERVER['REQUEST_URI'];
@@ -74,24 +74,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($urlInfo) > 0) {
 
+        echo $urlInfo[1];
+        echo "<br>";
+        echo $urlInfo[2];
+        echo "<br>";
+        echo $urlInfo[3];
+        echo "<br>";
+        echo $urlInfo[4];
+        echo "<br>";
 
-        $password = generate();
-        echo $password;
-
-        $pwd = "";
-
-        for ($i = 0; $i < count($password); $i) {
-            $pwd .= $password[rand(0, (count($password) - 1))];
-        }
-
-echo $pwd;
-
+        
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
+        $researcherpwd = $urlInfo[4];
         $researcherdate = new DateTime();
 
-        $queryPost = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
+        $queryPost = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', '$researcherdate')";
 echo $queryPost;
         $reply = array();
         $resultPost = mysqli_query($link, $queryPost);
