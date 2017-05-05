@@ -42,8 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
     $number = $urlInfo[1];
-echo isset($urlInfo[1]);
-echo "<br>";
+
     if (isset($urlInfo[1]))  {
 
         $queryID = "SELECT * FROM researchers where id = '$number'";
