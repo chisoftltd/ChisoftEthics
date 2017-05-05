@@ -16,16 +16,10 @@ require_once 'dbconnect.php'; // include database connection script
 $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 echo $_SERVER['REQUEST_URI'];
 echo "<br>";
-echo $urlInfo;
-echo "<br>";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-echo $urlInfo[0];
-    echo "<br>";
-    echo  $urlInfo[1];
-    echo "<br>";
-    if (isset($urlInfo[0])) {
-        echo "       I am here 0      ";
+    $page = $urlInfo[0];
+    if ($page == "researchers") {
         $query = "SELECT * FROM researchers";
         $reply = null;
         $iterate = 0;
@@ -46,24 +40,27 @@ echo $urlInfo[0];
         //get_id_researcher($_GET['researchers']);
     }
     echo $urlInfo[1];
-
+    $number = $urlInfo[1];
     if (isset($urlInfo[1])) {
         echo "             I am here 1";
-        $query = "SELECT * FROM researchers where id = '$urlInfo[1]'";
+        $query = "SELECT * FROM researchers where id = '$number'";
         //$iterate =0;
         $result = mysqli_query($link, $query);
-        if (mysqli_num_rows($result) > 0) {
+        echo json_encode($result);
+
+
+        //if (mysqli_num_rows($result) > 0) {
             echo json_encode($result);
 
             //while ($row = mysqli_fetch_assoc($result)) {
 
-              //  $reply[$iterate] = $row;
-                //$iterate++;
+            //  $reply[$iterate] = $row;
+            //$iterate++;
             //}
             //      header('Content Type: application/json');
             //echo json_encode($reply);
 
-        }
+        //}
     } else {
         header("HTTP/1.0 204 No Content Found");
     }
