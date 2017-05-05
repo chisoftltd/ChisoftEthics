@@ -42,7 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         }
     } else {
+        header("HTTP/1.0 204 No Content Found");
         //get_id_researcher($_GET['researchers']);
+    }
+
+    if (isset($urlInfo[1])){
+
+    }else{
+        
     }
 
 }
