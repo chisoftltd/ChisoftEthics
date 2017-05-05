@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         header("HTTP/1.0 400 Bad Request");
         //get_id_researcher($_GET['researchers']);
     }
-
+}
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $number = $urlInfo[1];
 
     if ($urlInfo[1] > 0 && $urlInfo[1] < 100) {
