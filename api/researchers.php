@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $reply = array();
         $resultPost = mysqli_query($link, $queryPost);
 echo $resultPost;
-        if (mysqli_affected_rows($resultPost) > 0) {
+        if ($resultPost) {
             header("HTTP/1.0 201 Created Successfully");
             echo json_encode($reply[0] = "researcher registered");
         } else {
