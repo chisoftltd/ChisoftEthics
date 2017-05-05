@@ -15,9 +15,8 @@ require_once 'dbconnect.php'; // include database connection script
 
 
 $urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
-echo $_SERVER['REQUEST_URI'];
-echo "<br>";
 
+//HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $page = $urlInfo[0];
     if ($page == "researchers") {
@@ -58,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
 }
-
+//HTTP verb POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($urlInfo) > 0) {
@@ -90,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
+//HTTP verb PUT
 if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     $queryPut = "SELECT * FROM researchers";
     $reply = null;
@@ -129,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
         header("HTTP/1.0 40, Researcher ID Not found");
     }
 }
-
+//HTTP verb DELETE
 if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     $queryDel = "SELECT * FROM researchers";
     $reply = null;
