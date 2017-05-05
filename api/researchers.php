@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode($rowID);
 
     } else {
+        header("HTTP/1.0 400 Bad Request");
         header("HTTP/1.0 204 No Content Found");
     }
 
