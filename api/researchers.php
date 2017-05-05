@@ -82,15 +82,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<br>";
         echo $urlInfo[4];
         echo "<br>";
+        echo new DateTime();
+        echo "<br>";
 
-        
         $researcherid = $urlInfo[1];
         $researchername = $urlInfo[2];
         $researcheremail = $urlInfo[3];
         $researcherpwd = $urlInfo[4];
         $researcherdate = new DateTime();
 
-        $queryPost = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', '$researcherdate')";
+
+
+        $queryPost = "insert into researchers(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', '$researcherdate')";
 echo $queryPost;
         $reply = array();
         $resultPost = mysqli_query($link, $queryPost);
