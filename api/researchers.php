@@ -5,238 +5,159 @@
  * Date: 04/05/2017
  * Time: 18:51
  */
+//
 
 // Report all PHP errors (see changelog)
 error_reporting(E_ALL);
 ini_set('display_error', 1);
 
 require_once 'dbconnect.php'; // include database connection script
-include_once '../generate.php';
-
-//$request_type = $_SERVER["REQUEST_METHOD"];
-
-echo $_SERVER['REQUEST_URL'];
-echo "<br>";
-
-$urlInfo = explode("/", substr($_SERVER['REQUEST_URL'], 16));
 
 
-echo $urlInfo;
+$urlInfo = explode("/", substr(@$_SERVER['REQUEST_URI'], 21));
 
-
-// Use SWITCH case to implement the appropiate REQUEST METHOD
-
-
+//HTTP verb GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (!isset($_GET["researchers"])) {
-        get_researcher();
+
+    $number = $urlInfo[1];
+
+    if (($urlInfo[1] > 0) && ($urlInfo[1] < 100))  {
+
+        $queryID = "SELECT * FROM researchers where id = '$number'";
+
+        //$iterate =0;
+        $resultID = mysqli_query($link, $queryID);
+        $rowID = mysqli_fetch_assoc($resultID);
+        //print_r($rowID);
+        //echo ($rowID);
+        echo json_encode($rowID);
+        header("HTTP/1.0 200 OK");
+        echo json_encode($reply[0] = "GET Researcher Successfully");
+        //unset($urlInfo[1]);
+        exit;
+
     } else {
-        get_id_researcher($_GET['researchers']);
+        header("HTTP/1.0 400 Bad Request");
+        header("HTTP/1.0 204 No Content Found");
     }
 
+    $page = $urlInfo[0];
+    if ($page == "researchers") {
+        $query = "SELECT * FROM researchers";
+        $reply = null;
+        $iterate = 0;
+        $result = mysqli_query($link, $query);
+        if (mysqli_num_rows($result) > 1) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $reply[$iterate] = $row;
+                $iterate++;
+            }
+            //print_r($reply);
+            //header('Content Type: application/json');
+            echo json_encode($reply);
+            header("HTTP/1.0 200 OK");
+        }
+    } else {
+        header("HTTP/1.0 204 No Content Found");
+        //get_id_researcher($_GET['researchers']);
+    }
 }
-
+//HTTP verb POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (count($urlInfo) > 0 and count($urlInfo) < 6) {
-        insert_researcher($urlInfo);
+
+    if (count($urlInfo) > 0) {
+
+        $researcherid = $urlInfo[1];
+        $researchername = $urlInfo[2];
+        $researcheremail = $urlInfo[3];
+        $researcherpwd = $urlInfo[4];
+
+        $queryPost = "insert into researchers(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$researcherpwd', now())";
+
+        $reply = array();
+        $resultPost = mysqli_query($link, $queryPost);
+
+        $rowPost = mysqli_fetch_assoc($resultPost);
+
+        //echo json_encode($rowPost);
+
+        if ($resultPost) {
+            header("HTTP/1.0 201 Created Successfully");
+            echo json_encode($reply[0] = "Researcher registered");
+        } else {
+            header("HTTP/1.0 409 Conflicting, Researcher ID Exists");
+            echo json_encode($reply[0] = "Researcher Exist, Please check the Researcher ID and try again");
+        }
     } else {
         header("HTTP/1.0 400 Bad Reguest");
         echo json_encode($reply[0] = "Parameters must be greater than 1");
     }
 }
 
+//HTTP verb PUT
 if ($_SERVER["REQUEST_METHOD"] == "PUT") {
-    update_researcher($urlInfo);
-}
+    $queryPut = "SELECT * FROM researchers";
+    $reply = null;
 
+    $resultPut = mysqli_query($link, $queryPut);
+    $num_rows = mysqli_num_rows($resultPut);
+    if ($num_rows >= $urlInfo[1]) {
+
+        $query = "update researchers set ";
+
+        if (isset($urlInfo[2])) {
+            $query .= "name='$urlInfo[2]',";
+        }
+        if ($urlInfo[3] != "") {
+            $query .= "email='$urlInfo[3]',";
+        }
+        if ($urlInfo[4] != "") {
+            $query .= "password='$urlInfo[4]',";
+        }
+        $query .= "date = now() where id = $urlInfo[1]";
+
+        $result = mysqli_query($link, $query);
+
+        //$rowPut = mysqli_fetch_assoc($result);
+
+        echo json_encode($result);
+
+        if ($result) {
+            header("HTTP/1.0 201 Modified Successfully");
+            echo json_encode($reply[0] = "Modified Successfully");
+        } else {
+            header("HTTP/1.0 40, Researcher ID Not found");
+        }
+
+    } else {
+        header("HTTP/1.0 40, Researcher ID Not found");
+    }
+}
+//HTTP verb DELETE
 if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
-    delete_researcher($urlInfo);
-}
+    $queryDel = "SELECT * FROM researchers";
+    $reply = null;
+
+    $resultDel = mysqli_query($link, $queryDel);
+    $num_rows = mysqli_num_rows($resultDel);
+    if ($num_rows >= $urlInfo[1]) {
+
+        $query = "DELETE FROM researchers where id = $urlInfo[1]";
+
+        $resultDel = mysqli_query($link, $query);
+        //$rowDel = mysqli_fetch_assoc($resultDel);
+
+        echo json_encode($resultDel);
 
 
-/*
-switch ($request_type) {
-    case 'GET': // GET case
-        if (!isset($_GET["researchers"])) {
-            get_researcher();
+        if ($resultDel) {
+            header("HTTP/1.0 201 Deleted Successfully");
+            echo json_encode($reply[0] = "Deleted successfully");
         } else {
-            get_id_researcher($_GET['researchers']);
+            header("HTTP/1.0 40, Researcher ID Not found");
         }
-        break;
-    case 'POST': // POST case
-        if (count($urlInfo) > 0 and count($urlInfo) < 6) {
-            insert_researcher($urlInfo);
-        } else {
-            header("HTTP/1.0 400 Bad Reguest");
-            echo json_encode($reply[0] = "Parameters must be greater than 1");
-        }
-        break;
 
-    case 'PUT': //PUT case
-        update_researcher($urlInfo);
-        break;
-
-    case 'DELETE':
-        //DELETE case
-        delete_researcher($urlInfo);
-        break;
-
-    default:
-
-        header("HTTP/1.0 405 Method Not Allowed");
-}
-*/
-
-
-function get_id_researcher($reseacher)
-{
-    global $link;
-    //select case statement
-    $query = "SELECT id, name, email, date FROM researchers where id = '$reseacher'";
-    $reply = array();
-
-    $result = mysqli_query($link, $query);
-    trigger_error($link, E_USER_WARNING);
-
-    if (mysqli_num_rows($query)) {
-        while ($row = mysqli_fetch_assoc($query)) {
-            $col1["Researcher ID"] = $row['id'];
-            $col1['Name'] = $row['name'];
-            $col1['Email'] = $row['email'];
-            $col1['Date'] = $row['date'];
-
-            $reply[] = $col1;
-
-            header('Content Type: application/json');
-            echo json_encode($reply);
-        }
     } else {
-        header("HTTP/1.0 204 No Content Found");
-    }
-}
-
-function get_researcher()
-{
-    global $link;
-    //select case statement
-    $query = "SELECT id, name, email, date FROM researchers";
-    $reply = array();
-
-    $result = mysqli_query($link, $query);
-    trigger_error($link, E_USER_WARNING);
-
-    if (mysqli_num_rows($query)) {
-        while ($row = mysqli_fetch_assoc($query)) {
-            $col1["Researcher ID"] = $row['id'];
-            $col1['Name'] = $row['name'];
-            $col1['Email'] = $row['email'];
-            $col1['Date'] = $row['date'];
-
-            $reply[] = $col1;
-
-            header('Content Type: application/json');
-            echo json_encode($reply);
-        }
-    } else {
-        header("HTTP/1.0 204 No Content Found");
-    }
-}
-
-function insert_researcher($researcher)
-{
-    global $link;
-    $password = generate();
-    $pwd = "";
-
-    for ($i = 0; $i < count($password); $i) {
-        $pwd .= $password[rand(0, (count($password) - 1))];
-    }
-
-    $researcherid = $researcher[0];
-    $researchername = $researcher[1];
-    $researcheremail = $researcher[2];
-    $researcherdate = new DateTime();
-
-    $query = "insert into researcher(id, name, email, password, date) VALUES ('$researcherid', '$researchername', '$researcheremail', '$pwd', '$researcherdate')";
-
-    $reply = array();
-    $result = mysqli_query($link, $query);
-
-    if (mysqli_affected_rows($result) > 0) {
-        header("HTTP/1.0 201 Created Successfully");
-        echo json_encode($reply[0] = "researcher registered");
-    } else {
-        header("HTTP/1.0 409 Conflicting, Researcher ID Exists");
-        echo json_encode($reply[0] = "Researcher Exist, Please check the Researcher ID and try again");
-    }
-}
-
-function delete_researcher($researcher)
-{
-    global $link;
-    foreach ($researcher as $value) {
-
-        $query = "delete from researcher where id='$value'";
-        $result = mysqli_query($link, $query) or die(trigger_error($link, E_USER_WARNING));
-        mysqli_free_result($result);
-    }
-
-    $reply = array();
-    if (mysqli_affected_rows($result) > 0) {
-        header("HTTP/1.0 201 Deleted Successfully");
-        echo json_encode($reply[0] = "Deleted successfully");
-    } else {
-        header("HTTP/1.0 204 No Content Found");
-
-    }
-}
-
-function update_researcher($researcher)
-{
-    global $link;
-
-
-    $exp = array('id', 'na', 'em', 'pw', 'dt');
-    $query = "update researcher set";
-
-    $id = "";
-    if (in_array('id', $researcher)) {
-        $pos = array_search('id', $researcher);
-
-
-        $query .= " id='{$researcher[$pos + 1]}' ";
-        $id = $researcher[$pos + 1];
-    }
-    if (in_array('na', $researcher)) {
-        $pos = array_search('na', $researcher);
-
-        $query .= ", name='{$researcher[$pos + 1]}' ";
-    }
-    if (in_array('em', $researcher)) {
-        $pos = array_search('em', $researcher);
-
-        $query .= ", email='{$researcher[$pos + 1]}' ";
-    }
-    if (in_array('pw', $researcher)) {
-        $pos = array_search('pw', $researcher);
-
-        $query .= ", password='{$researcher[$pos + 1]}' ";
-    }
-
-    if (in_array('dt', $researcher)) {
-        $pos = array_search('dt', $researcher);
-
-        $query .= ", date='{$researcher[$pos + 1]}' ";
-    }
-
-
-    $query .= " where id='$id'";
-    $response = array();
-    $result = mysqli_query($link, $query) or die(trigger_error($link, E_USER_WARNING));
-    if (mysqli_affected_rows($result) > 0) {
-        header("HTTP/1.0 201 Modified Successfully");
-        echo json_encode($reply[0] = "Modified Successfully");
-    } else {
-        header("HTTP/1.0 40, researcher ID Not found");
+        header("HTTP/1.0 40, Researcher ID Not found");
     }
 }

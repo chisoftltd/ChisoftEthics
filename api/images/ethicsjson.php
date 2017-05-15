@@ -13,7 +13,7 @@
     <title>RGUEthics | JSON</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/main-style.css">
+    <link rel="stylesheet" href="../css/main-style.css">
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../researchers.php">RGUEthics | JSON</a>
+            <a class="navbar-brand" href="ethicsjson.php">RGUEthics | JSON</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar1">
             <ul class="nav navbar-nav navbar-right">
@@ -34,17 +34,17 @@
                     <li><a href="../../research.php">Research</a></li>
                     <li><a href="../../officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><a href="../../administrator.php">Administrator</a></li>
-                    <li><a href="../researchers.php">EthicsJSON</a></li>
+                    <li><a href="ethicsjson.php">EthicsJSON</a></li>
                     <li><a href="../../about.php">About Us</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
                     <li><a href="../../logout.php">Log Out</a></li>
                 <?php } else { ?>
-                    <li class="active"><a href="../../index.php">Home</a></li>
-                    <li><a href="../../about.php">About Us</a></li>
-                    <li><a href="../researchers.php">EthicsJSON</a></li>
-                    <li><a href="../../contact.php">Contact</a></li>
-                    <li><a href="../../login.php">Login</a></li>
-                    <li><a href="../../registerresearcher.php">Register Researcher</a></li>
+                    <li class="active"><a href="../index.php">Home</a></li>
+                    <li><a href="../about.php">About Us</a></li>
+                    <li><a href="ethicsjson.php">EthicsJSON</a></li>
+                    <li><a href="../contact.php">Contact</a></li>
+                    <li><a href="../login.php">Login</a></li>
+                    <li><a href="../registerresearcher.php">Register Researcher</a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -68,9 +68,9 @@
     // include the database script
     require_once '../dbconnect.php';
     // Return to home page if user not same
-    echo '<h3 style="text-align: center">', WEB_API_of_Table_researchers, '</h3>';
+    echo '<h3 style="text-align: center">', WEB_API_of_Table_Students, '</h3>';
 
-    $query = mysqli_query($link, 'select * from researchers');
+    $query = mysqli_query($link, 'select * from students');
     $rows = array();
     if (mysqli_num_rows($query)) {
         while ($row = mysqli_fetch_row($query)) {
