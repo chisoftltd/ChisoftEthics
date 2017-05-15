@@ -52,6 +52,7 @@ if (isset($_POST["submit"])) {
     <html>
     <head><!-- Head area start-->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title>RGUEthics | Contact US</title>
         <link rel="stylesheet" href="css/main-style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
