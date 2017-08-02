@@ -9,7 +9,7 @@ html, body {
     margin-top: 20px;
 }
 header{
-    margin : 0;
+    margin : auto;
     padding : 0;
 }
 .header-links {
@@ -349,4 +349,3 @@ span.psw {
 .btn-group button:hover {
     background-color: #3e8e41;
 }
-
