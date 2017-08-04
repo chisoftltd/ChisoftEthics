@@ -4,13 +4,13 @@ html, body {
 }
 
 #logo {
+    margin: 0;
     width: 225px;
     height: 87px;
     margin-top: 20px;
-    border-top: 20px;
 }
 header{
-    margin : auto;
+    margin : 0;
     padding : 0;
 }
 .header-links {
@@ -350,3 +350,4 @@ span.psw {
 .btn-group button:hover {
     background-color: #3e8e41;
 }
+
