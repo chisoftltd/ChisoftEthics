@@ -120,7 +120,7 @@ if (isset($_POST['deleteform'])) {
     </div>
     <div style="width: 100%" class="btn-group">
         <button onclick="document.getElementById('apply').style.display='block'" style="width: 30%;">
-            Apply
+            Drilling Quiz
         </button>
         <button onclick="document.getElementById('update').style.display='block'" style="width: 30%">
             Update
@@ -152,7 +152,7 @@ if (isset($_POST['deleteform'])) {
                         <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
                     </div>
                     <fieldset>
-                        <legend style="text-align: center">Ethics Application Form</legend>
+                        <legend style="text-align: center">Drilling Quiz</legend>
                         <ol>
                             <li>
                                 <h5>CSS Stands for...</h5>
