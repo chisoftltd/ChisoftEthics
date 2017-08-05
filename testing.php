@@ -220,15 +220,92 @@ if (isset($_POST['deleteform'])) {
                             </li>
 
                             <li>
-
                                 <h3>SEO Stand for...</h3>
-
                                 <div class="form-group">
                                     <input type="radio" name="question-3-answers" id="question-3-answers-A"
                                            value="A"/>
                                     <label for="question-3-answers-A">A) Secret Enterprise
                                         Organizations</label>
                                 </div>
+                                <div class="form-group">
+                                    <input type="radio" name="question-3-answers" id="question-3-answers-B"
+                                           value="B"/>
+                                    <label for="question-3-answers-B">B) Special Endowment
+                                        Opportunity</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="question-3-answers" id="question-3-answers-C"
+                                           value="C"/>
+                                    <label for="question-3-answers-C">C) Search Engine Optimization</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="question-3-answers" id="question-3-answers-D"
+                                           value="D"/>
+                                    <label for="question-3-answers-D">D) Seals End Olives</label>
+                                </div>
+
+                            </li>
+
+                            <li>
+
+                                <h3>A 404 Error...</h3>
+
+                                <div class="form-group">
+                                    <input type="radio" name="question-4-answers" id="question-4-answers-A"
+                                           value="A"/>
+                                    <label for="question-4-answers-A">A) is an HTTP Status Code meaning Page
+                                        Not Found</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="question-4-answers" id="question-4-answers-B"
+                                           value="B"/>
+                                    <label for="question-4-answers-B">B) is a good excuse for a clever
+                                        design</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="question-4-answers" id="question-4-answers-C"
+                                           value="C"/>
+                                    <label for="question-4-answers-C">C) should be monitored for in web
+                                        analytics</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="question-4-answers" id="question-4-answers-D"
+                                           value="D"/>
+                                    <label for="question-4-answers-D">D) All of the above</label>
+                                </div>
+                            </li>
+
+                            <li>
+                                <h3>Your favorite website is</h3>
+
+                                <div class="form-group">
+                                    <input type="radio" name="question-5-answers" id="question-5-answers-A"
+                                           value="A"/>
+                                    <label for="question-5-answers-A">A) CSS-Tricks</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="radio" name="question-5-answers" id="question-5-answers-B"
+                                           value="B"/>
+                                    <label for="question-5-answers-B">B) CSS-Tricks</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="radio" name="question-5-answers" id="question-5-answers-C"
+                                           value="C"/>
+                                    <label for="question-5-answers-C">C) CSS-Tricks</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="radio" name="question-5-answers" id="question-5-answers-D"
+                                           value="D"/>
+                                    <label for="question-5-answers-D">D) CSS-Tricks</label>
+                                </div>
+
+                            </li>
+
+                        </ol>
+                        <input type="submit" value="Submit Quiz"/>
                     </fieldset>
                 </form>
 
