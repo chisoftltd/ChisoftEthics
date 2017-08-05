@@ -4,13 +4,13 @@ html, body {
 }
 
 #logo {
-    margin: 0;
     width: 225px;
     height: 87px;
-    margin-left: 20px;
+    margin-top: 20px;
+    border-top: 20px;
 }
 header{
-    margin : 0;
+    margin : auto;
     padding : 0;
 }
 .header-links {
@@ -63,8 +63,7 @@ li a:hover {
 }
 
 .form-signin .form-signin-heading,
-.
-form-signin .checkbox {
+.form-signin .checkbox {
     margin-bottom: 10px;
 }
 
@@ -175,7 +174,7 @@ h2 {
 }
 
 body {
-    background-color: #CCC
+    background-color: white;
 }
 
 #map-outer {
