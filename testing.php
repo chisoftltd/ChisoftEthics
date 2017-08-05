@@ -155,7 +155,7 @@ if (isset($_POST['deleteform'])) {
                         <legend style="text-align: center">Ethics Application Form</legend>
                         <ol>
                             <li>
-                                <h3>CSS Stands for...</h3>
+                                <h5>CSS Stands for...</h5>
                                 <div class="form-group">
                                     <div>
                                         <input type="radio" name="question-1-answers" id="question-1-answers-A"
@@ -190,9 +190,7 @@ if (isset($_POST['deleteform'])) {
                             </li>
 
                             <li>
-
-                                <h3>Internet Explorer 6 was released in...</h3>
-
+                                <h5>Internet Explorer 6 was released in...</h5>
                                 <div class="form-group">
                                     <input type="radio" name="question-2-answers" id="question-2-answers-A"
                                            value="A"/>
@@ -216,11 +214,9 @@ if (isset($_POST['deleteform'])) {
                                            value="D"/>
                                     <label for="question-2-answers-D">D) 2003</label>
                                 </div>
-
                             </li>
-
                             <li>
-                                <h3>SEO Stand for...</h3>
+                                <h5>SEO Stand for...</h5>
                                 <div class="form-group">
                                     <input type="radio" name="question-3-answers" id="question-3-answers-A"
                                            value="A"/>
@@ -243,12 +239,9 @@ if (isset($_POST['deleteform'])) {
                                            value="D"/>
                                     <label for="question-3-answers-D">D) Seals End Olives</label>
                                 </div>
-
                             </li>
-
                             <li>
-
-                                <h3>A 404 Error...</h3>
+                                <h5>A 404 Error...</h5>
 
                                 <div class="form-group">
                                     <input type="radio" name="question-4-answers" id="question-4-answers-A"
@@ -276,7 +269,7 @@ if (isset($_POST['deleteform'])) {
                             </li>
 
                             <li>
-                                <h3>Your favorite website is</h3>
+                                <h5>Your favorite website is</h5>
 
                                 <div class="form-group">
                                     <input type="radio" name="question-5-answers" id="question-5-answers-A"
