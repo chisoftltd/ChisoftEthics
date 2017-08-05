@@ -120,10 +120,10 @@ if (isset($_POST['deleteform'])) {
     </div>
     <div style="width: 100%" class="btn-group">
         <button onclick="document.getElementById('apply').style.display='block'" style="width: 30%;">
-            Drilling Quiz
+            Well Drilling Quiz
         </button>
         <button onclick="document.getElementById('update').style.display='block'" style="width: 30%">
-            Update
+            Well Control Quiz
         </button>
         <button onclick="document.getElementById('delete').style.display='block'" style="width: 30%;">
             Delete
