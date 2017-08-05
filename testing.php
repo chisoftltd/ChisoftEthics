@@ -187,45 +187,47 @@ if (isset($_POST['deleteform'])) {
                                         <label for="question-1-answers-D">D) None of the above</label>
                                     </div>
                                 </div>
+                            </li>
+
+                            <li>
+
+                                <h3>Internet Explorer 6 was released in...</h3>
 
                                 <div class="form-group">
-                                    <label for="name">Project Description</label>
-                                    <textarea type="text" name="projectdescription" rows="20" cols="auto"
-                                              placeholder="Provide a brief outline of the aims and objectives of the proposed research project."
-                                              required class="form-control"></textarea>
-                                    <span
-                                            class="text-danger"><?php if (isset($projectdescription_error)) echo $projectdescription_error; ?></span>
+                                    <input type="radio" name="question-2-answers" id="question-2-answers-A"
+                                           value="A"/>
+                                    <label for="question-2-answers-A">A) 2001</label>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">Start Date</label>
-                                    <input type="date" name="startdate" placeholder="Start Date" required
-                                           class="form-control"/>
-                                    <span
-                                            class="text-danger"><?php if (isset($startdate_error)) echo $startdate_error; ?></span>
+                                    <input type="radio" name="question-2-answers" id="question-2-answers-B"
+                                           value="B"/>
+                                    <label for="question-2-answers-B">B) 1998</label>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">End Date (Deadline)</label>
-                                    <input type="date" name="enddate" placeholder="End Date (deadline)" required
-                                           class="form-control"/>
-                                    <span class="text-danger"><?php if (isset($enddate_error)) echo $enddate_error; ?></span>
+                                    <input type="radio" name="question-2-answers" id="question-2-answers-C"
+                                           value="C"/>
+                                    <label for="question-2-answers-C">C) 2006</label>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">Data Details</label>
-                                    <textarea type="text" style="text-align: left" name="datadetails" rows="20"
-                                              cols="auto"
-                                              placeholder="Describe how you will store your data, who will have access to it, and what happens to the data at the end of the project. Also how you will maintain the confidentiality of the research data collected. Also, describe how you will ensure that research participants are anonymised in your data analysis."
-                                              required
-                                              class="form-control"></textarea>
-                                    <span
-                                            class="text-danger"><?php if (isset($datadetails_error)) echo $datadetails_error; ?></span>
+                                    <input type="radio" name="question-2-answers" id="question-2-answers-D"
+                                           value="D"/>
+                                    <label for="question-2-answers-D">D) 2003</label>
                                 </div>
 
+                            </li>
+
+                            <li>
+
+                                <h3>SEO Stand for...</h3>
+
                                 <div class="form-group">
-                                    <input type="submit" style=" align-items: center" name="applyform" value="Apply"
-                                           class="btn btn-primary"/>
+                                    <input type="radio" name="question-3-answers" id="question-3-answers-A"
+                                           value="A"/>
+                                    <label for="question-3-answers-A">A) Secret Enterprise
+                                        Organizations</label>
                                 </div>
                     </fieldset>
                 </form>
