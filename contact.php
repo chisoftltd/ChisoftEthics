@@ -76,7 +76,6 @@ if (isset($_POST["submit"])) {
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="contact.php">RGUEthics | Contact US</a>
             </div>
