@@ -41,7 +41,7 @@ if (isset($_POST['signup'])) {
         $cpassword_error = "Password and Confirm Password doesn't match";
     }
     if (!$error) {
-        if (mysqli_query($link, "INSERT INTO researchers(name,email,password) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "')")) {
+        if (mysqli_query($link, "INSERT INTO researchers(name, email, password) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "')")) {
             $successmsg = "Successfully Registered!";
             header("refresh:5; url=login.php");
         } else {
