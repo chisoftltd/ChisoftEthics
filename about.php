@@ -41,6 +41,7 @@ if (!isset($_SESSION['usr_id'])) {
                     <li><a href="signinindex.php">Home</a></li>
                     <li><a href="research.php">Researchs</a></li>
                     <li class="active"><a href="about.php">About Us</a></li>
+                    <li><a href="api/images/ethicsjson.php">EthicsJSON</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="officerprojecttable.php">Ethics Approval Officers (EAO)</a></li>
                     <li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
@@ -48,6 +49,7 @@ if (!isset($_SESSION['usr_id'])) {
                 <?php } else { ?>
                     <li><a href="index.php">Home</a></li>
                     <li class="active"><a href="about.php">About Us</a></li>
+                    <li><a href="api/images/ethicsjson.php">EthicsJSON</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="login.php">Login</a></li>
                     <li><a href="registerresearcher.php">Register Researcher</a></li>
